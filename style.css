@@ -283,3 +283,11 @@ blockquote cite{display:block;margin-top:.8rem;font-style:normal;font-weight:600
   .headline{font-size:clamp(2.1rem,8vw,3.2rem)}
   .hero-video{object-position:center 25%}
 }
+/*────────────────────────────────────────
+  Center all primary CTA buttons
+────────────────────────────────────────*/
+.btn.primary {
+  display: block;       /* make it a block so margin auto works */
+  width: max-content;   /* shrink-wrap to the text */
+  margin: 2rem auto;    /* 2rem top/bottom, auto left/right */
+}
