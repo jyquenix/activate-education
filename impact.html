@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Impact — Activate Education</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600&display=swap" rel="stylesheet" />
+
+  <!-- Swiper styles (if needed) -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css" />
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="glass-nav">
+    <div class="nav-wrap">
+      <a class="brand" href="index.html">Activate<span>Edu</span></a>
+      <nav class="desktop-nav" id="mainNav">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="impact.html" class="active">Impact</a>
+        <a href="stories.html">Stories</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button id="themeToggle" aria-label="theme"></button>
+      <button id="burger" aria-label="Menu"><span></span></button>
+    </div>
+  </header>
+
+  <!-- Impact Hero Banner -->
+  <section class="section hero-simple">
+    <div class="container">
+      <h1 class="section-title">Our Impact</h1>
+      <p class="subhead">Numbers that speak to our commitment and results.</p>
+    </div>
+  </section>
+
+  <!-- Key Metrics -->
+  <section class="section metrics">
+    <div class="container">
+      <ul class="metric-grid">
+        <li class="reveal"><span data-count="780">0</span><small>Students<br/>Empowered</small></li>
+        <li class="reveal"><span data-count="172">0</span><small>Avg Score<br/>Increase (pts)</small></li>
+        <li class="reveal"><span data-count="1800">0</span><small>Sessions<br/>Delivered</small></li>
+      </ul>
+      <div class="text-center" style="margin-top:2rem;">
+        <a href="impact.html#full-report" class="btn ghost">View Full Impact Report →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed Impact Report -->
+  <section id="full-report" class="section">
+    <div class="container">
+      <h2 class="section-title">Detailed Results</h2>
+      <div class="grid cards">
+        <article class="card pop reveal">
+          <h3>College Admissions</h3>
+          <p>95% of our seniors gained admission to their top 3 choice universities, with many earning merit-based scholarships.</p>
+        </article>
+        <article class="card pop reveal">
+          <h3>Regents Success</h3>
+          <p>Over 90% pass rate on Regents exams, with an average score increase of 25 points across all subjects.</p>
+        </article>
+        <article class="card pop reveal">
+          <h3>Student Satisfaction</h3>
+          <p>98% of parents report being “very satisfied” with our programs, citing engagement and measurable growth.</p>
+        </article>
+        <article class="card pop reveal">
+          <h3>Long-Term Growth</h3>
+          <p>Alumni achievement tracking shows sustained academic and career success up to 5 years post-program.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="section metrics">
+    <div class="container text-center">
+      <h2 class="section-title">Ready to join our success story?</h2>
+      <a href="contact.html" class="btn primary large">Get Your Personalized Plan</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© 2025 Activate Education. All rights reserved.</p>
+      <ul class="socials">
+        <li><a href="#" aria-label="Twitter">🐦</a></li>
+        <li><a href="#" aria-label="Facebook">📘</a></li>
+        <li><a href="#" aria-label="Instagram">📸</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Back-to-Top -->
+  <button id="toTop" aria-label="Back to top">↑</button>
+
+  <!-- Vendor JS -->
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
+
+  <!-- Main JS -->
+  <script src="script.js"></script>
+</body>
+</html>
