@@ -20,11 +20,27 @@ $('#burger')?.addEventListener('click',()=>{
   $('#mainNav').classList.toggle('open');
 });
 
-/* Theme toggle */
-const d=document.documentElement,tg=$('#themeToggle');
-const setMode=m=>{d.classList.toggle('dark',m==='dark');localStorage.theme=m};
-setMode(localStorage.theme||'light');
-tg?.addEventListener('click',()=>setMode(d.classList.contains('dark')?'light':'dark'));
+/* Theme toggle — now with sun / moon icon */
+const html   = document.documentElement;
+const themeBtn = $('#themeToggle');
+
+/* draw the right emoji */
+const renderIcon = () =>
+  themeBtn.textContent = html.classList.contains('dark') ? '☀️' : '🌙';
+
+/* initial state */
+html.classList.toggle('dark', localStorage.theme === 'dark');
+renderIcon();
+
+themeBtn.title = 'Toggle light / dark';   // tooltip for accessibility
+
+themeBtn.addEventListener('click', () => {
+  const dark = !html.classList.contains('dark');   // flip mode
+  html.classList.toggle('dark', dark);
+  localStorage.theme = dark ? 'dark' : 'light';
+  renderIcon();
+});
+
 
 /* GSAP */
 gsap.registerPlugin(ScrollTrigger,TextPlugin);
