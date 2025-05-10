@@ -1,7 +1,6 @@
 /*────────────────────────────
    Activate Education – v2
-   (no external assets required
-    beyond TextPlugin + confetti)
+   (chatbot removed)
 ────────────────────────────*/
 
 /* Helpers */
@@ -96,42 +95,3 @@ $('#cForm')?.addEventListener('submit',e=>{
   if(!e.target.checkValidity()){e.preventDefault();return;}
   confetti({particleCount:120,spread:70,origin:{y:.7}});
 });
-
-/* Simple chatbot */
-(function(){
-  const btn=document.createElement('button');
-  btn.textContent='💬';btn.id='botBtn';
-  btn.style.cssText='position:fixed;bottom:1.5rem;right:1.5rem;width:52px;height:52px;border-radius:50%;border:none;background:var(--accent);color:#fff;font-size:1.4rem;box-shadow:var(--shadow);z-index:2000;cursor:pointer';
-  document.body.append(btn);
-
-  const panel=document.createElement('div');
-  panel.id='botPanel'; panel.style.cssText='position:fixed;bottom:5rem;right:1rem;width:320px;max-height:70vh;background:var(--glass);backdrop-filter:blur(10px);border-radius:var(--radius);box-shadow:var(--shadow);display:none;flex-direction:column;overflow:hidden;z-index:2000';
-  panel.innerHTML=`
-    <div style="padding:.75rem;font-weight:600;background:var(--accent);color:#fff">Ask Activate</div>
-    <div id="chatLog" style="flex:1;padding:1rem;overflow-y:auto;font-size:.9rem"></div>
-    <form id="chatForm" style="display:flex;border-top:1px solid #ccc">
-      <input id="chatInput" style="flex:1;border:none;padding:.8rem;background:transparent;color:inherit" placeholder="Type..." autocomplete="off">
-    </form>`;
-  document.body.append(panel);
-
-  btn.onclick=()=>panel.style.display=panel.style.display==='flex'?'none':'flex';
-
-  const log=$('#chatLog'),responses={
-    hello:'Hi there! How can I help you today?',
-    pricing:'All pricing is customised—book a free consult and we’ll build a plan.',
-    tutoring:'We tutor K-12, SAT/ACT, Regents, TACHS and more.',
-    thanks:'You’re welcome! Anything else?'
-  };
-  $('#chatForm').addEventListener('submit',e=>{
-    e.preventDefault();
-    const msg=$('#chatInput').value.trim();
-    if(!msg) return;
-    log.innerHTML+=`<p><strong>You:</strong> ${msg}</p>`;
-    const key=msg.toLowerCase().split(' ')[0];
-    setTimeout(()=>{
-      log.innerHTML+=`<p><strong>Bot:</strong> ${responses[key]||"Let me connect you with a human advisor."}</p>`;
-      log.scrollTop=log.scrollHeight;
-    },500);
-    $('#chatInput').value='';
-  });
-})();
