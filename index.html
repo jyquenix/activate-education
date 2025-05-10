@@ -4,32 +4,40 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Activate Education</title>
+
+  <!-- Inter variable font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Swiper styles -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css" />
+
+  <!-- Main stylesheet -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<header class="site-header">
-  <div class="container">
-    <a href="#hero" class="logo">Activate<span>Education</span></a>
+  <!-- ================= Header ================= -->
+  <header class="site-header">
+    <div class="container">
+      <a href="#hero" class="logo">Activate<span>Education</span></a>
 
-    <nav class="site-nav" id="nav">
-      <a href="#hero">Home</a>
-      <a href="#services">Services</a>
-      <a href="#stats">Impact</a>
-      <a href="#testimonials">Testimonials</a>
-      <a href="#contact">Contact</a>
-    </nav>
+      <!-- Desktop nav -->
+      <nav class="site-nav" id="nav">
+        <a href="#hero">Home</a>
+        <a href="#services">Services</a>
+        <a href="#stats">Impact</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-    <button id="themeToggle" aria-label="Toggle dark mode"></button>
-    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span></button>
-  </div>
-</header>
+      <!-- Controls -->
+      <button id="themeToggle" aria-label="Toggle dark mode"></button>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span></button>
+    </div>
+  </header>
 
-<main>
-
-  <!-- HERO -->
+  <!-- ================= Hero ================= -->
   <section id="hero" class="hero">
     <div class="gradient"></div>
     <div class="container hero-inner">
@@ -39,34 +47,38 @@
     </div>
   </section>
 
-  <!-- SERVICES -->
+  <!-- ================= Services ================= -->
   <section id="services" class="services container">
     <h2 class="section-title">Our Services</h2>
-    <div class="card-grid">
 
+    <div class="card-grid">
+      <!-- Card 1 -->
       <article class="card tilt">
-        <img src="images/testprep.png" alt="">
+        <img src="images/testprep.png" alt="College test prep icon">
         <h3>College Test Prep</h3>
         <p>Boost PSAT / SAT / ACT scores with experts.</p>
         <a href="#contact" class="btn ghost">Book Now</a>
       </article>
 
+      <!-- Card 2 -->
       <article class="card tilt">
-        <img src="images/activelearning.png" alt="">
+        <img src="images/activelearning.png" alt="Active learning icon">
         <h3>Active Learning</h3>
         <p>Fun after-school and weekend sessions.</p>
         <a href="#contact" class="btn ghost">Book Now</a>
       </article>
 
+      <!-- Card 3 -->
       <article class="card tilt">
-        <img src="images/middle school.png" alt="">
+        <img src="images/middle school.png" alt="Middle school icon">
         <h3>Middle School Specialized</h3>
         <p>Regents &amp; TACHS prep for grades 6–8.</p>
         <a href="#contact" class="btn ghost">Book Now</a>
       </article>
 
+      <!-- Card 4 -->
       <article class="card tilt">
-        <img src="images/highschool.png" alt="">
+        <img src="images/highschool.png" alt="High school icon">
         <h3>Standard High School</h3>
         <p>One-on-one tutoring &amp; Regents prep.</p>
         <a href="#contact" class="btn ghost">Book Now</a>
@@ -74,60 +86,92 @@
     </div>
   </section>
 
-  <!-- IMPACT -->
+  <!-- ================= Impact ================= -->
   <section id="stats" class="stats">
     <div class="container">
       <h2 class="section-title">Our Impact</h2>
       <div class="counters">
-        <div class="counter"><span data-target="500" data-suffix="+">0</span><p>Students Tutored</p></div>
-        <div class="counter"><span data-target="150" data-suffix="%">0</span><p>Average Score Gain</p></div>
-        <div class="counter"><span data-target="1200">0</span><p>Sessions Delivered</p></div>
+        <div class="counter">
+          <span data-target="500" data-suffix="+">0</span>
+          <p>Students Tutored</p>
+        </div>
+        <div class="counter">
+          <span data-target="150" data-suffix="%">0</span>
+          <p>Average Score Gain</p>
+        </div>
+        <div class="counter">
+          <span data-target="1200" data-suffix="">0</span>
+          <p>Sessions Delivered</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
+  <!-- ================= Testimonials ================= -->
   <section id="testimonials" class="testimonials">
     <h2 class="section-title">What Parents Say</h2>
+
     <div class="swiper" id="swiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><blockquote>“My SAT score jumped 300 points!”<cite> — Alex P.</cite></blockquote></div>
-        <div class="swiper-slide"><blockquote>“Workshops were so engaging!”<cite> — Jamie L.</cite></blockquote></div>
-        <div class="swiper-slide"><blockquote>“Life-changing tutoring!”<cite> — Maria S.</cite></blockquote></div>
+        <div class="swiper-slide">
+          <blockquote>
+            “My SAT score jumped 300 points!”
+            <cite> — Alex P.</cite>
+          </blockquote>
+        </div>
+        <div class="swiper-slide">
+          <blockquote>
+            “Workshops were so engaging!”
+            <cite> — Jamie L.</cite>
+          </blockquote>
+        </div>
+        <div class="swiper-slide">
+          <blockquote>
+            “Life-changing tutoring!”
+            <cite> — Maria S.</cite>
+          </blockquote>
+        </div>
       </div>
+
       <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- ================= Contact ================= -->
   <section id="contact" class="contact container">
     <h2 class="section-title">Get in Touch</h2>
+
     <form id="contact-form" novalidate>
       <div class="floating">
         <input type="text" id="name" required>
         <label for="name">Name</label>
       </div>
+
       <div class="floating">
         <input type="email" id="email" required>
         <label for="email">Email</label>
       </div>
+
       <div class="floating">
         <textarea id="msg" rows="4" required></textarea>
         <label for="msg">Message</label>
       </div>
+
       <button class="btn primary">Send Message</button>
     </form>
   </section>
 
-</main>
+  <!-- Back to top -->
+  <button id="topBtn" aria-label="Back to top">↑</button>
 
-<button id="topBtn" aria-label="Back to top">↑</button>
+  <!-- ============ Vendor scripts ============ -->
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/vanilla-tilt"></script>
+  <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
 
-<script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
-<script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
-<script src="https://unpkg.com/vanilla-tilt"></script>
-<script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
-<script src="script.js"></script>
+  <!-- ============ Main JS ============ -->
+  <script src="script.js"></script>
 </body>
 </html>
