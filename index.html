@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Activate Education</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Activate Education — Unlock Potential</title>
 
-  <!-- Inter variable font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Inter & Poppins -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600&display=swap" rel="stylesheet" />
 
   <!-- Swiper styles -->
   <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css" />
@@ -17,161 +17,153 @@
 </head>
 <body>
 
-  <!-- ================= Header ================= -->
-  <header class="site-header">
-    <div class="container">
-      <a href="#hero" class="logo">Activate<span>Education</span></a>
+  <!-- ================== Header ================== -->
+  <header class="glass-nav">
+    <div class="nav-wrap">
+      <a class="brand" href="#top">Activate<span>Edu</span></a>
 
-      <!-- Desktop nav -->
-      <nav class="site-nav" id="nav">
-        <a href="#hero">Home</a>
+      <nav class="desktop-nav" id="mainNav">
         <a href="#services">Services</a>
-        <a href="#stats">Impact</a>
-        <a href="#testimonials">Testimonials</a>
+        <a href="#impact">Impact</a>
+        <a href="#stories">Stories</a>
         <a href="#contact">Contact</a>
       </nav>
 
-      <!-- Controls -->
-      <button id="themeToggle" aria-label="Toggle dark mode"></button>
-      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span></button>
+      <button id="themeToggle" aria-label="theme"></button>
+      <button id="burger" aria-label="Menu"><span></span></button>
     </div>
   </header>
 
-  <!-- ================= Hero ================= -->
-  <section id="hero" class="hero">
-    <div class="gradient"></div>
+  <!-- ================== Hero ================== -->
+  <section id="top" class="hero">
+    <video class="hero-video" src="https://cdn.coverr.co/videos/coverr-boy-reading-at-home-8018/1080p.mp4" autoplay muted loop playsinline></video>
     <div class="container hero-inner">
-      <h1><span>Unlock</span> Your Child’s <strong id="tw"></strong></h1>
-      <p>Expert tutoring &amp; courses for every grade and exam.</p>
-      <a href="#services" class="btn primary">Explore Services →</a>
+      <h1 class="headline">
+        Unlock <span class="gradient-text">limitless</span><br />
+        learning&nbsp;power.
+      </h1>
+      <p class="subhead">
+        Personalised tutoring &amp; immersive courses <br /> for every grade and every goal.
+      </p>
+      <a href="#services" class="btn primary">Browse programs</a>
     </div>
   </section>
 
-  <!-- ================= Services ================= -->
-  <section id="services" class="services container">
-    <h2 class="section-title">Our Services</h2>
-
-    <div class="card-grid">
-      <!-- Card 1 -->
-      <article class="card tilt">
-        <img src="images/testprep.png" alt="College test prep icon">
-        <h3>College Test Prep</h3>
-        <p>Boost PSAT / SAT / ACT scores with experts.</p>
-        <a href="#contact" class="btn ghost">Book Now</a>
-      </article>
-
-      <!-- Card 2 -->
-      <article class="card tilt">
-        <img src="images/activelearning.png" alt="Active learning icon">
-        <h3>Active Learning</h3>
-        <p>Fun after-school and weekend sessions.</p>
-        <a href="#contact" class="btn ghost">Book Now</a>
-      </article>
-
-      <!-- Card 3 -->
-      <article class="card tilt">
-        <img src="images/middle school.png" alt="Middle school icon">
-        <h3>Middle School Specialized</h3>
-        <p>Regents &amp; TACHS prep for grades 6–8.</p>
-        <a href="#contact" class="btn ghost">Book Now</a>
-      </article>
-
-      <!-- Card 4 -->
-      <article class="card tilt">
-        <img src="images/highschool.png" alt="High school icon">
-        <h3>Standard High School</h3>
-        <p>One-on-one tutoring &amp; Regents prep.</p>
-        <a href="#contact" class="btn ghost">Book Now</a>
-      </article>
-    </div>
-  </section>
-
-  <!-- ================= Impact ================= -->
-  <section id="stats" class="stats">
+  <!-- ================== Services ================== -->
+  <section id="services" class="section">
     <div class="container">
-      <h2 class="section-title">Our Impact</h2>
-      <div class="counters">
-        <div class="counter">
-          <span data-target="500" data-suffix="+">0</span>
-          <p>Students Tutored</p>
-        </div>
-        <div class="counter">
-          <span data-target="150" data-suffix="%">0</span>
-          <p>Average Score Gain</p>
-        </div>
-        <div class="counter">
-          <span data-target="1200" data-suffix="">0</span>
-          <p>Sessions Delivered</p>
-        </div>
+      <h2 class="section-title">Signature Programs</h2>
+
+      <div class="grid cards">
+        <article class="card pop">
+          <img src="images/testprep.png" alt="" />
+          <h3>Elite Test&nbsp;Prep</h3>
+          <p>PSAT · SAT · ACT</p>
+          <a class="arrow-link" href="#contact">Learn&nbsp;more →</a>
+        </article>
+
+        <article class="card pop">
+          <img src="images/activelearning.png" alt="" />
+          <h3>Active Learning Labs</h3>
+          <p>STEM · Literacy · Arts</p>
+          <a class="arrow-link" href="#contact">Learn&nbsp;more →</a>
+        </article>
+
+        <article class="card pop">
+          <img src="images/middle school.png" alt="" />
+          <h3>Middle-School Mastery</h3>
+          <p>Regents · TACHS</p>
+          <a class="arrow-link" href="#contact">Learn&nbsp;more →</a>
+        </article>
+
+        <article class="card pop">
+          <img src="images/highschool.png" alt="" />
+          <h3>High-School Success</h3>
+          <p>One-to-One Coaching</p>
+          <a class="arrow-link" href="#contact">Learn&nbsp;more →</a>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- ================= Testimonials ================= -->
-  <section id="testimonials" class="testimonials">
-    <h2 class="section-title">What Parents Say</h2>
-
-    <div class="swiper" id="swiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <blockquote>
-            “My SAT score jumped 300 points!”
-            <cite> — Alex P.</cite>
-          </blockquote>
-        </div>
-        <div class="swiper-slide">
-          <blockquote>
-            “Workshops were so engaging!”
-            <cite> — Jamie L.</cite>
-          </blockquote>
-        </div>
-        <div class="swiper-slide">
-          <blockquote>
-            “Life-changing tutoring!”
-            <cite> — Maria S.</cite>
-          </blockquote>
-        </div>
-      </div>
-
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
+  <!-- ================== Impact ================== -->
+  <section id="impact" class="section metrics">
+    <div class="container">
+      <h2 class="section-title">Measured Impact</h2>
+      <ul class="metric-grid">
+        <li><span data-count="780">0</span><small>Students<br />Empowered</small></li>
+        <li><span data-count="172">0</span><small>Avg Score<br />Increase (pts)</small></li>
+        <li><span data-count="1800">0</span><small>Sessions<br />Delivered</small></li>
+      </ul>
     </div>
   </section>
 
-  <!-- ================= Contact ================= -->
-  <section id="contact" class="contact container">
-    <h2 class="section-title">Get in Touch</h2>
+  <!-- ================== Stories / Testimonials ================== -->
+  <section id="stories" class="section testimonials">
+    <div class="container">
+      <h2 class="section-title">Parent Stories</h2>
 
-    <form id="contact-form" novalidate>
-      <div class="floating">
-        <input type="text" id="name" required>
-        <label for="name">Name</label>
+      <div class="swiper" id="testimonialSwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <blockquote>
+              “Our daughter’s confidence—and her math grade—skyrocketed in one term.”
+              <cite>— Ella & Marcus R.</cite>
+            </blockquote>
+          </div>
+          <div class="swiper-slide">
+            <blockquote>
+              “300-point SAT gain. Full-ride scholarship. Enough said.”
+              <cite>— Sonya K.</cite>
+            </blockquote>
+          </div>
+          <div class="swiper-slide">
+            <blockquote>
+              “The coaches made learning addictive. My son now asks for extra problem sets!”
+              <cite>— Tanya M.</cite>
+            </blockquote>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
       </div>
-
-      <div class="floating">
-        <input type="email" id="email" required>
-        <label for="email">Email</label>
-      </div>
-
-      <div class="floating">
-        <textarea id="msg" rows="4" required></textarea>
-        <label for="msg">Message</label>
-      </div>
-
-      <button class="btn primary">Send Message</button>
-    </form>
+    </div>
   </section>
 
-  <!-- Back to top -->
-  <button id="topBtn" aria-label="Back to top">↑</button>
+  <!-- ================== Contact ================== -->
+  <section id="contact" class="section contact">
+    <div class="container narrow">
+      <h2 class="section-title">Let’s Talk Goals</h2>
 
-  <!-- ============ Vendor scripts ============ -->
+      <form class="contact-form" id="cForm" novalidate>
+        <div class="field"><input required type="text" id="fName" /><label for="fName">Name</label></div>
+        <div class="field"><input required type="email" id="fEmail" /><label for="fEmail">Email</label></div>
+        <div class="field"><textarea required id="fMsg" rows="4"></textarea><label for="fMsg">Message</label></div>
+        <button class="btn primary large">Send message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ================== Footer ================== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© 2025 Activate Education.  All rights reserved.</p>
+      <ul class="socials">
+        <li><a href="#" aria-label="Twitter">🐦</a></li>
+        <li><a href="#" aria-label="Facebook">📘</a></li>
+        <li><a href="#" aria-label="Instagram">📸</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Back-to-Top -->
+  <button id="toTop" aria-label="Back to top">↑</button>
+
+  <!-- ========== Vendor JS ========== -->
   <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
   <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
-  <script src="https://unpkg.com/vanilla-tilt"></script>
   <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
 
-  <!-- ============ Main JS ============ -->
+  <!-- ========== Main JS ========== -->
   <script src="script.js"></script>
 </body>
 </html>
