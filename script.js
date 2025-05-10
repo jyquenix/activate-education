@@ -21,8 +21,11 @@ $('#burger')?.addEventListener('click',()=>{
 });
 
 /* Theme toggle — now with sun / moon icon */
-const html   = document.documentElement;
-const themeBtn = $('#themeToggle');
+/* initial state — DARK by default */
+const stored = localStorage.theme;
+html.classList.toggle('dark', stored !== 'light');   // dark unless they explicitly stored 'light'
+renderIcon();
+
 
 /* draw the right emoji */
 const renderIcon = () =>
