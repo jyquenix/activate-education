@@ -1,4 +1,4 @@
-/* 0. Tokens & Dark‑Mode */
+/* 0. Tokens & Dark-Mode */
 :root{
   --brand:#005bbb;--accent:#ff2d98;--cyan:#00aeef;
   --bg:#fdfdfd;--fg:#121212;--glass:rgba(255,255,255,.7);
@@ -26,11 +26,27 @@ a{color:inherit;text-decoration:none}
 .brand span{color:var(--accent)}
 .desktop-nav a{margin-inline:1.25rem;position:relative;font-weight:500}
 .desktop-nav a::after{content:'';position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--accent);transition:.3s}
-.desktop-nav a:hover::after,
-.desktop-nav a.active::after{width:100%}
+.desktop-nav a:hover::after,.desktop-nav a.active::after{width:100%}
 .desktop-nav a.active{color:var(--accent)}
 
-#themeToggle{width:1.9rem;height:1.9rem;border:none;border-radius:50%;background:var(--accent);mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24"><path d="M12 3a1 1 0 0 1 1 1v1.1a7 7 0 1 1-6 6H6a1 1 0 1 1 0-2h1.1A7 7 0 0 1 13 4V3a1 1 0 0 1 1-1z"/></svg>') center/60% no-repeat;cursor:pointer;transition:.3s}
+/* nicer theme-toggle button */
+#themeToggle{
+  width:2.4rem;
+  height:2.4rem;
+  border:none;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-size:1.25rem;      /* size of the emoji */
+  background:transparent;
+  color:var(--accent);
+  cursor:pointer;
+  transition:.3s;
+}
+#themeToggle:hover{
+  transform:scale(1.1);
+}
+
 html.dark #themeToggle{transform:rotate(180deg)}
 
 #burger{display:none;background:none;border:none;width:2rem;height:2rem;position:relative;cursor:pointer}
@@ -46,7 +62,7 @@ html.dark #themeToggle{transform:rotate(180deg)}
   .desktop-nav.open{transform:translateX(0)}
 }
 
-/* 3. Hero & Hero‑Simple */
+/* 3. Hero & Hero-Simple */
 .hero{position:relative;min-height:92vh;display:flex;align-items:center;overflow:hidden}
 .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(0.65) contrast(1.05)}
 .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,91,187,0.4),rgba(255,45,152,0.4));z-index:0}
@@ -56,8 +72,8 @@ html.dark #themeToggle{transform:rotate(180deg)}
 .subhead{color:#eee;font-size:1.1rem;margin-bottom:2rem;text-shadow:0 1px 4px rgba(0,0,0,.5)}
 
 .hero-simple{background:var(--bg)}
-.hero-simple .section-title{color:var(--fg);margin-bottom:.5rem}
-.hero-simple .subhead{color:var(--fg);opacity:.85;text-shadow:none;font-size:clamp(1rem,2.5vw,1.25rem);margin-bottom:2rem}
+.hero-simple .container{text-align:center}
+.hero-simple .subhead{color:var(--fg);opacity:.85;text-shadow:none;font-size:clamp(1rem,2.5vw,1.25rem);max-width:720px;margin:0.5rem auto 2rem}
 
 /* 4. Buttons */
 .btn{display:inline-block;padding:.9rem 1.8rem;border-radius:var(--radius);font-weight:600;cursor:pointer;transition:transform .25s}
@@ -86,22 +102,17 @@ html.dark #themeToggle{transform:rotate(180deg)}
 .testimonials{background:var(--bg);padding:4rem 0}
 blockquote{font-size:clamp(1.1rem,3vw,1.4rem);line-height:1.45;font-weight:500;text-align:center;max-width:700px;margin:0 auto;color:var(--fg)}
 blockquote cite{display:block;margin-top:.75rem;font-style:normal;font-weight:600;color:var(--accent)}
-.swiper-pagination{position:relative;margin-top:1.5rem;bottom:auto;top:auto;text-align:center}
+.swiper-pagination{position:relative;margin-top:1.5rem;text-align:center}
 .swiper-pagination-bullet{background:var(--accent);opacity:.6;margin:0 .25rem}
 .swiper-pagination-bullet-active{opacity:1}
 
 /* 8. Contact form */
 .contact .container.narrow{background:var(--glass);backdrop-filter:blur(10px);padding:2rem;border-radius:var(--radius);box-shadow:var(--shadow)}
 .contact-form .field{position:relative;margin-bottom:1.8rem}
-.contact-form input,
-.contact-form textarea{width:100%;padding:1.1rem;border:2px solid #ccc;border-radius:var(--radius);font:inherit;background:transparent;color:inherit;transition:border .3s}
+.contact-form input,.contact-form textarea{width:100%;padding:1.1rem;border:2px solid #ccc;border-radius:var(--radius);font:inherit;background:transparent;color:inherit;transition:border .3s}
 .contact-form label{position:absolute;left:1.2rem;top:1.1rem;color:#777;pointer-events:none;transition:.2s}
-.contact-form input:focus,
-.contact-form textarea:focus{outline:none;border-color:var(--accent)}
-.contact-form input:focus+label,
-.contact-form textarea:focus+label,
-.contact-form input:valid+label,
-.contact-form textarea:valid+label{top:-.6rem;font-size:.8rem;color:var(--accent);background:var(--bg);padding:0 .25rem}
+.contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:var(--accent)}
+.contact-form input:focus+label,.contact-form textarea:focus+label,.contact-form input:valid+label,.contact-form textarea:valid+label{top:-.6rem;font-size:.8rem;color:var(--accent);background:var(--bg);padding:0 .25rem}
 
 /* 9. Footer */
 .footer{padding:2.5rem 0;background:var(--glass);backdrop-filter:blur(12px);box-shadow:var(--shadow)}
@@ -109,7 +120,7 @@ blockquote cite{display:block;margin-top:.75rem;font-style:normal;font-weight:60
 .socials{display:flex;gap:.8rem;list-style:none}
 .socials a{font-size:1.2rem}
 
-/* 10. Back‑to‑top */
+/* 10. Back-to-top */
 #toTop{position:fixed;bottom:1.5rem;right:1.5rem;width:2.6rem;height:2.6rem;border:none;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#fff;font-size:1.3rem;cursor:pointer;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:opacity .3s}
 #toTop.show{opacity:1;pointer-events:auto}
 
