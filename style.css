@@ -219,6 +219,9 @@ blockquote cite{display:block;margin-top:.8rem;font-style:normal;font-weight:600
 }
 .swiper-pagination-bullet{background:var(--accent);opacity:.6;margin:0 .25rem}
 .swiper-pagination-bullet-active{opacity:1}
+/* fix: center the testimonial slide content */
+.testimonials .swiper { text-align:center; }
+.testimonials blockquote { margin-inline:auto; }
 
 /*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    9. Contact form
@@ -276,3 +279,12 @@ blockquote cite{display:block;margin-top:.8rem;font-style:normal;font-weight:600
   .headline{font-size:clamp(2.1rem,8vw,3.2rem)}
   .hero-video{object-position:center 25%}
 }
+
+/* tidy social icons */
+.socials img{
+  width:24px;height:24px;object-fit:contain;
+  filter:grayscale(1) brightness(90%);
+  transition:filter .25s;
+}
+.socials a:hover img{filter:none;}
+
