@@ -148,3 +148,21 @@ blockquote cite{display:block;margin-top:.75rem;font-style:normal;font-weight:60
   .metric-grid{gap:2rem}
   .hero-video{object-position:center 25%}
 }
+/* ── Hero contrast fix ───────────────── */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 0;
+}
+
+.hero-inner {
+  position: relative;   /* ensure text sits above the overlay */
+  z-index: 1;
+}
+
+.hero-inner h1,
+.hero-inner .subhead {
+  text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+}
