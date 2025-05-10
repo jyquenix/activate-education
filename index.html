@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Activate Education — Unlock Potential</title>
 
-  <!-- Inter & Poppins -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600&display=swap" rel="stylesheet" />
 
@@ -17,92 +17,96 @@
 </head>
 <body>
 
-  <!-- ================== Header ================== -->
+  <!-- Header -->
   <header class="glass-nav">
     <div class="nav-wrap">
-      <a class="brand" href="#top">Activate<span>Edu</span></a>
-
+      <a class="brand" href="index.html">Activate<span>Edu</span></a>
       <nav class="desktop-nav" id="mainNav">
-        <a href="#services">Services</a>
-        <a href="#impact">Impact</a>
-        <a href="#stories">Stories</a>
-        <a href="#contact">Contact</a>
+        <a href="index.html" class="active">Home</a>
+        <a href="services.html">Services</a>
+        <a href="impact.html">Impact</a>
+        <a href="stories.html">Stories</a>
+        <a href="contact.html">Contact</a>
       </nav>
-
       <button id="themeToggle" aria-label="theme"></button>
       <button id="burger" aria-label="Menu"><span></span></button>
     </div>
   </header>
 
-  <!-- ================== Hero ================== -->
+  <!-- Hero -->
   <section id="top" class="hero">
-    <video class="hero-video" src="https://cdn.coverr.co/videos/coverr-boy-reading-at-home-8018/1080p.mp4" autoplay muted loop playsinline></video>
+    <video class="hero-video"
+           src="https://cdn.coverr.co/videos/coverr-boy-reading-at-home-8018/1080p.mp4"
+           autoplay muted loop playsinline>
+    </video>
     <div class="container hero-inner">
       <h1 class="headline">
         Unlock <span class="gradient-text">limitless</span><br />
         learning&nbsp;power.
       </h1>
       <p class="subhead">
-        Personalised tutoring &amp; immersive courses <br /> for every grade and every goal.
+        Personalised tutoring &amp; immersive courses<br />
+        for every grade and every goal.
       </p>
-      <a href="#services" class="btn primary">Browse programs</a>
+      <a href="services.html" class="btn primary large">Browse programs</a>
     </div>
   </section>
 
-  <!-- ================== Services ================== -->
-  <section id="services" class="section">
+  <!-- Services Preview -->
+  <section class="section">
     <div class="container">
       <h2 class="section-title">Signature Programs</h2>
-
       <div class="grid cards">
-        <article class="card pop">
-          <img src="images/testprep.png" alt="" />
-          <h3>Elite Test&nbsp;Prep</h3>
+        <article class="card pop reveal">
+          <img src="images/testprep.png" alt="Test Prep">
+          <h3>Elite Test Prep</h3>
           <p>PSAT · SAT · ACT</p>
-          <a class="arrow-link" href="#contact">Learn&nbsp;more →</a>
+          <a class="arrow-link" href="services.html#testprep">Learn more →</a>
         </article>
-
-        <article class="card pop">
-          <img src="images/activelearning.png" alt="" />
+        <article class="card pop reveal">
+          <img src="images/activelearning.png" alt="Active Learning">
           <h3>Active Learning Labs</h3>
           <p>STEM · Literacy · Arts</p>
-          <a class="arrow-link" href="#contact">Learn&nbsp;more →</a>
+          <a class="arrow-link" href="services.html#activelearning">Learn more →</a>
         </article>
-
-        <article class="card pop">
-          <img src="images/middle school.png" alt="" />
+        <article class="card pop reveal">
+          <img src="images/middle school.png" alt="Middle School">
           <h3>Middle-School Mastery</h3>
           <p>Regents · TACHS</p>
-          <a class="arrow-link" href="#contact">Learn&nbsp;more →</a>
+          <a class="arrow-link" href="services.html#middleschool">Learn more →</a>
         </article>
-
-        <article class="card pop">
-          <img src="images/highschool.png" alt="" />
+        <article class="card pop reveal">
+          <img src="images/highschool.png" alt="High School">
           <h3>High-School Success</h3>
           <p>One-to-One Coaching</p>
-          <a class="arrow-link" href="#contact">Learn&nbsp;more →</a>
+          <a class="arrow-link" href="services.html#highschool">Learn more →</a>
         </article>
+      </div>
+      <div class="text-center" style="margin-top:2rem;">
+        <a href="services.html" class="btn ghost">View All Programs</a>
       </div>
     </div>
   </section>
 
-  <!-- ================== Impact ================== -->
-  <section id="impact" class="section metrics">
+  <!-- Impact Preview -->
+  <section class="section metrics">
     <div class="container">
       <h2 class="section-title">Measured Impact</h2>
       <ul class="metric-grid">
-        <li><span data-count="780">0</span><small>Students<br />Empowered</small></li>
-        <li><span data-count="172">0</span><small>Avg Score<br />Increase (pts)</small></li>
-        <li><span data-count="1800">0</span><small>Sessions<br />Delivered</small></li>
+        <li class="reveal"><span data-count="780">0</span><small>Students<br />Empowered</small></li>
+        <li class="reveal"><span data-count="172">0</span><small>Avg Score<br />Increase (pts)</small></li>
+        <li class="reveal"><span data-count="1800">0</span><small>Sessions<br />Delivered</small></li>
       </ul>
+      <div class="text-center" style="margin-top:2rem;">
+        <a href="impact.html" class="btn ghost">See Full Impact Report</a>
+      </div>
     </div>
   </section>
 
-  <!-- ================== Stories / Testimonials ================== -->
-  <section id="stories" class="section testimonials">
+  <!-- Testimonials Preview -->
+  <section class="section testimonials">
     <div class="container">
       <h2 class="section-title">Parent Stories</h2>
-
       <div class="swiper" id="testimonialSwiper">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
@@ -113,7 +117,7 @@
           </div>
           <div class="swiper-slide">
             <blockquote>
-              “300-point SAT gain. Full-ride scholarship. Enough said.”
+              “300‑point SAT gain. Full‑ride scholarship. Enough said.”
               <cite>— Sonya K.</cite>
             </blockquote>
           </div>
@@ -126,27 +130,24 @@
         </div>
         <div class="swiper-pagination"></div>
       </div>
+      <div class="text-center" style="margin-top:2rem;">
+        <a href="stories.html" class="btn ghost">Read More Stories</a>
+      </div>
     </div>
   </section>
 
-  <!-- ================== Contact ================== -->
-  <section id="contact" class="section contact">
-    <div class="container narrow">
-      <h2 class="section-title">Let’s Talk Goals</h2>
-
-      <form class="contact-form" id="cForm" novalidate>
-        <div class="field"><input required type="text" id="fName" /><label for="fName">Name</label></div>
-        <div class="field"><input required type="email" id="fEmail" /><label for="fEmail">Email</label></div>
-        <div class="field"><textarea required id="fMsg" rows="4"></textarea><label for="fMsg">Message</label></div>
-        <button class="btn primary large">Send message</button>
-      </form>
+  <!-- Contact Preview -->
+  <section class="section text-center">
+    <div class="container">
+      <h2 class="section-title">Ready to Get Started?</h2>
+      <a href="contact.html" class="btn primary large">Contact Us</a>
     </div>
   </section>
 
-  <!-- ================== Footer ================== -->
+  <!-- Footer -->
   <footer class="footer">
     <div class="container footer-inner">
-      <p>© 2025 Activate Education.  All rights reserved.</p>
+      <p>© 2025 Activate Education. All rights reserved.</p>
       <ul class="socials">
         <li><a href="#" aria-label="Twitter">🐦</a></li>
         <li><a href="#" aria-label="Facebook">📘</a></li>
@@ -158,12 +159,12 @@
   <!-- Back-to-Top -->
   <button id="toTop" aria-label="Back to top">↑</button>
 
-  <!-- ========== Vendor JS ========== -->
+  <!-- Vendor JS -->
   <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
   <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
 
-  <!-- ========== Main JS ========== -->
+  <!-- Main JS -->
   <script src="script.js"></script>
 </body>
 </html>
