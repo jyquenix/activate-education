@@ -1,112 +1,115 @@
-<header class="site-header">
-  <div class="container">
-    <a href="#" class="logo">Activate Education</a>
-    <button class="nav-toggle" aria-label="Menu">☰</button>
-    <nav class="site-nav">
-      <a href="#hero">Home</a>
-      <a href="#services">Services</a>
-      <a href="#stats">Our Impact</a>
-      <a href="#testimonials">Testimonials</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <button class="theme-toggle" aria-label="Toggle Dark Mode">🌙</button>
-  </div>
-</header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Activate Education</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-<section id="hero" class="hero">
-  <div class="hero-content container">
-    <h1>Unlock Your Child’s <span id="typewriter"></span></h1>
-    <p>Expert tutoring &amp; courses for every grade and exam.</p>
-    <a href="#services" class="btn">Explore Services →</a>
-  </div>
-</section>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container">
+      <a href="#hero" class="logo">Activate Education</a>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+      <nav class="site-nav">
+        <a href="#hero">Home</a>
+        <a href="#services">Services</a>
+        <a href="#stats">Our Impact</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="theme-toggle" aria-label="Toggle Dark Mode">🌙</button>
+    </div>
+  </header>
 
-<section id="services" class="services container">
-  <h2>Our Services</h2>
-  <div class="grid">
-    <div class="card">
-      <img src="https://via.placeholder.com/80" alt="" loading="lazy"/>
-      <h3>Activate College Test Prep</h3>
-      <p>Boost PSAT/SAT/ACT scores with experts.</p>
-      <button class="btn-secondary">Book Now</button>
+  <!-- HERO -->
+  <section id="hero" class="hero">
+    <div class="hero-content container">
+      <h1>Unlock Your Child’s <span id="typewriter"></span></h1>
+      <p>Expert tutoring &amp; courses for every grade and exam.</p>
+      <a href="#services" class="btn">Explore Services →</a>
     </div>
-    <div class="card">
-      <img src="https://via.placeholder.com/80" alt="" loading="lazy"/>
-      <h3>Active Learning</h3>
-      <p>Fun after-school and weekend sessions.</p>
-      <button class="btn-secondary">Book Now</button>
-    </div>
-    <div class="card">
-      <img src="https://via.placeholder.com/80" alt="" loading="lazy"/>
-      <h3>Middle School Specialized</h3>
-      <p>Regents &amp; TACHS prep for grades 6–8.</p>
-      <button class="btn-secondary">Book Now</button>
-    </div>
-    <div class="card">
-      <img src="https://via.placeholder.com/80" alt="" loading="lazy"/>
-      <h3>Standard High School</h3>
-      <p>One-on-one tutoring &amp; Regents prep.</p>
-      <button class="btn-secondary">Book Now</button>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section id="stats" class="stats container">
-  <h2>Our Impact</h2>
-  <div class="counters">
-    <div class="counter">
-      <span data-target="500" data-suffix="+">0</span>
-      <p>Students Tutored</p>
+  <!-- SERVICES -->
+  <section id="services" class="services container">
+    <h2>Our Services</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="images/testprep.png" alt="" loading="lazy"/>
+        <h3>Activate College Test Prep</h3>
+        <p>Boost PSAT/SAT/ACT scores with experts.</p>
+        <button class="btn-secondary">Book Now</button>
+      </div>
+      <div class="card">
+        <img src="images/activelearning.png" alt="" loading="lazy"/>
+        <h3>Active Learning</h3>
+        <p>Fun after-school and weekend sessions.</p>
+        <button class="btn-secondary">Book Now</button>
+      </div>
+      <div class="card">
+        <img src="images/middle school.png" alt="" loading="lazy"/>
+        <h3>Middle School Specialized</h3>
+        <p>Regents &amp; TACHS prep for grades 6–8.</p>
+        <button class="btn-secondary">Book Now</button>
+      </div>
+      <div class="card">
+        <img src="images/highschool.png" alt="" loading="lazy"/>
+        <h3>Standard High School</h3>
+        <p>One-on-one tutoring &amp; Regents prep.</p>
+        <button class="btn-secondary">Book Now</button>
+      </div>
     </div>
-    <div class="counter">
-      <span data-target="150" data-suffix="%">0</span>
-      <p>Average Score Gain</p>
-    </div>
-    <div class="counter">
-      <span data-target="1200" data-suffix="">0</span>
-      <p>Sessions Delivered</p>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section id="testimonials" class="testimonials container">
-  <h2>What Parents Say</h2>
-  <div class="carousel">
-    <div class="testimonial">
-      <p>“My SAT score jumped 300 points!”</p>
-      <cite>— Alex P.</cite>
+  <!-- STATS -->
+  <section id="stats" class="stats container">
+    <h2>Our Impact</h2>
+    <div class="counters">
+      <div class="counter"><span data-target="500" data-suffix="+">0</span><p>Students Tutored</p></div>
+      <div class="counter"><span data-target="150" data-suffix="%">0</span><p>Average Score Gain</p></div>
+      <div class="counter"><span data-target="1200" data-suffix="">0</span><p>Sessions Delivered</p></div>
     </div>
-    <div class="testimonial">
-      <p>“Workshops were so engaging!”</p>
-      <cite>— Jamie L.</cite>
-    </div>
-    <div class="testimonial">
-      <p>“Life-changing tutoring!”</p>
-      <cite>— Maria S.</cite>
-    </div>
-  </div>
-  <div class="controls">
-    <button id="prev">‹</button><button id="next">›</button>
-  </div>
-</section>
+  </section>
 
-<section id="contact" class="contact container">
-  <h2>Get in Touch</h2>
-  <form id="contact-form">
-    <div class="form-group">
-      <input type="text" placeholder="Name" required />
-      <small class="error-msg">Please enter your name.</small>
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="testimonials container">
+    <h2>What Parents Say</h2>
+    <div class="carousel">
+      <div class="testimonial"><p>“My SAT score jumped 300 points!”</p><cite>— Alex P.</cite></div>
+      <div class="testimonial"><p>“Workshops were so engaging!”</p><cite>— Jamie L.</cite></div>
+      <div class="testimonial"><p>“Life-changing tutoring!”</p><cite>— Maria S.</cite></div>
     </div>
-    <div class="form-group">
-      <input type="email" placeholder="Email" required />
-      <small class="error-msg">Please enter a valid email.</small>
+    <div class="controls">
+      <button id="prev">‹</button><button id="next">›</button>
     </div>
-    <div class="form-group">
-      <textarea placeholder="Message" rows="4" required></textarea>
-      <small class="error-msg">Message cannot be blank.</small>
-    </div>
-    <button type="submit" class="btn">Send Message</button>
-  </form>
-</section>
+  </section>
 
-<button class="back-to-top" aria-label="Back to top">↑</button>
+  <!-- CONTACT -->
+  <section id="contact" class="contact container">
+    <h2>Get in Touch</h2>
+    <form id="contact-form">
+      <div class="form-group">
+        <input type="text" placeholder="Name" required />
+        <small class="error-msg">Please enter your name.</small>
+      </div>
+      <div class="form-group">
+        <input type="email" placeholder="Email" required />
+        <small class="error-msg">Please enter a valid email.</small>
+      </div>
+      <div class="form-group">
+        <textarea placeholder="Message" rows="4" required></textarea>
+        <small class="error-msg">Message cannot be blank.</small>
+      </div>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </section>
+
+  <!-- BACK TO TOP -->
+  <button class="back-to-top" aria-label="Back to top">↑</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
