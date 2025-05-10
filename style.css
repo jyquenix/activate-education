@@ -271,3 +271,20 @@ input:focus, textarea:focus {
   .grid { grid-template-columns: 1fr; }
   .marquee { animation-duration: 15s; }
 }
+/* ── Hero content centering & spacing ────────────────────────────── */
+.hero-content{display:flex;flex-direction:column;align-items:center;text-align:center;max-width:860px;margin:0 auto}
+.hero-content p{margin:.8rem 0 2.2rem}
+/* give button breathing-room */
+.btn.hero-cta{margin-top:1.5rem}
+
+/* ── Softer particle overlay ───────────────────────────────────────*/
+canvas#particleCanvas{filter:blur(0.5px);opacity:.45}
+
+/* ── Cursor accessibility tweaks ───────────────────────────────────*/
+input,textarea,button{cursor:auto}
+input:hover~.cursor-follower,
+textarea:hover~.cursor-follower,
+button:hover~.cursor-follower{border-color:var(--brand-pink);width:32px;height:32px}
+
+/* ── Skew separator fix ────────────────────────────────────────────*/
+section+section{margin:0;transform:translateY(-5vh);clip-path:polygon(0 5vh,100% 0,100% 100%,0 100%)}
