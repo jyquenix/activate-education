@@ -52,7 +52,8 @@ a.underline:hover::after{width:100%}
 .section-title{
   font-family:var(--display);
   font-size:clamp(1.7rem,5vw,2.6rem);
-  text-align:center;margin-bottom:1rem;
+  text-align:center;
+  margin-bottom:1rem;
 }
 
 /* Reveal helper */
@@ -118,7 +119,7 @@ a.underline:hover::after{width:100%}
 .btn:hover{transform:translateY(-4px)}
 .btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .primary{background:var(--accent);color:#fff;box-shadow:0 4px 14px hsl(330 100% 55%/.45)}
-.ghost  {background:transparent;color:var(--accent);border:2px solid var(--accent)}
+.ghost{background:transparent;color:var(--accent);border:2px solid var(--accent)}
 
 /*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    4. Hero
@@ -137,8 +138,7 @@ a.underline:hover::after{width:100%}
 }
 .gradient-text{
   background:linear-gradient(90deg,var(--accent),var(--cyan));
-  -webkit-background-clip:text;color:transparent;
-  filter:drop-shadow(0 2px 6px rgba(0,0,0,.3));
+  -webkit-background-clip:text;color:transparent;filter:drop-shadow(0 2px 6px rgba(0,0,0,.3));
 }
 .subhead{
   color:#f6f6f6;font-size:1.15rem;margin-top:1.25rem;margin-bottom:2.4rem;
@@ -151,9 +151,7 @@ html:not(.dark) .hero .subhead{color:#313131;text-shadow:0 1px 2px rgba(0,0,0,.1
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
 .hero-simple{background:var(--bg)}
 .hero-simple .container{text-align:center}
-.hero-simple .section-title{
-  font-size:clamp(1.9rem,5vw,3rem);color:var(--fg);margin-bottom:.6rem
-}
+.hero-simple .section-title{font-size:clamp(1.9rem,5vw,3rem);color:var(--fg);margin-bottom:.6rem}
 .hero-simple .subhead{
   color:var(--fg);opacity:.85;font-size:clamp(1rem,2.5vw,1.25rem);
   max-width:720px;margin:.35rem auto 2.2rem
@@ -194,7 +192,9 @@ html:not(.dark) .hero .subhead{color:#313131;text-shadow:0 1px 2px rgba(0,0,0,.1
    8. Testimonials
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
 .testimonials{background:var(--bg);padding:5rem 0}
-.testimonials .swiper{padding-bottom:3.5rem;position:relative;text-align:center}
+.testimonials .swiper{
+  padding-bottom:3.5rem;position:relative;text-align:center
+}
 blockquote{
   font-size:clamp(1.15rem,3vw,1.45rem);line-height:1.45;font-weight:500;
   color:var(--fg);max-width:720px;margin:auto
@@ -217,31 +217,36 @@ blockquote cite{display:block;margin-top:.8rem;font-style:normal;font-weight:600
 .contact-form input,.contact-form textarea{
   width:100%;padding:1.15rem;border:2px solid var(--border1);
   border-radius:var(--radius);font:inherit;background:transparent;color:inherit;
-  transition:border .25s,box-shadow .25s;
+  transition:border .25s,box-shadow .25s
 }
 .contact-form input:focus,.contact-form textarea:focus{
   outline:none;border-color:var(--accent);box-shadow:0 0 0 2px hsl(330 100% 55%/.3)
 }
 .contact-form label{
-  position:absolute;left:1.25rem;top:1.15rem;color:#777;pointer-events:none;transition:.2s;
+  position:absolute;left:1.25rem;top:1.15rem;color:#777;pointer-events:none;transition:.2s
 }
 .contact-form input:focus+label,
 .contact-form textarea:focus+label,
 .contact-form input:valid+label,
 .contact-form textarea:valid+label{
-  top:-.6rem;font-size:.8rem;color:var(--accent);background:var(--bg);padding:0 .3rem;
+  top:-.6rem;font-size:.8rem;color:var(--accent);background:var(--bg);padding:0 .3rem
 }
 
 /*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    10. Footer & Social icons
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
-.footer{padding:2.5rem 0;background:var(--sheet);backdrop-filter:blur(var(--glass-blur));box-shadow:var(--shadow-s)}
-.footer-inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;font-size:.9rem}
+.footer{
+  padding:2.5rem 0;background:var(--sheet);
+  backdrop-filter:blur(var(--glass-blur));box-shadow:var(--shadow-s)
+}
+.footer-inner{
+  display:flex;flex-wrap:wrap;align-items:center;
+  justify-content:space-between;gap:1rem;font-size:.9rem
+}
 .socials{display:flex;gap:.9rem;list-style:none}
 .socials img{
   width:24px;height:24px;object-fit:contain;
-  filter:grayscale(1) brightness(85%);
-  transition:filter .25s;
+  filter:grayscale(1) brightness(85%);transition:filter .25s
 }
 .socials a:hover img{filter:none}
 
@@ -253,13 +258,25 @@ blockquote cite{display:block;margin-top:.8rem;font-style:normal;font-weight:600
   border:none;border-radius:50%;display:grid;place-items:center;
   background:var(--accent);color:#fff;font-size:1.3rem;cursor:pointer;
   box-shadow:var(--shadow-m);opacity:0;pointer-events:none;
-  transition:opacity .3s,transform .3s;
+  transition:opacity .3s,transform .3s
 }
 #toTop.show{opacity:1;pointer-events:auto}
 #toTop:hover{transform:translateY(-4px)}
 
 /*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   12. Responsive tweaks
+   12. Center-story & contact CTAs
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+/* “Read More Stories” after slider */
+.testimonials + .btn,
+/* “Contact Us” after section titles */
+.section-title + .btn {
+  display:block;
+  width:max-content;
+  margin:3rem auto 0;
+}
+
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   13. Responsive tweaks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
 @media(max-width:540px){
   .metric-grid{gap:2.2rem}
