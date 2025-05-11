@@ -52,7 +52,8 @@ a.underline:hover::after{width:100%}
 .section-title{
   font-family:var(--display);
   font-size:clamp(1.7rem,5vw,2.6rem);
-  text-align:center;margin-bottom:1rem;
+  text-align:center;
+  margin-bottom:1rem;
 }
 
 /* Reveal helper */
@@ -224,7 +225,10 @@ blockquote cite{display:block;margin-top:.8rem;font-style:normal;font-weight:600
 .contact-form label{
   position:absolute;left:1.25rem;top:1.15rem;color:#777;pointer-events:none;transition:.2s
 }
-.contact-form input:focus+label,textarea:focus+label,input:valid+label,textarea:valid+label{
+.contact-form input:focus+label,
+.contact-form textarea:focus+label,
+.contact-form input:valid+label,
+.contact-form textarea:valid+label{
   top:-.6rem;font-size:.8rem;color:var(--accent);background:var(--bg);padding:0 .3rem
 }
 
@@ -236,8 +240,8 @@ blockquote cite{display:block;margin-top:.8rem;font-style:normal;font-weight:600
   backdrop-filter:blur(var(--glass-blur));box-shadow:var(--shadow-s)
 }
 .footer-inner{
-  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
-  gap:1rem;font-size:.9rem
+  display:flex;flex-wrap:wrap;align-items:center;
+  justify-content:space-between;gap:1rem;font-size:.9rem
 }
 .socials{display:flex;gap:.9rem;list-style:none}
 .socials img{
@@ -260,12 +264,15 @@ blockquote cite{display:block;margin-top:.8rem;font-style:normal;font-weight:600
 #toTop:hover{transform:translateY(-4px)}
 
 /*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   12. Center all CTA buttons
+   12. Center-story & contact CTAs
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
-.btn {
-  display: block;
-  width: max-content;
-  margin: 2rem auto;
+/* “Read More Stories” after slider */
+.testimonials + .btn,
+/* “Contact Us” after section titles */
+.section-title + .btn {
+  display:block;
+  width:max-content;
+  margin:3rem auto 0;
 }
 
 /*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
