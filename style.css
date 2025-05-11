@@ -1,209 +1,285 @@
-/*──────────────────────────────────────────────
-  Activate Tutoring • Professional Theme
-  (pure CSS – no framework)
-──────────────────────────────────────────────*/
-
-/* 1.  Design Tokens  ––––––––––––––––––––––––––*/
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   0. Design Tokens & dark-mode
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
 :root{
-  /* Brand */
-  --blue-700:#003366;    /* navy */
-  --blue-500:#0061d5;    /* primary accent */
-  --pink-500:#ed2593;    /* secondary accent */
-  --gray-900:#202326;    /* heading text */
-  --gray-700:#3e4349;    /* body text */
-  --gray-200:#eceff3;    /* light bg */
-  --radius:12px;
+  --brand:#005bbb;
+  --accent:#ff2d98;
+  --cyan:#00aeef;
 
-  /* Typography */
-  --font-sans:'Inter',system-ui,Arial,Helvetica,sans-serif;
-  --font-display:'Poppins',sans-serif;
+  --bg:#fdfdfd;
+  --sheet:rgba(255,255,255,.55);
+  --fg:#111;
+  --border1:rgba(0,0,0,.08);
 
-  /* Shadows */
-  --shadow-s:0 2px 6px rgba(0,0,0,.06);
-  --shadow-m:0 8px 28px rgba(0,0,0,.12);
+  --radius:14px;
+  --shadow-s:0 2px 6px rgba(0,0,0,.05);
+  --shadow-m:0 10px 28px rgba(0,0,0,.08);
+  --glass-blur:16px;
 
-  /* Transitions */
-  --swift:.25s cubic-bezier(.4,0,.2,1);
+  --font:'Inter',sans-serif;
+  --display:'Poppins',sans-serif;
+}
+html.dark{
+  --bg:#0d0d0f;
+  --sheet:rgba(18,18,20,.55);
+  --fg:#f1f1f1;
+  --border1:rgba(255,255,255,.08);
+  --shadow-s:0 2px 6px rgba(0,0,0,.4);
+  --shadow-m:0 10px 28px rgba(0,0,0,.55);
+  color-scheme:dark;
 }
 
-/* 2. Base / Reset ––––––––––––––––––––––––––––*/
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   1. Reset / Base
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{
-  font-family:var(--font-sans);
-  color:var(--gray-700);
-  background:#fff;
-  line-height:1.65;
+  font-family:var(--font);
+  background:var(--bg);
+  color:var(--fg);
+  line-height:1.6;
   -webkit-font-smoothing:antialiased;
 }
-img{display:block;max-width:100%;height:auto}
-a{text-decoration:none;color:inherit}
-
-/* 3. Layout Helpers ––––––––––––––––––––––––––*/
-.container{width:min(94%,1200px);margin-inline:auto}
-.section{padding:5rem 0}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none;position:relative}
+a.underline::after{
+  content:'';position:absolute;left:0;bottom:-3px;width:0;height:2px;
+  background:var(--accent);transition:width .25s cubic-bezier(.55,.1,.25,1);
+}
+a.underline:hover::after{width:100%}
+.container{width:min(95%,1180px);margin-inline:auto}
+.section{padding:5rem 0 4.5rem}
 .section-title{
-  font-family:var(--font-display);
-  font-size:clamp(1.8rem,5vw,2.6rem);
-  font-weight:600;
-  color:var(--gray-900);
+  font-family:var(--display);
+  font-size:clamp(1.7rem,5vw,2.6rem);
   text-align:center;
   margin-bottom:1rem;
 }
-.lead{font-size:1.1rem;color:var(--gray-700);text-align:center;margin-bottom:3rem}
 
-/* 4. Header ––––––––––––––––––––––––––––––––––*/
-header{
-  position:sticky;top:0;z-index:1000;
-  background:#fff;
+/* Reveal helper */
+.reveal{opacity:0;transform:translateY(50px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   2. Navigation
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+.glass-nav{
+  position:sticky;top:0;z-index:2000;
+  backdrop-filter:blur(var(--glass-blur));
+  background:var(--sheet);
   box-shadow:var(--shadow-s);
 }
-nav{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:1rem .5rem;
+.nav-wrap{display:flex;justify-content:space-between;align-items:center;padding:1rem}
+.brand{font-family:var(--display);font-weight:600;font-size:1.35rem}
+.brand span{color:var(--accent)}
+.desktop-nav a{margin-inline:1.4rem;font-weight:500;font-size:.95rem}
+.desktop-nav a::after{
+  content:'';position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--accent);
+  transition:.3s cubic-bezier(.55,.1,.25,1);
 }
-.brand{
-  font-family:var(--font-display);
-  font-size:1.45rem;font-weight:700;
-  color:var(--blue-700);
-}
-nav ul{list-style:none;display:flex;gap:2rem}
-nav a{
-  font-weight:500;position:relative;
-  transition:color var(--swift);
-}
-nav a::after{
-  content:'';position:absolute;left:0;bottom:-6px;width:0;height:2px;
-  background:var(--blue-500);transition:width var(--swift);
-}
-nav a:hover{color:var(--blue-500)}
-nav a:hover::after{width:100%}
+.desktop-nav a:hover::after,.desktop-nav a.active::after{width:100%}
+.desktop-nav a.active{color:var(--accent)}
 
-/* 5. Hero ––––––––––––––––––––––––––––––––––––*/
-.hero{
-  background:linear-gradient(135deg,#f6f9fc 0%,#eef3f9 100%);
-  display:flex;align-items:center;justify-content:center;
-  text-align:center;
-  min-height:84vh;
-  padding:2rem 1rem;
+#themeToggle{
+  background:none;border:none;font-size:1.4rem;cursor:pointer;
+  width:auto;height:auto;line-height:1;user-select:none;
+  transition:transform .25s;
 }
-.hero h1{
-  font-family:var(--font-display);
-  font-size:clamp(2.4rem,6vw,3.8rem);
-  line-height:1.15;font-weight:700;
-  color:var(--blue-700);
+#themeToggle:hover{transform:scale(1.15)}
+
+#burger{display:none;background:none;border:none;width:2rem;height:2rem;position:relative;cursor:pointer}
+#burger span,#burger span::before,#burger span::after{
+  content:'';position:absolute;left:0;width:100%;height:2px;background:var(--fg);transition:.3s}
+#burger span{top:50%;transform:translateY(-50%)}
+#burger span::before{top:-7px}#burger span::after{top:7px}
+#burger.active span{background:transparent}
+#burger.active span::before{top:0;transform:rotate(45deg)}
+#burger.active span::after{top:0;transform:rotate(-45deg)}
+@media(max-width:860px){
+  #burger{display:block}
+  .desktop-nav{
+    position:fixed;inset:0 0 0 40%;
+    display:flex;flex-direction:column;justify-content:center;align-items:center;
+    gap:2rem;font-size:1.2rem;
+    background:var(--sheet);backdrop-filter:blur(var(--glass-blur));
+    transform:translateX(100%);transition:.35s;
+  }
+  .desktop-nav.open{transform:none}
 }
-.hero p{
-  font-size:1.15rem;max-width:680px;margin:1.5rem auto 2.5rem;
-  color:var(--gray-700);
-}
+
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   3. Buttons
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
 .btn{
-  display:inline-block;
-  padding:1rem 2.4rem;
-  border-radius:var(--radius);
-  font-weight:600;font-size:1rem;
-  transition:background var(--swift),box-shadow var(--swift);
+  display:inline-grid;place-items:center;
+  padding:.95rem 2rem;border-radius:var(--radius);
+  font-weight:600;font-size:1rem;cursor:pointer;
+  transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s;
 }
-.btn-primary{
-  background:var(--blue-500);color:#fff;
+.btn:hover{transform:translateY(-4px)}
+.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.primary{background:var(--accent);color:#fff;box-shadow:0 4px 14px hsl(330 100% 55%/.45)}
+.ghost{background:transparent;color:var(--accent);border:2px solid var(--accent)}
+
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   4. Hero
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;overflow:hidden}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.65) contrast(1.05)}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at top,var(--cyan) 0%,transparent 70%);
+  opacity:.25;mix-blend-mode:screen;
 }
-.btn-primary:hover{
-  background:#004bb0;box-shadow:0 6px 20px rgba(0,97,213,.24);
+.hero-inner{position:relative;z-index:1;text-align:center;padding-inline:1rem}
+.headline{
+  font-family:var(--display);font-size:clamp(2.5rem,6vw,4.4rem);
+  line-height:1.1;font-weight:700;color:#fff;text-shadow:0 3px 10px rgba(0,0,0,.45)
+}
+.gradient-text{
+  background:linear-gradient(90deg,var(--accent),var(--cyan));
+  -webkit-background-clip:text;color:transparent;filter:drop-shadow(0 2px 6px rgba(0,0,0,.3));
+}
+.subhead{
+  color:#f6f6f6;font-size:1.15rem;margin-top:1.25rem;margin-bottom:2.4rem;
+  text-shadow:0 1px 4px rgba(0,0,0,.45)
+}
+html:not(.dark) .hero .subhead{color:#313131;text-shadow:0 1px 2px rgba(0,0,0,.15)}
+
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   5. Hero-simple banner
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+.hero-simple{background:var(--bg)}
+.hero-simple .container{text-align:center}
+.hero-simple .section-title{font-size:clamp(1.9rem,5vw,3rem);color:var(--fg);margin-bottom:.6rem}
+.hero-simple .subhead{
+  color:var(--fg);opacity:.85;font-size:clamp(1rem,2.5vw,1.25rem);
+  max-width:720px;margin:.35rem auto 2.2rem
 }
 
-/* 6. Services Grid –––––––––––––––––––––––––––*/
-.services-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:2.5rem;
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   6. Cards
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+.grid.cards{display:grid;gap:2.2rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{
+  position:relative;overflow:hidden;
+  background:var(--sheet);padding:2.2rem 2rem;border-radius:var(--radius);
+  backdrop-filter:blur(calc(var(--glass-blur)*.75));
+  box-shadow:var(--shadow-m);transition:transform .35s,box-shadow .35s
 }
-.service-card{
-  background:#fff;border:1px solid var(--gray-200);
-  border-radius:var(--radius);padding:2rem 1.8rem;
-  box-shadow:var(--shadow-s);transition:transform var(--swift),box-shadow var(--swift);
-  display:flex;flex-direction:column;align-items:flex-start;gap:.9rem;
+.card::before{
+  content:'';position:absolute;inset:0;border-radius:inherit;padding:1px;
+  background:linear-gradient(145deg,rgba(255,255,255,.5),rgba(0,0,0,.2));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
 }
-.service-card:hover{
-  transform:translateY(-6px);box-shadow:var(--shadow-m);
+.card img{width:68px;margin:0 auto 1.1rem;filter:drop-shadow(0 4px 6px rgba(0,0,0,.15))}
+.card h3{font-family:var(--display);font-size:1.35rem;margin-bottom:.45rem}
+.card p{opacity:.8;margin-bottom:1.1rem}
+.card:hover{transform:translateY(-10px);box-shadow:0 18px 38px rgba(0,0,0,.14)}
+.card:hover img{filter:drop-shadow(0 0 10px var(--accent))}
+
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   7. Metrics
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+.metrics{background:var(--brand);color:#fff;text-align:center}
+.metric-grid{display:flex;flex-wrap:wrap;gap:3.5rem;justify-content:center;padding-top:1.5rem}
+.metric-grid li{list-style:none;font-family:var(--display)}
+.metric-grid span{font-size:3.25rem;font-weight:700}
+.metric-grid small{font-size:.9rem;opacity:.85;line-height:1.3}
+
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   8. Testimonials
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+.testimonials{background:var(--bg);padding:5rem 0}
+.testimonials .swiper{
+  padding-bottom:3.5rem;position:relative;text-align:center
 }
-.service-card img{width:60px}
-.service-card h3{
-  font-family:var(--font-display);font-size:1.25rem;color:var(--gray-900)
+blockquote{
+  font-size:clamp(1.15rem,3vw,1.45rem);line-height:1.45;font-weight:500;
+  color:var(--fg);max-width:720px;margin:auto
 }
-.service-card p{font-size:.95rem;color:var(--gray-700)}
-.service-card a{
-  margin-top:auto;font-weight:600;color:var(--blue-500)
+blockquote cite{display:block;margin-top:.8rem;font-style:normal;font-weight:600;color:var(--accent)}
+.swiper-pagination{
+  position:absolute;left:0;right:0;bottom:1rem;text-align:center
+}
+.swiper-pagination-bullet{background:var(--accent);opacity:.6;margin:0 .25rem}
+.swiper-pagination-bullet-active{opacity:1}
+
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   9. Contact form
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+.contact .container.narrow{
+  background:var(--sheet);backdrop-filter:blur(calc(var(--glass-blur)*.7));
+  padding:2.5rem;border-radius:var(--radius);box-shadow:var(--shadow-m)
+}
+.contact-form .field{position:relative;margin-bottom:1.8rem}
+.contact-form input,.contact-form textarea{
+  width:100%;padding:1.15rem;border:2px solid var(--border1);
+  border-radius:var(--radius);font:inherit;background:transparent;color:inherit;
+  transition:border .25s,box-shadow .25s
+}
+.contact-form input:focus,.contact-form textarea:focus{
+  outline:none;border-color:var(--accent);box-shadow:0 0 0 2px hsl(330 100% 55%/.3)
+}
+.contact-form label{
+  position:absolute;left:1.25rem;top:1.15rem;color:#777;pointer-events:none;transition:.2s
+}
+.contact-form input:focus+label,
+.contact-form textarea:focus+label,
+.contact-form input:valid+label,
+.contact-form textarea:valid+label{
+  top:-.6rem;font-size:.8rem;color:var(--accent);background:var(--bg);padding:0 .3rem
 }
 
-/* 7. Impact Stats ––––––––––––––––––––––––––––*/
-.stats{
-  background:var(--blue-700);color:#fff;padding:4.5rem 0;
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   10. Footer & Social icons
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+.footer{
+  padding:2.5rem 0;background:var(--sheet);
+  backdrop-filter:blur(var(--glass-blur));box-shadow:var(--shadow-s)
 }
-.stats .container{text-align:center}
-.stat-grid{
-  display:flex;flex-wrap:wrap;justify-content:center;gap:4rem;margin-bottom:2.8rem
+.footer-inner{
+  display:flex;flex-wrap:wrap;align-items:center;
+  justify-content:space-between;gap:1rem;font-size:.9rem
 }
-.stat-block h4{
-  font-family:var(--font-display);
-  font-size:3rem;font-weight:700
+.socials{display:flex;gap:.9rem;list-style:none}
+.socials img{
+  width:24px;height:24px;object-fit:contain;
+  filter:grayscale(1) brightness(85%);transition:filter .25s
 }
-.stat-block span{display:block;font-size:1rem;opacity:.85}
+.socials a:hover img{filter:none}
 
-/* 8. Testimonials ––––––––––––––––––––––––––– */
-.testimonials{background:var(--gray-200)}
-.testimonial{
-  max-width:760px;margin:0 auto;text-align:center
-}
-.testimonial p{
-  font-size:1.3rem;font-style:italic;color:var(--gray-900)
-}
-.testimonial cite{
-  display:block;margin-top:1rem;font-weight:600;color:var(--blue-500)
-}
-
-/* 9. Contact Form ––––––––––––––––––––––––––– */
-.contact-block{background:#fff;padding:4rem 2rem;border-radius:var(--radius);
-               box-shadow:var(--shadow-m);max-width:520px;margin:0 auto}
-.contact-form{display:flex;flex-direction:column;gap:1.6rem}
-.field-group{display:flex;flex-direction:column}
-label{font-weight:600;margin-bottom:.4rem;color:var(--gray-900)}
-input,textarea{
-  padding:1rem;border:1px solid var(--gray-200);border-radius:var(--radius);
-  font-family:inherit;font-size:1rem;color:var(--gray-900)
-}
-input:focus,textarea:focus{
-  outline:none;border-color:var(--blue-500);box-shadow:0 0 0 3px rgba(0,97,213,.15)
-}
-.contact-form button{
-  align-self:flex-start;cursor:pointer
-}
-
-/* 10. Footer ––––––––––––––––––––––––––––––––*/
-footer{
-  background:var(--blue-700);color:#cbd6e2;
-  padding:2.5rem 1rem;text-align:center;margin-top:5rem
-}
-footer p{font-size:.9rem;margin-bottom:1rem}
-footer .socials{display:flex;justify-content:center;gap:1rem}
-footer .socials img{
-  width:22px;filter:invert(100%);opacity:.85;
-  transition:opacity var(--swift),transform var(--swift)
-}
-footer .socials a:hover img{opacity:1;transform:translateY(-3px)}
-
-/* 11. Back-to-Top Button ––––––––––––––––––––*/
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   11. Back-to-top
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
 #toTop{
-  position:fixed;bottom:1.8rem;right:1.8rem;width:3rem;height:3rem;
-  border-radius:50%;display:grid;place-items:center;border:none;
-  background:var(--pink-500);color:#fff;font-size:1.4rem;cursor:pointer;
-  box-shadow:var(--shadow-m);opacity:0;pointer-events:none;transition:opacity var(--swift),transform var(--swift)
+  position:fixed;bottom:1.6rem;right:1.6rem;width:2.8rem;height:2.8rem;
+  border:none;border-radius:50%;display:grid;place-items:center;
+  background:var(--accent);color:#fff;font-size:1.3rem;cursor:pointer;
+  box-shadow:var(--shadow-m);opacity:0;pointer-events:none;
+  transition:opacity .3s,transform .3s
 }
 #toTop.show{opacity:1;pointer-events:auto}
 #toTop:hover{transform:translateY(-4px)}
 
-/* 12.   Responsive Tweaks */
-@media(max-width:680px){
-  nav ul{gap:1.2rem;font-size:.9rem}
-  .stat-grid{gap:2.5rem}
-  .stat-block h4{font-size:2.4rem}
-  .hero h1{font-size:clamp(2rem,8vw,3.2rem)}
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   12. Center-story & contact CTAs
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+/* “Read More Stories” after slider */
+.testimonials + .btn,
+/* “Contact Us” after section titles */
+.section-title + .btn {
+  display:block;
+  width:max-content;
+  margin:3rem auto 0;
+}
+
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   13. Responsive tweaks
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+@media(max-width:540px){
+  .metric-grid{gap:2.2rem}
+  .headline{font-size:clamp(2.1rem,8vw,3.2rem)}
+  .hero-video{object-position:center 25%}
 }
