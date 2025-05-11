@@ -1,361 +1,161 @@
-/*────────────────────────────────────────────────────────
-   style.css — Full Reinvention: Neon-Grid Meets Diagonal Sections
-────────────────────────────────────────────────────────*/
+/*─────────────────────────────────────────────
+  style.css – Editorial / Pastel Brutalism
+─────────────────────────────────────────────*/
 
-/* 1. CORE VARIABLES */
+/* 1. VARIABLES */
 :root {
-  /* Neon/Tech Grid Palette */
-  --bg-main:     #0a0a0a;  /* nearly black */
-  --bg-alt:      #1f1f1f;  /* dark grey */
-  --fg-light:    #eaeaea;  /* off-white */
-  --accent1:     #ff0054;  /* neon pink */
-  --accent2:     #00e5ff;  /* neon cyan */
-  --accent3:     #ff9f00;  /* neon orange */
-  --transition:  0.4s ease;
-  --radius:      6px;
-  --font-base:   'Helvetica Neue', sans-serif;
-  --font-display:'Oswald', sans-serif;
+  --cream:      #fffdf8;
+  --ink:        #111;
+  --ink-light:  #555;
+
+  --mint:       #b9ffdf;
+  --peach:      #ffd1c0;
+  --lilac:      #d4c2ff;
+
+  --underline:  #ff0059;      /* brutalist accent */
+
+  --radius:     0;            /* square edges */
+  --transition: .4s cubic-bezier(.4,0,.2,1);
+
+  --font-body:      'Georgia', serif;
+  --font-display:   'Playfair Display', serif;
+  --font-mono:      'Cascadia Mono', monospace;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-body {
-  background: var(--bg-main);
-  color: var(--fg-light);
-  font-family: var(--font-base);
-  line-height: 1.6;
-  scroll-behavior: smooth;
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--cream);
+  color:var(--ink);
+  font-family:var(--font-body);
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
 }
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
 
-/* 2. HEADER & NAV */
-header {
-  position: fixed; top:0; left:0; width:100%;
-  background: var(--bg-alt);
-  display: flex; align-items:center; justify-content:space-between;
-  padding: 1rem 2rem; z-index: 1000;
-  border-bottom: 2px solid var(--accent2);
-}
-.logo {
-  font-family: var(--font-display);
-  font-size: 1.6rem;
-  letter-spacing: 2px;
-  background: linear-gradient(90deg, var(--accent1), var(--accent3));
-  -webkit-background-clip: text;
-  color: transparent;
-}
-nav ul {
-  list-style:none;
-  display:flex; gap:2rem;
-}
-nav a {
-  position:relative;
-  font-weight:500;
-  text-transform: uppercase;
-  letter-spacing:1px;
-  color: var(--fg-light);
-  transition: color var(--transition);
-}
-nav a::after {
-  content:'';
-  position:absolute; bottom:-4px; left:50%; width:0; height:2px;
-  background: var(--accent1);
-  transition: width var(--transition), left var(--transition);
-}
-nav a:hover::after {
-  width:100%; left:0;
-}
-nav a:hover { color: var(--accent1); }
+/* 2. UTILITY */
+.container{width:min(90%,1100px);margin-inline:auto}
+.section{padding:8rem 0}
+h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.2}
+h1{font-size:clamp(2.6rem,7vw,4.4rem)}
+h2{font-size:clamp(2rem,5vw,3rem)}
+h3{font-size:1.5rem;margin-bottom:.2em}
 
-/* 3. BURGER (mobile) */
-.burger {
-  display:none; cursor:pointer;
-  flex-direction:column; gap:5px;
+/* 3. HEADER */
+header{
+  position:sticky;top:0;z-index:1000;
+  background:var(--cream);
+  border-bottom:2px solid var(--ink);
 }
-.burger span {
-  display:block; width:24px; height:3px;
-  background: var(--fg-light);
-  transition: transform var(--transition);
+.navbar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.5rem .5rem;
 }
-@media(max-width:800px){
-  nav { display:none; position: fixed; top:72px; right:0; width:60%; background:var(--bg-alt); padding:2rem; }
-  nav.open { display:flex; flex-direction:column; gap:1.5rem; }
-  .burger { display:flex; }
+.logo{
+  font-family:var(--font-display);font-size:1.8rem;font-weight:900;
+  letter-spacing:-1px;
 }
+nav ul{list-style:none;display:flex;gap:2.5rem}
+nav a{position:relative;font-size:1rem;font-weight:600}
+nav a::after{
+  content:'';position:absolute;left:0;bottom:-6px;height:2px;width:100%;
+  background:var(--underline);transform:scaleX(0);transform-origin:left;
+  transition:transform .3s var(--transition);
+}
+nav a:hover::after{transform:scaleX(1)}
 
-/* 4. HERO — FULLSCREEN GRID OVERLAY */
-.hero {
-  position: relative; height:100vh;
-  background: url('images/hero-bg.jpg') center/cover no-repeat;
-  display:flex; align-items:center; justify-content:center;
-  text-align:center; overflow:hidden;
+/* 4. HERO */
+.hero{
+  min-height:90vh;display:flex;align-items:center;
+  background:linear-gradient(140deg,var(--mint),var(--peach) 60%,var(--lilac) 100%);
+  clip-path:polygon(0 0,100% 0,100% 85%,0 100%);
+  padding-bottom:10vh;
 }
-.hero::before {
-  content:'';
-  position:absolute; inset:0;
-  background: linear-gradient(135deg, rgba(10,10,10,.8), rgba(10,10,10,.4));
+.hero .container{max-width:680px;text-align:center}
+.hero p{font-size:1.25rem;margin:1.2rem 0 2.8rem;color:var(--ink-light)}
+.btn{
+  display:inline-block;padding:1rem 2.8rem;
+  border:2px solid var(--ink);background:var(--ink);color:#fff;
+  font-family:var(--font-mono);font-size:.95rem;letter-spacing:.5px;
+  transition:background var(--transition),color var(--transition);
 }
-.hero-content {
-  position:relative; z-index:2;
-  max-width:800px; padding:0 1rem;
-}
-.hero-content h1 {
-  font-family: var(--font-display);
-  font-size: clamp(2.5rem, 8vw, 4.5rem);
-  margin-bottom: .5rem;
-  background: linear-gradient(90deg, var(--accent2), var(--accent1));
-  -webkit-background-clip: text; color: transparent;
-}
-.hero-content p {
-  color: var(--fg-light); font-size:1.1rem;
-  margin-bottom:2rem;
-}
-.hero-content .btn-primary {
-  background: var(--accent1);
-  color: #fff;
-  padding: 1rem 2.5rem;
-  border-radius: var(--radius);
-  font-weight:600;
-  text-transform:uppercase;
-  box-shadow:0 8px 20px rgba(255,0,84,.4);
-  transition: var(--transition);
-}
-.hero-content .btn-primary:hover {
-  background: var(--accent2);
-  box-shadow:0 12px 30px rgba(0,229,255,.4);
-}
+.btn:hover{background:transparent;color:var(--ink)}
 
-/* 5. DIAGONAL SECTION DIVIDERS */
-.section {
-  position: relative;
-  padding: 6rem 2rem;
-  overflow:hidden;
+/* 5. SERVICES – 3-COLUMN GALLERY */
+.services{background:var(--cream)}
+.services-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:3.5rem;margin-top:4rem
 }
-.section:nth-of-type(even) {
-  background: var(--bg-alt);
+.service-card{
+  border:2px solid var(--ink);padding:2.5rem 2rem;
+  display:flex;flex-direction:column;gap:1.2rem;
+  transition:transform .25s;
 }
-.section:nth-of-type(odd)::before,
-.section:nth-of-type(odd)::after {
-  content:'';
-  position:absolute; width:150%; height:150%;
-  background: inherit;
-}
-.section:nth-of-type(odd)::before {
-  top:-50%; left:-25%;
-  transform: rotate(3deg);
-}
-.section:nth-of-type(odd)::after {
-  bottom:-50%; right:-25%;
-  transform: rotate(-3deg);
-}
+.service-card:hover{transform:translateY(-6px)}
+.service-card img{height:60px;width:auto}
+.service-card p{color:var(--ink-light);font-size:1rem}
 
-/* 6. SERVICES GRID — GLASS PANEL CARDS */
-.services .section-title {
-  font-family: var(--font-display); font-size:2.8rem; margin-bottom:1rem;
-  color: var(--accent3);
+/* 6. IMPACT – HUGE DIGITS */
+.impact{
+  background:var(--ink);color:var(--cream);
+  clip-path:polygon(0 5%,100% 0,100% 100%,0 95%);
 }
-.services .cards {
-  display:grid;
-  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-  gap:2.5rem; margin-top:2rem;
+.metrics{
+  display:flex;flex-wrap:wrap;gap:5rem;justify-content:center;
+  padding:4rem 0
 }
-.services .card {
-  background: rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.1);
-  backdrop-filter: blur(8px);
-  border-radius: var(--radius);
-  padding:2rem; text-align:center;
-  box-shadow: var(--shadow-md);
-  transition: var(--transition);
+.metric h3{
+  font-size:4rem;font-family:var(--font-display);
+  margin-bottom:.3rem
 }
-.services .card:hover {
-  transform: translateY(-8px);
-  background: rgba(255,255,255,.1);
-}
-.services .card img {
-  filter: drop-shadow(0 2px 6px rgba(0,0,0,.4));
-  margin-bottom:1rem;
-}
-.services .card h3 {
-  font-family: var(--font-display);
-  margin-bottom:.5rem;
-  color: var(--fg-light);
-}
-.services .card p {
-  color: var(--muted); margin-bottom:1.5rem;
-}
-.services .card a {
-  font-weight:600; color: var(--accent1);
-}
+.metric span{color:var(--mint);font-style:italic}
 
-/* 7. IMPACT METRICS — NEON LINE GRID */
-.impact {
-  background: var(--bg-main);
-  color: var(--fg-light);
-  padding:4rem 2rem;
+/* 7. QUOTES – VERTICAL CAROUSEL */
+.quotes{
+  background:var(--lilac);
+  clip-path:polygon(0 0,100% 5%,100% 100%,0 95%);
+  text-align:center;color:var(--ink);
+  padding:6rem 0 8rem;
 }
-.impact .section-title {
-  font-family: var(--font-display);
-  font-size:2.4rem; text-align:center;
-  margin-bottom:2rem;
-  background: linear-gradient(90deg, var(--accent1), var(--accent3));
-  -webkit-background-clip:text; color:transparent;
+.quote{
+  max-width:700px;margin:0 auto;
+  font-size:1.6rem;font-style:italic;
 }
-.impact .metrics {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-  gap:3rem; max-width:900px; margin:0 auto;
-}
-.metric {
-  position: relative; padding-top:2rem;
-  text-align:center;
-}
-.metric::before {
-  content:'';
-  position:absolute; top:0; left:50%;
-  transform:translateX(-50%);
-  width:60px; height:2px;
-  background: var(--accent2);
-}
-.metric h3 {
-  font-size:2.8rem; margin: .3rem 0;
-  color: var(--accent1);
-}
-.metric span { color: var(--fg-light); opacity:.9; }
-.impact .btn-primary {
-  display:block; margin:3rem auto 0;
-}
+.quote + .quote{margin-top:4rem}
+cite{display:block;margin-top:1rem;font-weight:600;color:var(--underline)}
 
-/* 8. TESTIMONIALS — FADE & SLIDE */
-.testimonials {
-  background: var(--bg-alt);
-  padding:5rem 2rem;
+/* 8. CONTACT – SINGLE COLUMN */
+.contact{background:var(--peach)}
+.contact form{max-width:600px;margin:auto;display:flex;flex-direction:column;gap:2rem}
+.field-group{display:flex;flex-direction:column;position:relative}
+input,textarea{
+  padding:1.2rem;border:2px solid var(--ink);background:none;color:var(--ink);
+  font-family:var(--font-mono);font-size:1rem
 }
-.testimonials .section-title {
-  font-family: var(--font-display);
-  font-size:2.2rem; text-align:center;
-  margin-bottom:2rem;
-  color: var(--accent2);
+label{
+  position:absolute;left:1.2rem;top:-1.2rem;background:var(--peach);
+  padding:0 .4rem;font-size:.85rem;font-weight:700
 }
-.swiper-slide {
-  opacity:0; transform: translateY(30px);
-  transition: var(--transition);
+.contact button{
+  background:var(--ink);color:#fff;border:none;padding:1rem 0;
+  font-size:1rem;font-family:var(--font-mono);cursor:pointer;
+  transition:var(--transition)
 }
-.swiper-slide-active {
-  opacity:1 !important; transform: translateY(0) !important;
-}
-blockquote {
-  font-size:1.2rem; font-style:italic; text-align:center;
-  max-width:700px; margin:0 auto;
-  color: var(--fg-light);
-}
-blockquote cite {
-  display:block; margin-top:1rem;
-  font-weight:700; color: var(--accent3);
-}
+.contact button:hover{background:var(--underline)}
 
-/* 9. CONTACT FORM — NEUMORPHIC FIELDS */
-.contact {
-  background: var(--bg-main);
-  padding:5rem 2rem;
+/* 9. FOOTER */
+footer{
+  background:var(--ink);color:var(--cream);text-align:center;
+  padding:3rem 1rem;
 }
-.contact .section-title {
-  font-family: var(--font-display);
-  font-size:2.2rem; text-align:center;
-  margin-bottom:2rem; color: var(--accent1);
-}
-.contact form {
-  max-width:500px; margin:0 auto;
-  display:flex; flex-direction:column; gap:1.8rem;
-}
-.contact form .field {
-  position: relative;
-}
-.contact form input,
-.contact form textarea {
-  width:100%; padding:1.2rem;
-  border-radius: var(--radius);
-  background: var(--bg-alt);
-  border: none;
-  box-shadow: inset 4px 4px 8px rgba(0,0,0,0.3),
-              inset -4px -4px 8px rgba(255,255,255,0.1);
-  color: var(--fg-light);
-  transition: var(--transition);
-}
-.contact form input:focus,
-.contact form textarea:focus {
-  outline:none; box-shadow:
-    inset 2px 2px 4px rgba(0,0,0,0.5),
-    inset -2px -2px 4px rgba(255,255,255,0.1),
-    0 0 0 3px var(--accent2);
-}
-.contact form label {
-  position:absolute; left:1.2rem; top:1.2rem;
-  pointer-events:none; color: var(--muted);
-  transition: var(--transition);
-}
-.contact form input:focus + label,
-.contact form input:not(:placeholder-shown) + label,
-.contact form textarea:focus + label,
-.contact form textarea:not(:placeholder-shown) + label {
-  top:-.6rem; font-size:.8rem; color: var(--accent2);
-  background: var(--bg-main); padding:0 .3rem;
-}
-.contact form button {
-  background: var(--accent2);
-  color:#fff; padding:1rem;
-  border:none; border-radius: var(--radius);
-  font-weight:600; text-transform:uppercase;
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition);
-}
-.contact form button:hover {
-  background: var(--accent1);
-  box-shadow: var(--shadow-md);
-}
+footer p{font-size:.9rem;color:var(--ink-light)}
+.socials{display:flex;justify-content:center;gap:1.5rem;margin-top:.8rem}
+.socials img{width:26px;filter:invert(1);}
 
-/* 10. FOOTER — SIMPLE NEON STRIP */
-footer {
-  background: var(--bg-alt);
-  padding:2rem 1rem;
-  text-align:center; position:relative;
-}
-footer::before {
-  content:'';
-  position:absolute; top:0; left:50%;
-  transform:translateX(-50%);
-  width:60px; height:4px;
-  background: linear-gradient(90deg, var(--accent1), var(--accent2));
-}
-footer p {
-  color: var(--muted); margin-bottom:1rem;
-}
-footer .socials {
-  list-style:none; display:flex; justify-content:center; gap:1rem;
-}
-footer .socials img {
-  filter: invert(100%) sepia(0); width:24px;
-  transition: transform var(--transition);
-}
-footer .socials a:hover img {
-  transform: scale(1.2);
-}
-
-/* 11. BACK–TO–TOP */
-#toTop {
-  position:fixed; bottom:2rem; right:2rem;
-  width:3rem; height:3rem; border:none;
-  background: var(--accent3);
-  color:#fff; font-size:1.5rem;
-  display:grid; place-items:center;
-  border-radius:50%; opacity:0; cursor:pointer;
-  transition: var(--transition);
-  z-index:2000;
-}
-#toTop.show { opacity:1; }
-
-/* 12. RESPONSIVE TWEAKS */
-@media(max-width:768px){
-  .hero-content h1 { font-size: clamp(2rem,8vw,3.5rem); }
-  .services .cards { grid-template-columns: 1fr; }
-  .impact .metrics { grid-template-columns: 1fr; }
-  nav ul { flex-direction:column; gap:1rem; }
+/* 10. MEDIA QUERIES */
+@media(max-width:700px){
+  nav ul{gap:1rem;font-size:.9rem}
+  .impact .metrics{gap:2rem}
+  .metric h3{font-size:3rem}
 }
