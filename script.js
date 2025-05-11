@@ -44,24 +44,15 @@ themeBtn.addEventListener('click', () => {
 /* ========== GSAP setup ========== */
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
-/* Hero text-scramble – now full phrases */
-if ( $('.gradient-text') ) {
-  const words = [
-    "Your Child’s Potential",
-    "Their Brightest Future",
-    "Lifelong Success",
-    "Academic Excellence",
-  ];
+/* Hero text-scramble */
+if ($('.gradient-text')) {
+  const words = ['Potential', 'Success', 'Dreams', 'Future'];
   const tl = gsap.timeline({ repeat: -1 });
   words.forEach(w => {
     tl.to('.gradient-text', {
-      duration: 1.2,
-      text: {
-        value: w,
-        scrambleText: { chars: '█▓▒░', speed: 0.5 }
-      }
-    })
-    .to({}, { duration: 2.0 });
+      duration: 1,
+      text: { value: w, scrambleText: { chars: '█▓▒░' } },
+    }).to({}, { duration: 1.5 });
   });
 }
 
