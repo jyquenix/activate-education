@@ -52,8 +52,7 @@ a.underline:hover::after{width:100%}
 .section-title{
   font-family:var(--display);
   font-size:clamp(1.7rem,5vw,2.6rem);
-  text-align:center;
-  margin-bottom:1rem;
+  text-align:center;margin-bottom:1rem;
 }
 
 /* Reveal helper */
@@ -174,7 +173,7 @@ html:not(.dark) .hero .subhead{color:#313131;text-shadow:0 1px 2px rgba(0,0,0,.1
   -webkit-mask-composite:xor;mask-composite:exclude;
 }
 .card img{width:68px;margin:0 auto 1.1rem;filter:drop-shadow(0 4px 6px rgba(0,0,0,.15))}
-.card h3{font-family:var(--display);font-size:1.35rem;margin-bottom:.45rem}
+.card h3{font?family:var(--display);font-size:1.35rem;margin-bottom:.45rem}
 .card p{opacity:.8;margin-bottom:1.1rem}
 .card:hover{transform:translateY(-10px);box-shadow:0 18px 38px rgba(0,0,0,.14)}
 .card:hover img{filter:drop-shadow(0 0 10px var(--accent))}
@@ -264,19 +263,7 @@ blockquote cite{display:block;margin-top:.8rem;font-style:normal;font-weight:600
 #toTop:hover{transform:translateY(-4px)}
 
 /*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   12. Center-story & contact CTAs
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
-/* “Read More Stories” after slider */
-.testimonials + .btn,
-/* “Contact Us” after section titles */
-.section-title + .btn {
-  display:block;
-  width:max-content;
-  margin:3rem auto 0;
-}
-
-/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   13. Responsive tweaks
+   12. Responsive tweaks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
 @media(max-width:540px){
   .metric-grid{gap:2.2rem}
