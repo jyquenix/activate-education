@@ -270,3 +270,26 @@ blockquote cite{display:block;margin-top:.8rem;font-style:normal;font-weight:600
   .headline{font-size:clamp(2.1rem,8vw,3.2rem)}
   .hero-video{object-position:center 25%}
 }
+/*━━━━━━━━━━━━━━━━━━━
+  Override Stats Section
+━━━━━━━━━━━━━━━━━━━*/
+#stats {
+  /* use the navy (was --fg) instead of orange */
+  background: var(--fg) !important;
+}
+
+/* ensure the numbers & labels remain white on navy */
+#stats .metric-grid span,
+#stats .metric-grid small {
+  color: #fff !important;
+}
+
+/* keep the “View Full Impact Report” pill pink with white text */
+#stats .btn.ghost {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+}
+#stats .btn.ghost:hover {
+  background: hsl(330,100%,60%);
+}
