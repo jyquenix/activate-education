@@ -1,25 +1,26 @@
 /*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   0. Design Tokens & dark-mode
+   0. Brand Colors & dark-mode
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
 :root{
-  --brand:#005bbb;
-  --accent:#ff2d98;
-  --cyan:#00aeef;
+  /* logo colors: orange, pink, blue */
+  --brand:    #FF9C00;   /* orange */
+  --accent:   #FF3D6C;   /* pink   */
+  --cyan:     #00C2F2;   /* blue   */
 
-  --bg:#fdfdfd;
-  --sheet:rgba(255,255,255,.55);
-  --fg:#111;
-  --border1:rgba(0,0,0,.08);
+  --bg:       #fdfdfd;
+  --sheet:    rgba(255,255,255,.55);
+  --fg:       #111;
+  --border1:  rgba(0,0,0,.08);
 
-  --radius:14px;
-  --shadow-s:0 2px 6px rgba(0,0,0,.05);
-  --shadow-m:0 10px 28px rgba(0,0,0,.08);
+  --radius:   14px;
+  --shadow-s: 0 2px 6px rgba(0,0,0,.05);
+  --shadow-m: 0 10px 28px rgba(0,0,0,.08);
   --glass-blur:16px;
 
   --font:'Inter',sans-serif;
   --display:'Poppins',sans-serif;
 }
-html.dark{
+html.dark {
   --bg:#0d0d0f;
   --sheet:rgba(18,18,20,.55);
   --fg:#f1f1f1;
@@ -30,7 +31,7 @@ html.dark{
 }
 
 /*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   1. Reset / Base
+   1. Reset & Base
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{
@@ -127,6 +128,7 @@ a.underline:hover::after{width:100%}
 .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.65) contrast(1.05)}
 .hero::before{
   content:'';position:absolute;inset:0;
+  /* use blue halo */
   background:radial-gradient(ellipse at top,var(--cyan) 0%,transparent 70%);
   opacity:.25;mix-blend-mode:screen;
 }
@@ -135,9 +137,16 @@ a.underline:hover::after{width:100%}
   font-family:var(--display);font-size:clamp(2.5rem,6vw,4.4rem);
   line-height:1.1;font-weight:700;color:#fff;text-shadow:0 3px 10px rgba(0,0,0,.45)
 }
+/* now a three-stop orange→pink→blue gradient */
 .gradient-text{
-  background:linear-gradient(90deg,var(--accent),var(--cyan));
-  -webkit-background-clip:text;color:transparent;filter:drop-shadow(0 2px 6px rgba(0,0,0,.3));
+  background:linear-gradient(
+    90deg,
+    var(--brand),
+    var(--accent),
+    var(--cyan)
+  );
+  -webkit-background-clip:text;color:transparent;
+  filter:drop-shadow(0 2px 6px rgba(0,0,0,.3));
 }
 .subhead{
   color:#f6f6f6;font-size:1.15rem;margin-top:1.25rem;margin-bottom:2.4rem;
@@ -173,7 +182,7 @@ html:not(.dark) .hero .subhead{color:#313131;text-shadow:0 1px 2px rgba(0,0,0,.1
   -webkit-mask-composite:xor;mask-composite:exclude;
 }
 .card img{width:68px;margin:0 auto 1.1rem;filter:drop-shadow(0 4px 6px rgba(0,0,0,.15))}
-.card h3{font?family:var(--display);font-size:1.35rem;margin-bottom:.45rem}
+.card h3{font-family:var(--display);font-size:1.35rem;margin-bottom:.45rem}
 .card p{opacity:.8;margin-bottom:1.1rem}
 .card:hover{transform:translateY(-10px);box-shadow:0 18px 38px rgba(0,0,0,.14)}
 .card:hover img{filter:drop-shadow(0 0 10px var(--accent))}
@@ -232,7 +241,7 @@ blockquote cite{display:block;margin-top:.8rem;font-style:normal;font-weight:600
 }
 
 /*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   10. Footer & Social icons
+   10. Footer & socials
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
 .footer{
   padding:2.5rem 0;background:var(--sheet);
