@@ -1,226 +1,215 @@
 /*──────────────────────────────────────────────
-  style.css – CYBER-PULSE  Neon Grid Overhaul
+  CYBER-PULSE v2 — all fixes applied
 ──────────────────────────────────────────────*/
 
-/* 1. CORE TOKENS */
+/* 1. TOKENS & FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&display=swap');
+
 :root{
-  --bg-main:  #0b0d13;          /* near-black */
-  --bg-panel: #151924;          /* dark slate */
-  --grid-line:#1f2534;          /* subtle grid */
+  --bg-main:  #0b0d13;
+  --bg-panel: #151924;
+  --grid:     #1f2534;
 
-  --neon-pink:#ff006a;
-  --neon-blue:#00f0ff;
-  --neon-purple:#a23bff;
-  --neon-green:#22ff88;
+  --pink:   #ff006a;
+  --blue:   #00f0ff;
+  --purple: #a23bff;
+  --green:  #22ff88;
 
-  --txt-main:#e5e8ef;
-  --txt-muted:#8b92a6;
+  --txt-main:#e7eaf3;
+  --txt-muted:#8b94a9;
 
-  --radius:   10px;
-  --trans:    .35s cubic-bezier(.4,0,.2,1);
+  --radius:10px;
+  --speed: .35s cubic-bezier(.4,0,.2,1);
 
-  --font-body:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
-  --font-display:'Rajdhani',sans-serif;
+  --f-body:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --f-display:'Rajdhani',sans-serif;
 }
-
-/* 2. GLOBAL RESET */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 body{
   background:var(--bg-main);
   color:var(--txt-main);
-  font-family:var(--font-body);
+  font-family:var(--f-body);
   line-height:1.7;
-  -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
 }
 
-/* Utility */
+/* Subtle grid backdrop */
+body::before{
+  content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+    linear-gradient(transparent 95%,var(--grid) 95%),
+    linear-gradient(90deg,transparent 95%,var(--grid) 95%);
+  background-size:80px 80px;
+  opacity:.08;
+}
+@media(max-width:600px){body::before{opacity:0}} /* auto-hide grid */
+
+/* UTIL */
 .container{width:min(92%,1200px);margin-inline:auto}
 .section{padding:6rem 0}
-
-/* 3. GRID BACKGROUND */
-body::before{
-  content:'';position:fixed;inset:0;pointer-events:none;
-  background:
-      linear-gradient(transparent 95%,var(--grid-line) 95%),
-      linear-gradient(90deg,transparent 95%,var(--grid-line) 95%);
-  background-size: 80px 80px;
-  opacity:.15;
-}
-
-/* 4. HEADER */
-header{
-  position:sticky;top:0;z-index:1000;
-  background:rgba(11,13,19,.65);
-  backdrop-filter: blur(12px);
-  border-bottom:1px solid var(--grid-line);
-  display:flex;justify-content:space-between;align-items:center;
-  padding:1rem 2rem;
-}
-.brand{
-  font-family:var(--font-display);
-  font-size:1.8rem;font-weight:700;letter-spacing:2px;
-  background:linear-gradient(90deg,var(--neon-purple),var(--neon-pink));
+.section-title{
+  font-family:var(--f-display);
+  font-size:clamp(2rem,5vw,3rem);
+  text-align:center;
+  margin-bottom:3rem;
+  background:linear-gradient(90deg,var(--pink),var(--blue));
   -webkit-background-clip:text;color:transparent;
 }
-nav ul{display:flex;gap:2.2rem;list-style:none}
-nav a{
-  position:relative;font-weight:600;
-  text-transform:uppercase;font-size:.9rem;letter-spacing:1.1px;
-}
-nav a::after{
-  content:'';position:absolute;left:0;bottom:-6px;width:0;height:2px;
-  background:var(--neon-green);transition:var(--trans);
-}
-nav a:hover::after{width:100%}
 
-/* 5. HERO */
+/*──────────────────── header */
+header{
+  position:sticky;top:0;z-index:1000;
+  background:rgba(11,13,19,.7);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--grid);
+}
+.navbar{display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem}
+.brand{
+  font-family:var(--f-display);font-size:1.8rem;font-weight:700;
+  letter-spacing:2px;
+  background:linear-gradient(90deg,var(--purple),var(--pink));
+  -webkit-background-clip:text;color:transparent;
+}
+nav ul{list-style:none;display:flex;gap:2rem}
+nav a{position:relative;font-weight:600;text-transform:uppercase;font-size:.9rem}
+nav a::after{
+  content:'';position:absolute;left:0;bottom:-5px;width:0;height:2px;
+  background:var(--green);transition:width var(--speed);
+}
+nav a:hover::after,nav a.active::after{width:100%}
+
+/* burger */
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:24px;height:3px;background:var(--txt-main);transition:var(--speed)}
+@media(max-width:800px){
+  .burger{display:flex}
+  nav{display:none;position:fixed;top:72px;right:0;width:70%;
+       background:var(--bg-panel);padding:2.5rem;border-left:1px solid var(--grid)}
+  nav.open{display:block}
+  nav ul{flex-direction:column;gap:1.5rem}
+}
+
+/*──────────────────── hero */
 .hero{
   min-height:95vh;display:flex;align-items:center;justify-content:center;
   text-align:center;padding:0 1rem;position:relative;
 }
 .hero h1{
-  font-family:var(--font-display);
-  font-size: clamp(2.5rem,7vw,4.3rem);
-  line-height:1.1;margin-bottom:1.2rem;
-  animation:glow 5s linear infinite;
+  font-family:var(--f-display);
+  font-size:clamp(2.4rem,7vw,4.2rem);
+  animation:cycle 8s linear infinite;
+  text-shadow:0 0 8px rgba(0,0,0,.8),0 0 25px rgba(255,255,255,.25); /* keeps readable */
 }
-@keyframes glow{
-  0%,100%{color:var(--neon-blue)}
-  25%{color:var(--neon-purple)}
-  50%{color:var(--neon-pink)}
-  75%{color:var(--neon-green)}
+@keyframes cycle{
+  0%,100%{color:var(--blue)}25%{color:var(--purple)}
+  50%{color:var(--pink)}75%{color:var(--green)}
 }
-.hero p{
-  max-width:650px;margin-inline:auto;
-  color:var(--txt-muted);font-size:1.1rem;margin-bottom:2.5rem;
-}
+.hero p{max-width:680px;margin:1.5rem auto 2.8rem;color:var(--txt-muted)}
 .btn{
-  display:inline-block;padding:1.1rem 3rem;
-  border-radius:var(--radius);font-weight:700;
-  text-transform:uppercase;letter-spacing:1.4px;position:relative;
-  color:#fff;overflow:hidden;
+  position:relative;display:inline-block;padding:1rem 2.8rem;border:none;
+  border-radius:var(--radius);font-weight:700;text-transform:uppercase;
+  letter-spacing:1px;color:#fff;cursor:pointer;overflow:hidden;
 }
 .btn::before{
-  content:'';position:absolute;inset:0;border-radius:inherit;
-  background:linear-gradient(135deg,var(--neon-pink),var(--neon-blue));
+  content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--pink),var(--blue));
   z-index:-1;transition:transform .6s;
 }
 .btn:hover::before{transform:scale(1.15)}
 
-/* 6. SERVICES – GLOW CARDS */
-.services h2{
-  font-family:var(--font-display);font-size:2.6rem;text-align:center;
-  margin-bottom:3rem;color:var(--neon-purple);
-}
-.card-grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2.5rem;
+/*──────────────────── services */
+.services .card-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2.5rem
 }
 .card{
-  background:var(--bg-panel);
-  border:2px solid var(--grid-line);
-  border-radius:var(--radius);
-  padding:2.5rem 2rem;
-  position:relative;
-  transition:var(--trans);
+  background:var(--bg-panel);border:2px solid var(--grid);border-radius:var(--radius);
+  padding:2.5rem 2rem;position:relative;transition:var(--speed)
 }
 .card::after{
   content:'';position:absolute;inset:-2px;border-radius:inherit;
-  background:linear-gradient(45deg,var(--neon-blue),var(--neon-pink));
-  z-index:-1;filter:blur(12px);opacity:0;transition:opacity .4s;
+  background:linear-gradient(45deg,var(--blue),var(--pink));
+  z-index:-1;filter:blur(12px);opacity:0;transition:opacity .4s
 }
+.card:hover{transform:translateY(-6px)}
 .card:hover::after{opacity:1}
-.card img{width:60px;margin-bottom:1.2rem;filter:drop-shadow(0 0 5px var(--neon-blue))}
-.card h3{font-family:var(--font-display);margin-bottom:.6rem}
-.card p{color:var(--txt-muted);font-size:.9rem}
+.card img{width:60px;margin-bottom:1rem;filter:brightness(0) invert(1);}/* re-tint to white */
+.card h3{font-family:var(--f-display);margin-bottom:.4rem}
+.card p{color:var(--txt-muted);font-size:.92rem}
 
-/* 7. IMPACT – DIGITAL COUNTERS */
+/*──────────────────── impact */
 .impact{
-  background:var(--bg-panel);padding:5rem 1rem;text-align:center;
-  margin-top:6rem;clip-path:polygon(0 0,100% 6%,100% 100%,0 94%);
+  background:var(--bg-panel);clip-path:polygon(0 0,100% 6%,100% 100%,0 94%);
 }
-.metrics{display:flex;flex-wrap:wrap;justify-content:center;gap:3.5rem;margin-top:3rem}
+.metrics{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:4rem
+}
+.metric{text-align:center}
 .metric h4{
-  font-family:var(--font-display);font-size:3.5rem;
-  background:linear-gradient(90deg,var(--neon-green),var(--neon-blue));
-  -webkit-background-clip:text;color:transparent;
+  font-family:var(--f-display);font-size:3.5rem;
+  background:linear-gradient(90deg,var(--green),var(--blue));
+  -webkit-background-clip:text;color:transparent
 }
-.metric span{display:block;color:var(--txt-muted);font-size:1rem}
+.metric span{display:block;color:var(--txt-muted);margin-top:.3rem;font-size:1rem}
 
-/* 8. TESTIMONIALS – NEON SPEECH */
-.testimonials{
-  padding:6rem 1rem;position:relative;
-}
+/*──────────────────── testimonials */
+.testimonials{position:relative;padding:6rem 1rem}
 .testimonials::before{
   content:'';position:absolute;inset:0;
-  background:radial-gradient(circle at center,var(--neon-blue) 0,transparent 60%);
-  opacity:.05;pointer-events:none;
+  background:radial-gradient(circle at center,var(--blue) 0,transparent 60%);
+  opacity:.05;pointer-events:none
 }
-.testimonials h2{
-  font-family:var(--font-display);text-align:center;margin-bottom:3rem;
-  color:var(--neon-blue);font-size:2.4rem;
-}
-.swiper{max-width:800px;margin:0 auto}
 blockquote{
-  font-size:1.4rem;font-style:italic;line-height:1.4;
+  max-width:760px;margin:auto;font-size:1.4rem;font-style:italic;line-height:1.4;
 }
-cite{display:block;margin-top:1rem;font-weight:700;color:var(--neon-pink)}
+cite{display:block;margin-top:1rem;font-weight:700;color:var(--pink)}
 
-/* 9. CONTACT – GLASS PANEL */
-.contact{
-  background:rgba(255,255,255,.03);
-  backdrop-filter:blur(12px);
-  padding:6rem 1rem;margin-top:6rem;
-}
-.contact .container{max-width:580px}
-.contact h2{text-align:center;font-family:var(--font-display);
-  color:var(--neon-green);margin-bottom:2rem;font-size:2.2rem}
-.field{position:relative;margin-bottom:2rem}
+/*──────────────────── contact */
+.contact{background:rgba(255,255,255,.03);backdrop-filter:blur(10px);padding:6rem 1rem}
+.contact form{max-width:600px;margin:auto;display:flex;flex-direction:column;gap:2rem}
+.field{position:relative}
 input,textarea{
   width:100%;padding:1.2rem;border:none;border-radius:var(--radius);
-  background:var(--bg-panel);color:var(--txt-main);
-  font-family:var(--font-body);font-size:1rem;
+  background:var(--bg-panel);color:var(--txt-main);caret-color:var(--pink);
 }
 label{
   position:absolute;left:1.2rem;top:50%;transform:translateY(-50%);
-  pointer-events:none;color:var(--txt-muted);transition:var(--trans)
+  color:var(--txt-muted);pointer-events:none;transition:var(--speed)
 }
 input:focus+label,
 input:not(:placeholder-shown)+label,
 textarea:focus+label,
 textarea:not(:placeholder-shown)+label{
-  top:-.8rem;font-size:.75rem;color:var(--neon-blue);
+  top:-.8rem;font-size:.75rem;color:var(--blue);
+  background:var(--bg-main);padding:0 .35rem
 }
 .contact button{
-  width:100%;padding:1rem 0;background:var(--neon-purple);color:#fff;
-  border:none;border-radius:var(--radius);font-weight:700;letter-spacing:1px;
-  transition:var(--trans)
+  width:100%;padding:1rem;background:var(--purple);color:#fff;border:none;
+  border-radius:var(--radius);font-weight:700;text-transform:uppercase;letter-spacing:1px;
+  transition:var(--speed)
 }
-.contact button:hover{background:var(--neon-pink)}
+.contact button:hover{background:var(--pink)}
 
-/* 10. FOOTER */
+/*──────────────────── footer */
 footer{
-  background:var(--bg-panel);text-align:center;padding:3rem 1rem;margin-top:8rem;
-  border-top:1px solid var(--grid-line);
+  background:var(--bg-panel);text-align:center;padding:3rem 1rem;margin-top:7rem;
+  border-top:1px solid var(--grid)
 }
-footer p{font-size:.85rem;color:var(--txt-muted);margin-bottom:1rem}
+footer p{font-size:.85rem;color:var(--txt-muted);margin-bottom:1.2rem}
 .socials{display:flex;justify-content:center;gap:1.2rem}
 .socials img{width:24px;filter:invert(1);transition:transform .3s}
 .socials a:hover img{transform:translateY(-4px)}
 
-/* 11. BACK-TO-TOP */
+/*──────────────────── toTop */
 #toTop{
-  position:fixed;bottom:2rem;right:2rem;z-index:999;
-  width:3rem;height:3rem;border-radius:50%;
-  display:grid;place-items:center;font-size:1.4rem;color:#fff;
-  background:linear-gradient(135deg,var(--neon-blue),var(--neon-pink));
-  cursor:pointer;opacity:0;pointer-events:none;transition:var(--trans)
+  position:fixed;bottom:2rem;right:2rem;width:3rem;height:3rem;
+  border-radius:50%;display:grid;place-items:center;font-size:1.5rem;z-index:900;
+  background:linear-gradient(135deg,var(--blue),var(--pink));color:#fff;
+  cursor:pointer;opacity:0;pointer-events:none;transition:var(--speed)
 }
 #toTop.show{opacity:1;pointer-events:auto}
 
-/* 12. MOBILE TWEAKS */
+/*──────────────────── responsive */
 @media(max-width:780px){
   .metrics{gap:2rem}
-  .metric h4{font-size:2.5rem}
-  .hero h1{font-size:clamp(2rem,8vw,3.2rem)}
+  .metric h4{font-size:2.6rem}
+  .hero h1{font-size:clamp(2.1rem,8vw,3.3rem)}
 }
