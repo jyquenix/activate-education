@@ -2,110 +2,95 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Services — Activate Education</title>
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600&display=swap" rel="stylesheet" />
-
-  <!-- Swiper styles (if needed) -->
-  <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css" />
-
-  <!-- Main stylesheet -->
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Services | Activate Ed</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="glass-nav">
-    <div class="nav-wrap">
-      <a class="brand" href="index.html">Activate<span>Ed</span></a>
-      <nav class="desktop-nav" id="mainNav">
-        <a href="index.html">Home</a>
-        <a href="services.html" class="active">Services</a>
-        <a href="impact.html">Impact</a>
-        <a href="stories.html">Stories</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-      <button id="themeToggle" aria-label="theme"></button>
-      <button id="burger" aria-label="Menu"><span></span></button>
-    </div>
-  </header>
+<!-- ▸▸ NAVBAR (same as other pages) -->
+<header class="glass-nav" id="mainNav">
+  <div class="nav-wrap container">
+    <a href="index.html" class="logo">Activate<span>Ed</span></a>
 
-  <!-- Services Hero Banner -->
-  <section class="section hero-simple">
-    <div class="container">
-      <h1 class="section-title">Our Services</h1>
-      <p class="subhead">Explore our tailored programs designed to unlock your child’s full potential.</p>
-    </div>
-  </section>
+    <nav class="desktop-nav" id="mainNav">
+      <a href="index.html">Home</a>
+      <a href="services.html" class="active">Services</a>
+      <a href="impact.html">Impact</a>
+      <a href="stories.html">Stories</a>
+      <a href="contact.html">Contact</a>
+    </nav>
 
-  <!-- Services List -->
-  <section class="section">
-    <div class="container">
-      <div class="grid cards">
-        <article class="card pop reveal" id="testprep">
-          <img src="images/testprep.png" alt="Test Prep">
-          <h3>Elite College Test Prep</h3>
-          <p>Comprehensive PSAT, SAT & ACT preparation with personalized study plans, practice exams, and expert feedback.</p>
-          <a class="btn ghost" href="contact.html">Book a Consultation →</a>
-        </article>
+    <button id="burger" aria-label="Menu"><span></span></button>
+    <button id="themeToggle" aria-label="Toggle Dark Mode">🌙</button>
+  </div>
+</header>
 
-        <article class="card pop reveal" id="activelearning">
-          <img src="images/activelearning.png" alt="Active Learning">
-          <h3>Active Learning Labs</h3>
-          <p>Hands‑on workshops in STEM, reading, and writing that make learning engaging and effective after school or on weekends.</p>
-          <a class="btn ghost" href="contact.html">Book a Session →</a>
-        </article>
+<!-- ▸▸ HERO SIMPLE -->
+<section class="hero-simple section">
+  <div class="container">
+    <h1 class="section-title">Our Services</h1>
+    <p class="subhead">Explore our tailored programs designed to unlock your child’s full potential.</p>
+  </div>
+</section>
 
-        <article class="card pop reveal" id="middleschool">
-          <img src="images/middle school.png" alt="Middle School">
-          <h3>Middle School Mastery</h3>
-          <p>Targeted Regents & TACHS prep for grades 6–8, including one‑on‑one tutoring and small group intensive courses.</p>
-          <a class="btn ghost" href="contact.html">Learn More →</a>
-        </article>
+<!-- ▸▸ SERVICES GRID -->
+<section class="section">
+  <div class="container grid cards">
 
-        <article class="card pop reveal" id="highschool">
-          <img src="images/highschool.png" alt="High School">
-          <h3>High‑School Success</h3>
-          <p>Personalized academic coaching, Regents review, AP support, and college‑application guidance for grades 9–12.</p>
-          <a class="btn ghost" href="contact.html">Get Started →</a>
-        </article>
-      </div>
-    </div>
-  </section>
+    <!-- Card 1 -->
+    <article class="card pop">
+      <img src="images/testprep.png" alt="">
+      <h3>Elite College Test Prep</h3>
+      <p>Comprehensive PSAT, SAT &amp; ACT preparation with personalized study plans, practice exams, and expert feedback.</p>
+      <a href="#" class="btn ghost">Learn More →</a>
+    </article>
 
-  <!-- Call to Action -->
-  <section class="section metrics">
-    <div class="container text-center">
-      <h2 class="section-title">Ready to elevate learning?</h2>
-      <a href="contact.html" class="btn primary large">Schedule Your Free Consultation</a>
-    </div>
-  </section>
+    <!-- Card 2 -->
+    <article class="card pop">
+      <img src="images/activelearning.png" alt="">
+      <h3>Active Learning Labs</h3>
+      <p>Hands-on workshops in STEM, reading, and writing that make learning engaging and effective after school or on weekends.</p>
+      <a href="#" class="btn ghost">Learn More →</a>
+    </article>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-inner">
-      <p>© 2025 Activate Education. All rights reserved.</p>
-      <ul class="socials">
-        <li><a href="#"><img src="images/X_logo.png"        alt="X (Twitter)"></a></li>
-        <li><a href="#"><img src="images/Facebook_Logo_(2019).png" alt="Facebook"></a></li>
-        <li><a href="#"><img src="images/Instagram_icon.png" alt="Instagram"></a></li>
-      </ul>
-  </footer>
+    <!-- Card 3 -->
+    <article class="card pop">
+      <img src="images/middle_school.png" alt="">
+      <h3>Middle School Mastery</h3>
+      <p>Targeted Regents &amp; TACHS prep for grades 6–8, including one-on-one tutoring and small-group intensive courses.</p>
+      <a href="#" class="btn ghost">Learn More →</a>
+    </article>
 
-  <!-- Back-to-Top -->
-  <button id="toTop" aria-label="Back to top">↑</button>
+    <!-- Card 4 -->
+    <article class="card pop">
+      <img src="images/highschool.png" alt="">
+      <h3>High-School Success</h3>
+      <p>Personalized academic coaching, Regents review, AP support, and college-application guidance for grades 9–12.</p>
+      <a href="#" class="btn ghost">Learn More →</a>
+    </article>
 
-  <!-- Vendor JS -->
-  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
-  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
-  <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/TextPlugin.min.js"></script>      <!-- NEW -->
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script> <!-- NEW -->
+  </div>
+</section>
 
-  <!-- Main JS -->
-  <script src="script.js"></script>
+<!-- ▸▸ FOOTER -->
+<footer class="footer">
+  <div class="footer-inner container">
+    <span>&copy; 2025 Activate Ed</span>
+
+    <ul class="socials">
+      <li><a href="#"><img src="images/x-logo.png"        alt="X (Twitter)"></a></li>
+      <li><a href="#"><img src="images/facebook-logo.png" alt="Facebook"></a></li>
+      <li><a href="#"><img src="images/Instagram_icon.png" alt="Instagram"></a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+<script src="https://unpkg.com/gsap@3/dist/TextPlugin.min.js"></script>
+<script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
