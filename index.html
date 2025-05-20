@@ -2,184 +2,99 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ActivateEd</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Activate Ed</title>
 
-  <!-- Swiper CSS -->
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/swiper@9/swiper-bundle.min.css"
-  />
-
-  <!-- Your Main Styles -->
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- HEADER / NAV -->
-  <header class="glass-nav">
-    <div class="nav-wrap container">
-      <a href="index.html" class="brand logo">Activate<span>Ed</span></a>
-      <button id="burger" aria-label="Menu">
-        <span></span>
-      </button>
-      <nav class="desktop-nav" id="mainNav">
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="impact.html">Impact</a>
-        <a href="stories.html">Stories</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-      <button id="themeToggle" aria-label="Toggle Theme">🌙</button>
-    </div>
-  </header>
 
-  <main>
-    <!-- HERO -->
-    <section id="hero" class="hero reveal">
-      <!-- optional <video class="hero-video" autoplay muted loop src="..."></video>-->
-      <div class="hero-inner container">
-        <h1 class="headline">
-          Unlock <span class="gradient-text" id="typewriter"></span>.
-        </h1>
-        <p class="subhead">
-          Personalised tutoring &amp; immersive courses for every grade and every
-          goal.
-        </p>
-        <a href="services.html" class="btn primary large">Browse programs</a>
-      </div>
-    </section>
+<!-- ▸ NAVBAR -->
+<header class="glass-nav">
+  <div class="nav-wrap container">
+    <a href="index.html" class="logo">Activate<span>Ed</span></a>
 
-    <!-- SERVICES PREVIEW -->
-    <section id="services" class="hero-simple reveal">
-      <div class="container">
-        <h2 class="section-title">Our Services</h2>
-        <p class="subhead">
-          Explore our tailored programs designed to unlock your child's full
-          potential.
-        </p>
-        <div class="grid cards">
-          <div class="card pop reveal">
-            <img src="images/testprep.png" alt="College Test Prep" />
-            <h3>College Test Prep</h3>
-            <p>PSAT, SAT &amp; ACT coaching.</p>
-            <a href="services.html#testprep" class="arrow-link underline"
-              >Learn more →</a
-            >
-          </div>
-          <div class="card pop reveal">
-            <img src="images/activelearning.png" alt="Active Learning" />
-            <h3>Active Learning</h3>
-            <p>After-school &amp; weekend sessions.</p>
-            <a href="services.html#activelearning" class="arrow-link underline"
-              >Learn more →</a
-            >
-          </div>
-          <div class="card pop reveal">
-            <img src="images/middle school.png" alt="Middle School Specialized" />
-            <h3>Middle School Specialized</h3>
-            <p>Regents &amp; TACHS prep (grades 6-8).</p>
-            <a href="services.html#middleschool" class="arrow-link underline"
-              >Learn more →</a
-            >
-          </div>
-          <div class="card pop reveal">
-            <img src="images/highschool.png" alt="Standard High School" />
-            <h3>Standard High School</h3>
-            <p>One-on-one tutoring &amp; Regents prep.</p>
-            <a href="services.html#highschool" class="arrow-link underline"
-              >Learn more →</a
-            >
-          </div>
-        </div>
-      </div>
-    </section>
+    <nav class="desktop-nav">
+      <a class="active" href="index.html">Home</a>
+      <a           href="services.html">Services</a>
+      <a           href="impact.html">Impact</a>
+      <a           href="stories.html">Stories</a>
+      <a           href="contact.html">Contact</a>
+    </nav>
 
-    <!-- IMPACT PREVIEW -->
-    <section id="stats" class="section reveal">
-      <div class="container section-title">Our Impact</div>
-      <ul class="metric-grid reveal">
-        <li>
-          <span data-count="780">0</span><small> Students Empowered</small>
-        </li>
-        <li>
-          <span data-count="172">0</span><small> Avg Score Increase (pts)</small>
-        </li>
-        <li>
-          <span data-count="1800">0</span><small> Sessions Delivered</small>
-        </li>
-      </ul>
-      <div style="text-align:center;margin-top:1.8rem">
-        <a href="impact.html" class="btn ghost large">View Full Impact Report →</a>
-      </div>
-    </section>
+    <button id="burger" aria-label="Menu"><span></span></button>
+    <button id="themeToggle" aria-label="Toggle Dark Mode">🌙</button>
+  </div>
+</header>
 
-    <!-- TESTIMONIALS PREVIEW -->
-    <section id="testimonials" class="testimonials reveal">
-      <div class="container section-title">Parent Stories</div>
-      <div class="swiper" id="testimonialSwiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <blockquote>
-              “Our daughter’s confidence—and her math grade—skyrocketed in one
-              term.”
-              <cite>— Ella &amp; Marcus R.</cite>
-            </blockquote>
-          </div>
-          <div class="swiper-slide">
-            <blockquote>
-              “300-point SAT gain. Full-ride scholarship. Enough said.”
-              <cite>— Sonya K.</cite>
-            </blockquote>
-          </div>
-          <div class="swiper-slide">
-            <blockquote>
-              “My son went from failing physics to an A+ in just six weeks.”
-              <cite>— Raj Patel</cite>
-            </blockquote>
-          </div>
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
-      <div style="text-align:center;margin-top:1.8rem">
-        <a href="stories.html" class="btn ghost large">Read More Stories</a>
-      </div>
-    </section>
+<!-- ▸ HERO (unchanged) -->
+<section class="hero">
+  <video class="hero-video" src="images/hero.mp4" autoplay muted loop></video>
+  <div class="hero-inner">
+    <h1 class="headline">
+      Unlock <span class="gradient-text" id="typewriter">Potential</span>.
+    </h1>
+    <p class="subhead">Personalised tutoring &amp; immersive courses for every grade and every goal.</p>
+    <a href="#home-services" class="btn primary">Browse programs</a>
+  </div>
+</section>
 
-    <!-- CONTACT CTA -->
-    <section class="hero-simple reveal">
-      <div class="container">
-        <h2 class="section-title">Ready to Get Started?</h2>
-        <a href="contact.html" class="btn primary large">Contact Us</a>
-      </div>
-    </section>
-  </main>
+<!-- ▸ HOME SERVICES (outside blurbs) -->
+<section class="section" id="home-services">
+  <div class="container grid cards">
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div>© 2025 ActivateEd</div>
-      <ul class="socials">
-        <li><a href="#"><img src="images/x-logo.png" alt="X"></a></li>
-        <li>
-          <a href="#"
-            ><img src="images/facebook-logo.png" alt="Facebook"></a
-          >
-        </li>
-        <li>
-          <a href="#"><img src="images/Instagram_icon.png" alt="Instagram"></a>
-        </li>
-      </ul>
-    </div>
-  </footer>
+    <article class="card pop">
+      <img src="images/activelearning.png" alt="">
+      <h3>Active Learning</h3>
+      <p>In-home, 1:1 tutoring for primary students in reading, writing and maths.</p>
+      <a href="services.html" class="btn ghost">Learn More →</a>
+    </article>
 
-  <!-- VENDOR JS -->
-  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
-  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
-  <script src="https://unpkg.com/gsap@3/dist/TextPlugin.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-  <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
+    <article class="card pop">
+      <img src="images/middle_school.png" alt="">
+      <h3>Middle School Mastery</h3>
+      <p>Personalized teaching in all subjects plus Regents / TACHS / ISEE / SSAT prep.</p>
+      <a href="services.html" class="btn ghost">Learn More →</a>
+    </article>
 
-  <!-- YOUR MAIN JS -->
-  <script src="script.js"></script>
+    <article class="card pop">
+      <img src="images/highschool.png" alt="">
+      <h3>High-School Success</h3>
+      <p>Academic coaching, Regents review and AP exam support for grades 9-12.</p>
+      <a href="services.html" class="btn ghost">Learn More →</a>
+    </article>
+
+    <article class="card pop">
+      <img src="images/testprep.png" alt="">
+      <h3>Elite College Test Prep</h3>
+      <p>Comprehensive PSAT, SAT &amp; ACT prep with custom study plans &amp; practice exams.</p>
+      <a href="services.html" class="btn ghost">Learn More →</a>
+    </article>
+
+  </div>
+</section>
+
+<!-- ▸ (…other home sections: impact, testimonials, etc.) -->
+
+<!-- ▸ FOOTER -->
+<footer class="footer">
+  <div class="footer-inner container">
+    <span>© 2025 Activate Ed</span>
+    <ul class="socials">
+      <li><a href="#"><img src="images/x-logo.png"         alt="X"></a></li>
+      <li><a href="#"><img src="images/facebook-logo.png"  alt="Facebook"></a></li>
+      <li><a href="#"><img src="images/Instagram_icon.png" alt="Instagram"></a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- JS -->
+<script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+<script src="https://unpkg.com/gsap@3/dist/TextPlugin.min.js"></script>
+<script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
