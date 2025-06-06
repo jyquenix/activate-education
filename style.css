@@ -270,3 +270,32 @@ blockquote cite{display:block;margin-top:.8rem;font-style:normal;font-weight:600
   .headline{font-size:clamp(2.1rem,8vw,3.2rem)}
   .hero-video{object-position:center 25%}
 }
+
+
+
+
+
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Gallery grid
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+.gallery-grid{
+  display:grid;
+  gap:2rem;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+}
+.gallery-grid figure{
+  overflow:hidden;
+  border-radius:var(--radius);
+  background:var(--sheet);
+  backdrop-filter:blur(calc(var(--glass-blur)*.6));
+  box-shadow:var(--shadow-m);
+  transition:transform .35s, box-shadow .35s;
+}
+.gallery-grid img{width:100%;height:auto;display:block}
+.gallery-grid figcaption{
+  padding:1rem;font-size:.9rem;opacity:.85;text-align:center
+}
+.gallery-grid figure:hover{
+  transform:translateY(-8px);
+  box-shadow:0 18px 36px rgba(0,0,0,.15);
+}
