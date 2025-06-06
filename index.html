@@ -3,69 +3,154 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gallery | Activate Ed</title>
+  <title>ActivateEd</title>
 
-  <!-- Swiper CSS (needed elsewhere) -->
-  <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css"/>
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css" />
 
-  <!-- Main styles -->
+  <!-- Main Styles -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- ▸ NAV -->
+  <!-- HEADER / NAV -->
   <header class="glass-nav">
     <div class="nav-wrap container">
       <a href="index.html" class="brand logo">Activate<span>Ed</span></a>
       <button id="burger" aria-label="Menu"><span></span></button>
-      <nav class="desktop-nav">
-        <a href="index.html">Home</a>
+
+      <nav class="desktop-nav" id="mainNav">
+        <a class="active" href="index.html">Home</a>
         <a href="services.html">Services</a>
         <a href="impact.html">Impact</a>
         <a href="stories.html">Stories</a>
-        <a class="active" href="gallery.html">Gallery</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
       </nav>
+
       <button id="themeToggle" aria-label="Toggle Theme">🌙</button>
     </div>
   </header>
 
-  <!-- ▸ HERO -->
-  <section class="hero-simple reveal">
-    <div class="container">
-      <h1 class="section-title">Learning in Action</h1>
-      <p class="subhead">Real snapshots from our tutoring sessions &amp;&nbsp;workshops.</p>
-    </div>
-  </section>
+  <main>
+    <!-- HERO -->
+    <section id="hero" class="hero reveal">
+      <div class="hero-inner container">
+        <h1 class="headline">
+          Unlock <span class="gradient-text" id="typewriter"></span>.
+        </h1>
+        <p class="subhead">
+          Personalised tutoring &amp; immersive courses for every grade and every goal.
+        </p>
+        <a href="#services" class="btn primary large">Browse programs</a>
+      </div>
+    </section>
 
-  <!-- ▸ IMAGE-ONLY GALLERY -->
-  <section class="section">
-    <div class="container gallery-grid">
-      <figure><img src="images/1000007007.png" alt=""></figure>
-      <figure><img src="images/1000007008.png" alt=""></figure>
-      <figure><img src="images/1000007009.png" alt=""></figure>
-      <figure><img src="images/1000007010.png" alt=""></figure>
-      <figure><img src="images/1000007011.png" alt=""></figure>
-      <figure><img src="images/1000007012.png" alt=""></figure>
-    </div>
-  </section>
+    <!-- SERVICES PREVIEW -->
+    <section id="services" class="hero-simple reveal">
+      <div class="container">
+        <h2 class="section-title">Our Services</h2>
+        <p class="subhead">
+          Explore our tailored programs designed to unlock your child's full potential.
+        </p>
 
-  <!-- ▸ FOOTER -->
+        <div class="grid cards">
+          <!-- Elite College Test Prep -->
+          <div class="card pop reveal">
+            <img src="images/testprep.png" alt="Elite College Test Prep" />
+            <h3>Elite College Test Prep</h3>
+            <p>
+              Comprehensive PSAT, SAT &amp; ACT preparation with personalized study
+              plans, practice exams and expert feedback.
+            </p>
+            <a href="services.html#testprep" class="arrow-link underline">Learn more →</a>
+          </div>
+
+          <!-- Active Learning -->
+          <div class="card pop reveal">
+            <img src="images/activelearning.png" alt="Active Learning" />
+            <h3>Active Learning</h3>
+            <p>
+              In-home, 1-to-1 tutoring for primary students in reading, writing and
+              mathematics—tailored lessons that make learning engaging &amp; effective.
+            </p>
+            <a href="services.html#activelearning" class="arrow-link underline">Learn more →</a>
+          </div>
+
+          <!-- Middle School Mastery -->
+          <div class="card pop reveal">
+            <img src="images/middle school.png" alt="Middle School Mastery" />
+            <h3>Middle School Mastery</h3>
+            <p>
+              Personalized instruction across all subjects, plus expert Regents, TACHS,
+              ISEE &amp; SSAT exam preparation.
+            </p>
+            <a href="services.html#middleschool" class="arrow-link underline">Learn more →</a>
+          </div>
+
+          <!-- High-School Success -->
+          <div class="card pop reveal">
+            <img src="images/highschool.png" alt="High-School Success" />
+            <h3>High-School Success</h3>
+            <p>
+              Personalized academic coaching in every subject, Regents review and
+              AP-exam support for grades&nbsp;9–12.
+            </p>
+            <a href="services.html#highschool" class="arrow-link underline">Learn more →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS PREVIEW -->
+    <section id="testimonials" class="testimonials reveal">
+      <div class="container section-title">Parent Stories</div>
+      <div class="swiper" id="testimonialSwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <blockquote>
+              “Our daughter’s confidence—and her math grade—skyrocketed in one term.”
+              <cite>— Ella &amp; Marcus R.</cite>
+            </blockquote>
+          </div>
+          <div class="swiper-slide">
+            <blockquote>
+              “300-point SAT gain. Full-ride scholarship. Enough said.”
+              <cite>— Sonya K.</cite>
+            </blockquote>
+          </div>
+          <div class="swiper-slide">
+            <blockquote>
+              “My son went from failing physics to an A+ in just six weeks.”
+              <cite>— Raj Patel</cite>
+            </blockquote>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+      <div style="text-align:center;margin-top:1.8rem">
+        <a href="stories.html" class="btn ghost large">Read More Stories</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer-inner">
-      <div>© 2025 Activate Ed</div>
+      <div>© 2025 ActivateEd</div>
       <ul class="socials">
-        <li><a href="#"><img src="images/x-logo.png"        alt="X"></a></li>
+        <li><a href="#"><img src="images/x-logo.png" alt="X"></a></li>
         <li><a href="#"><img src="images/facebook-logo.png" alt="Facebook"></a></li>
         <li><a href="#"><img src="images/Instagram_icon.png" alt="Instagram"></a></li>
       </ul>
     </div>
   </footer>
 
-  <!-- Vendor JS (kept for consistency) -->
+  <!-- Vendor JS -->
   <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
   <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/gsap@3/dist/TextPlugin.min.js"></script>
-  <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
 
   <!-- Main JS -->
   <script src="script.js"></script>
