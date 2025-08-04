@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Marketplace | Site Anvil</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="marketplace">
+  <!-- NAVBAR -->
+  <header class="glass-nav">
+    <div class="nav-wrap container">
+      <a href="index.html" class="brand logo">Site<span>Anvil</span></a>
+      <nav class="desktop-nav" id="mainNav">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="stories.html">Stories</a>
+        <a href="gallery.html">Gallery</a>
+        <a class="active" href="marketplace.html">Marketplace</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button id="burger" aria-label="Menu"><span></span></button>
+      <button id="themeToggle" aria-label="Toggle Theme">🌙</button>
+    </div>
+  </header>
+
+  <!-- MARKETPLACE HEADER -->
+  <main>
+    <section class="section">
+      <div class="container">
+        <h1 class="section-title">Site Anvil Marketplace</h1>
+        <p class="subhead">
+          Discover and purchase exclusive gamepasses that unlock powerful tools,
+          unique abilities, and premium content in Site Anvil.
+        </p>
+        <div style="width:4rem;height:2px;margin:1.5rem auto;background:var(--cyan);"></div>
+      </div>
+    </section>
+
+    <!-- MARKETPLACE CARDS -->
+    <section class="section">
+      <div class="container grid cards">
+        <!-- Card 1 -->
+        <div class="card pop">
+          <div class="price-tag">$3</div>
+          <img src="images/image1.png" alt="Elite TS">
+          <h3>Elite TS</h3>
+          <p>
+            When playing as Test Subject, upon spawning you will permanently receive:
+            Stolen MP5, Hacking Device, Bandages, Tactical Vest.
+          </p>
+          <a href="#" class="btn primary large">Purchase Now</a>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card pop">
+          <div class="price-tag">$3</div>
+          <img src="images/image2.png" alt="SCAR-H Rifle">
+          <h3>SCAR-H</h3>
+          <p>
+            An extremely powerful rifle effective for group engagements,
+            raids/riots, or fending off weaker yet aggressive SCPs.
+          </p>
+          <a href="#" class="btn primary large">Purchase Now</a>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card pop">
+          <div class="price-tag">$5</div>
+          <img src="images/image3.png" alt="Hostile Forces">
+          <h3>Hostile Forces</h3>
+          <p>
+            Permanent access to the Hostile Forces team: HF armor, AK-47,
+            M1911, Bandages, Pipe Bomb, Stolen Keycard, Vehicles.
+          </p>
+          <a href="#" class="btn primary large">Purchase Now</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>© 2025 Site Anvil</div>
+      <ul class="socials">
+        <li><a href="#"><img src="images/x-logo.png" alt="X"></a></li>
+        <li><a href="#"><img src="images/facebook-logo.png" alt="Facebook"></a></li>
+        <li><a href="#"><img src="images/Instagram_icon.png" alt="Instagram"></a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- VENDOR JS -->
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/TextPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
+
+  <!-- Main JS -->
+  <script src="script.js"></script>
+</body>
+</html>
