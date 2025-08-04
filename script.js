@@ -136,3 +136,12 @@ $('#cForm')?.addEventListener('submit', e => {
   }
   confetti({ particleCount: 120, spread: 70, origin: { y: 0.7 } });
 });
+
+
+
+/* scripts.js */
+document.querySelectorAll('.btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    alert('Purchase functionality not implemented.');
+  });
+});
