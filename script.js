@@ -1,5 +1,5 @@
 /*────────────────────────────
-   Activate Education – v3
+   Activate Education – v3.1 (safe on all pages)
 ────────────────────────────*/
 
 /* ========== Helpers ========== */
@@ -12,7 +12,8 @@ bar.style.cssText =
   'position:fixed;top:0;left:0;height:3px;background:var(--accent);width:0;z-index:2000;transition:width .1s';
 document.body.append(bar);
 addEventListener('scroll', () => {
-  bar.style.width = `${(scrollY / (document.body.scrollHeight - innerHeight)) * 100}%`;
+  const h = document.body.scrollHeight - innerHeight;
+  bar.style.width = `${(h > 0 ? (scrollY / h) : 0) * 100}%`;
 });
 
 /* ========== Burger / Nav ========== */
@@ -56,26 +57,34 @@ if ($('.gradient-text')) {
   });
 }
 
-/* Reveal-on-scroll */
+/* Reveal-on-scroll (resilient + reveal items already in view) */
 gsap.utils.toArray('.reveal').forEach(el => {
   ScrollTrigger.create({
     trigger: el,
     start: 'top 85%',
     onEnter: () => el.classList.add('visible'),
+    onEnterBack: () => el.classList.add('visible'),
+    once: true,
   });
+
+  // If element starts in view, reveal immediately
+  const r = el.getBoundingClientRect();
+  if (r.top < innerHeight * 0.85) el.classList.add('visible');
 });
 
-/* Parallax headline */
-gsap.to('.headline', {
-  yPercent: 20,
-  ease: 'none',
-  scrollTrigger: {
-    trigger: '.hero',
-    start: 'top top',
-    end: 'bottom top',
-    scrub: true,
-  },
-});
+/* Parallax headline — only if .hero exists on this page */
+if (document.querySelector('.hero') && document.querySelector('.headline')) {
+  gsap.to('.headline', {
+    yPercent: 20,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '.hero',
+      start: 'top top',
+      end: 'bottom top',
+      scrub: true,
+    },
+  });
+}
 
 /* 3-D card tilt */
 $$('.card.pop').forEach(card => {
@@ -136,6 +145,3 @@ $('#cForm')?.addEventListener('submit', e => {
   }
   confetti({ particleCount: 120, spread: 70, origin: { y: 0.7 } });
 });
-
-
-
