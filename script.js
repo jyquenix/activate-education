@@ -1,5 +1,5 @@
 /*────────────────────────────
-   Activate Education – v3.1 (safe on all pages)
+   Activate Education – v3.2 (site-wide + Curriculum FX)
 ────────────────────────────*/
 
 /* ========== Helpers ========== */
@@ -19,7 +19,7 @@ addEventListener('scroll', () => {
 /* ========== Burger / Nav ========== */
 $('#burger')?.addEventListener('click', () => {
   $('#burger').classList.toggle('active');
-  $('#mainNav').classList.toggle('open');
+  $('#mainNav')?.classList.toggle('open');
 });
 
 /* ========== Theme toggle (dark by default) ========== */
@@ -28,14 +28,14 @@ const themeBtn = $('#themeToggle');
 
 /* show correct emoji */
 const renderIcon = () =>
-  (themeBtn.textContent = html.classList.contains('dark') ? '☀️' : '🌙');
+  (themeBtn && (themeBtn.textContent = html.classList.contains('dark') ? '☀️' : '🌙'));
 
 /* initial state: dark unless user stored 'light' */
 html.classList.toggle('dark', localStorage.theme !== 'light');
-renderIcon();
-themeBtn.title = 'Toggle light / dark';
+renderIcon?.();
+if (themeBtn) themeBtn.title = 'Toggle light / dark';
 
-themeBtn.addEventListener('click', () => {
+themeBtn?.addEventListener('click', () => {
   const dark = !html.classList.contains('dark');
   html.classList.toggle('dark', dark);
   localStorage.theme = dark ? 'dark' : 'light';
@@ -45,7 +45,7 @@ themeBtn.addEventListener('click', () => {
 /* ========== GSAP setup ========== */
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
-/* Hero text-scramble */
+/* Hero text-scramble (home only) */
 if ($('.gradient-text')) {
   const words = ['Potential', 'Success', 'Dreams', 'Future'];
   const tl = gsap.timeline({ repeat: -1 });
@@ -143,5 +143,97 @@ $('#cForm')?.addEventListener('submit', e => {
     e.preventDefault();
     return;
   }
-  confetti({ particleCount: 120, spread: 70, origin: { y: 0.7 } });
+  confetti?.({ particleCount: 120, spread: 70, origin: { y: 0.7 } });
 });
+
+/* =======================================================
+   Curriculum page effects (scoped, safe on other pages)
+   Expects elements from approach.html special version
+=========================================================*/
+(function () {
+  const isCurriculum = document.querySelector('.curriculum-hero');
+  if (!isCurriculum) return;
+
+  /* Entrance animations */
+  gsap.from('.headline-lg', { y: 18, opacity: 0, duration: 0.7, ease: 'power2.out', delay: 0.1 });
+  gsap.from('.hero-sub',    { y: 16, opacity: 0, duration: 0.6, ease: 'power2.out', delay: 0.2 });
+
+  /* Section underline + card rise on enter */
+  gsap.utils.toArray('.fx-card').forEach(card => {
+    const u = card.querySelector('.u');
+    ScrollTrigger.create({
+      trigger: card,
+      start: 'top 80%',
+      onEnter: () => {
+        gsap.fromTo(card, { y: 18, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: 'power2.out' });
+        if (u) gsap.to(u, { scaleX: 1, duration: 0.6, ease: 'power3.out' });
+      }
+    });
+  });
+
+  /* Sticky TOC active link */
+  const tocLinks = Array.from(document.querySelectorAll('#toc a'));
+  tocLinks.forEach(a => {
+    const id = a.getAttribute('href');
+    const sec = document.querySelector(id);
+    if (!sec) return;
+    ScrollTrigger.create({
+      trigger: sec, start: 'top center', end: 'bottom center',
+      onToggle: self => {
+        if (self.isActive) {
+          tocLinks.forEach(x => x.classList.remove('active'));
+          a.classList.add('active');
+        }
+      }
+    });
+  });
+
+  /* Smooth scroll for TOC with header offset */
+  const header = document.querySelector('.glass-nav');
+  const headerH = () => (header ? header.getBoundingClientRect().height : 0);
+  document.getElementById('toc')?.addEventListener('click', e => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    e.preventDefault();
+    const sec = document.querySelector(a.getAttribute('href'));
+    if (!sec) return;
+    const top = scrollY + sec.getBoundingClientRect().top - (headerH() + 12);
+    window.scrollTo({ top, behavior: 'smooth' });
+  });
+
+  /* Pinned decode/encode timeline */
+  const pinBox = document.querySelector('#decode.pinned');
+  if (pinBox) {
+    ScrollTrigger.create({
+      trigger: pinBox,
+      start: 'top 120px',
+      end: '+=600',
+      pin: true,
+      pinSpacing: true
+    });
+    gsap.utils.toArray('#timeline .step').forEach(step => {
+      gsap.from(step, {
+        opacity: 0,
+        x: -20,
+        duration: 0.45,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: step, start: 'top 80%' }
+      });
+    });
+  }
+
+  /* Left progress rail */
+  const rail = $('#railBar');
+  if (rail) {
+    const docH = () => document.body.scrollHeight - innerHeight;
+    const setRail = () => (rail.style.height = `${Math.min(100, (scrollY / Math.max(1, docH())) * 100)}%`);
+    addEventListener('scroll', setRail, { passive: true });
+    addEventListener('resize', setRail);
+    setRail();
+  }
+
+  /* Subtle parallax for hero orbs */
+  gsap.to('.orb.one',   { xPercent:  8, yPercent: -6, scrollTrigger: { scrub: 1 } });
+  gsap.to('.orb.two',   { xPercent: -6, yPercent:  8, scrollTrigger: { scrub: 1 } });
+  gsap.to('.orb.three', { xPercent:  4, yPercent:  4, scrollTrigger: { scrub: 1 } });
+})();
