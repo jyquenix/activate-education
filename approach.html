@@ -5,85 +5,51 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Our Curriculum & Approach | ActivateEd</title>
 
-  <!-- Site CSS -->
+  <!-- Base site CSS -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Page-specific styles (scoped and conflict-safe) -->
+  <!-- Page-specific styles (scoped) -->
   <style>
-    /* ===== Unique Page Chrome ===== */
+    /* ===== Cinematic hero ===== */
     .curriculum-hero.hero{
-      position:relative;
-      min-height:88vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      overflow:hidden;
-      isolation:isolate;
+      position:relative; min-height:88vh; display:flex; align-items:center; justify-content:center;
+      overflow:hidden; isolation:isolate;
     }
-    /* animated gradient orbs */
-    .orb{
-      position:absolute; border-radius:50%; filter:blur(40px);
-      mix-blend-mode:screen; opacity:.6; pointer-events:none;
-      animation:float 14s ease-in-out infinite alternate;
-    }
-    .orb.one{ width:42vw;height:42vw; background:radial-gradient(circle at 30% 30%, var(--accent), transparent 60%); top:-10%; left:-12%;}
-    .orb.two{ width:36vw;height:36vw; background:radial-gradient(circle at 70% 60%, var(--cyan), transparent 65%); bottom:-8%; right:-10%; animation-duration:18s;}
-    .orb.three{ width:28vw;height:28vw; background:radial-gradient(circle at 50% 50%, var(--brand), transparent 65%); top:20%; right:40%; animation-duration:16s;}
-    @keyframes float{ to{ transform:translateY(-30px) translateX(20px) scale(1.05);} }
+    .orb{position:absolute; border-radius:50%; filter:blur(40px); mix-blend-mode:screen; opacity:.6; pointer-events:none; animation:float 16s ease-in-out infinite alternate;}
+    .orb.one{ width:42vw;height:42vw; background:radial-gradient(circle at 30% 30%, var(--accent), transparent 60%); top:-12%; left:-14%;}
+    .orb.two{ width:36vw;height:36vw; background:radial-gradient(circle at 70% 60%, var(--cyan), transparent 65%); bottom:-10%; right:-12%; animation-duration:20s;}
+    .orb.three{ width:28vw;height:28vw; background:radial-gradient(circle at 50% 50%, var(--brand), transparent 65%); top:18%; right:38%; animation-duration:18s;}
+    @keyframes float{to{transform:translateY(-30px) translateX(20px) scale(1.05)}}
 
-    .hero-wrap{position:relative; z-index:2; text-align:center; padding-inline:1rem;}
-    .hero-kicker{
-      display:inline-block; padding:.35rem .7rem; border-radius:999px;
-      background:rgba(255,255,255,.12); color:#fff; font-weight:700;
-      letter-spacing:.04em; text-transform:uppercase; font-size:.8rem;
-      box-shadow:inset 0 0 0 1px rgba(255,255,255,.25);
-    }
+    .hero-wrap{position:relative; z-index:2; text-align:center; padding-inline:1rem}
     .headline-lg{
       font-family:var(--display);
-      font-size:clamp(2.6rem,6.2vw,5rem);
-      line-height:1.05; font-weight:800; color:#fff; margin:.8rem 0 1rem;
+      font-size:clamp(2.6rem,6.2vw,5rem); line-height:1.05; font-weight:800; color:#fff; margin:.4rem 0 1rem;
       text-shadow:0 6px 24px rgba(0,0,0,.5);
     }
     .shimmer{
       background:linear-gradient(110deg,#ffffff 10%,#ffe2f0 20%,#ffffff 30%);
-      background-size:200% 100%;
-      -webkit-background-clip:text; background-clip:text; color:transparent;
+      background-size:200% 100%; -webkit-background-clip:text; background-clip:text; color:transparent;
       animation:shine 3.5s ease-in-out infinite;
     }
-    @keyframes shine{ to{ background-position:-200% 0; } }
-    .hero-sub{
-      color:#f2f2f2; max-width:820px; margin:0 auto 1.6rem; font-size:1.15rem;
-      text-shadow:0 2px 12px rgba(0,0,0,.35)
-    }
-    .btn-glow{
-      position:relative;
-      box-shadow:0 10px 30px hsl(330 100% 55% / .45), inset 0 0 0 1px rgba(255,255,255,.15);
-    }
-    .btn-glow::after{
-      content:''; position:absolute; inset:-2px;
-      border-radius:inherit; pointer-events:none;
-      background:radial-gradient(120px 60px at 20% 20%, rgba(255,255,255,.35), transparent 45%);
-      opacity:.7; filter:blur(6px);
-    }
+    @keyframes shine{to{background-position:-200% 0}}
+    .hero-sub{color:#f2f2f2; max-width:880px; margin:0 auto 0; font-size:1.1rem; text-shadow:0 2px 12px rgba(0,0,0,.35)}
 
-    /* ===== Layout: TOC + content ===== */
-    .curriculum-body{display:grid; grid-template-columns:260px 1fr; gap:2rem; align-items:start;}
-    @media(max-width:980px){ .curriculum-body{ grid-template-columns:1fr; } }
+    /* ===== Layout: sticky TOC + content ===== */
+    .curriculum-body{display:grid; grid-template-columns:260px 1fr; gap:2rem; align-items:start}
+    @media(max-width:980px){.curriculum-body{grid-template-columns:1fr}}
 
     .toc{
-      position:sticky; top:92px;
-      background:var(--sheet); backdrop-filter:blur(calc(var(--glass-blur)*.7));
-      border-radius:var(--radius); padding:1rem; box-shadow:var(--shadow-m);
+      position:sticky; top:92px; background:var(--sheet); backdrop-filter:blur(calc(var(--glass-blur)*.7));
+      border-radius:var(--radius); padding:.8rem; box-shadow:var(--shadow-m)
     }
-    .toc h4{ font-family:var(--display); font-size:1.05rem; margin-bottom:.6rem; }
     .toc a{
-      display:block; padding:.5rem .6rem; margin:.2rem 0; border-radius:10px; font-size:.95rem;
-      border:1px solid var(--border1);
-      transition:background .2s, color .2s, border-color .2s;
+      display:block; padding:.55rem .6rem; margin:.2rem 0; border-radius:10px; font-size:.95rem;
+      border:1px solid var(--border1); transition:background .2s, color .2s, border-color .2s
     }
-    .toc a.active{ background:rgba(255,45,152,.12); color:var(--accent); border-color:hsl(330 100% 55% / .35); }
+    .toc a.active{background:rgba(255,45,152,.12); color:var(--accent); border-color:hsl(330 100% 55% / .35)}
 
-    /* ===== Content sections ===== */
+    /* ===== Section cards ===== */
     .fx-card{
       position:relative; overflow:hidden; border-radius:var(--radius);
       background:var(--sheet); box-shadow:var(--shadow-m); padding:2rem;
@@ -93,71 +59,41 @@
       content:''; position:absolute; inset:0; border-radius:inherit; padding:1px;
       background:linear-gradient(140deg, rgba(255,255,255,.5), rgba(0,0,0,.2));
       -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-      -webkit-mask-composite:xor; mask-composite:exclude;
-      pointer-events:none;
+      -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none;
     }
-    .fx-card:hover{ transform:translateY(-8px); box-shadow:0 22px 44px rgba(0,0,0,.18); }
+    .fx-card:hover{transform:translateY(-8px); box-shadow:0 22px 44px rgba(0,0,0,.18)}
 
-    .chips{ display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.6rem;}
-    .chip{
-      padding:.45rem .7rem; border-radius:999px; font-size:.85rem; font-weight:600;
-      background:rgba(0,0,0,.06); border:1px solid var(--border1);
+    /* Animated underline for h2 on enter */
+    .fx-card h2{
+      font-family:var(--display); margin-bottom:.6rem; position:relative; display:inline-block
     }
-    html.dark .chip{ background:rgba(255,255,255,.06); }
+    .fx-card h2 .u{
+      position:absolute; left:0; right:0; bottom:-6px; height:3px; background:linear-gradient(90deg,var(--accent),var(--cyan));
+      transform:scaleX(0); transform-origin:left; border-radius:99px;
+    }
 
-    /* Demo paragraphs */
-    .demo-block{ background:rgba(0,0,0,.04); border:1px dashed var(--border1); border-radius:12px; padding:1rem; margin-top:1rem; }
-    html.dark .demo-block{ background:rgba(255,255,255,.05); }
+    /* Pinned timeline styling */
+    .pinned{position:relative; border-radius:var(--radius); padding:2rem}
+    .step{display:grid; grid-template-columns:36px 1fr; gap:1rem; align-items:start; margin:.8rem 0}
+    .step .dot{width:12px;height:12px;border-radius:50%;background:var(--accent);margin-top:.5rem;box-shadow:0 0 0 6px hsl(330 100% 55% / .18)}
+    .step h5{font-size:1rem;margin:.1rem 0 .2rem}
+    .step p{font-size:.95rem;opacity:.9}
 
-    /* Highlighting demo */
-    .highlight-demo{ line-height:1.85; }
-    .hl-claim{ background:hsla(330,100%,85%,.65); border-radius:6px; padding:0 .2em; }
-    .hl-evidence{ background:hsla(200,90%,80%,.55); border-radius:6px; padding:0 .2em; }
-    .hl-tone{ background:hsla(50,100%,80%,.55); border-radius:6px; padding:0 .2em; }
-    .hl-cause{ background:hsla(140,70%,80%,.55); border-radius:6px; padding:0 .2em; }
+    /* Left progress rail */
+    .rail{position:fixed; left:12px; top:0; bottom:0; width:4px; background:transparent; z-index:100}
+    .rail .bar{position:absolute; left:0; top:0; width:4px; height:0; background:linear-gradient(180deg,var(--accent),var(--cyan)); border-radius:99px}
+    @media(max-width:980px){.rail{display:none}}
 
-    /* Pinned timeline */
-    .pinned{
-      position:relative;
-      background:linear-gradient(180deg, transparent, rgba(0,0,0,.03) 30%, transparent);
-      border-radius:var(--radius); padding:1.4rem;
-    }
-    .step{
-      display:grid; grid-template-columns:36px 1fr; gap:1rem; align-items:start; margin:.8rem 0;
-    }
-    .step .dot{
-      width:12px; height:12px; border-radius:50%;
-      background:var(--accent); margin-top:.5rem; box-shadow:0 0 0 6px hsl(330 100% 55% / .18);
-    }
-    .step h5{ font-size:1rem; margin:.1rem 0 .2rem; }
-    .step p{ font-size:.95rem; opacity:.9; }
-
-    /* Ticket CTA */
-    .ticket-cta{
-      display:flex; gap:1rem; align-items:center; justify-content:flex-start; flex-wrap:wrap;
-      margin-top:.8rem;
-    }
-    .ticket-counter{
-      min-width:88px; display:grid; place-items:center; border-radius:12px; padding:.6rem .8rem;
-      background:linear-gradient(145deg, rgba(255,255,255,.6), rgba(255,255,255,.35));
-      box-shadow:var(--shadow-s); font-weight:800; font-size:1.1rem;
-    }
-    .btn-pink{ background:var(--accent); color:#fff; }
-
-    /* Subtle section labels */
-    .eyebrow{ text-transform:uppercase; letter-spacing:.06em; font-weight:800; font-size:.8rem; opacity:.8; margin-bottom:.2rem; }
-
-    /* SVG divider */
-    .divider{
-      height:36px; margin:24px 0; background:
-        radial-gradient(12px 12px at 50% -8px, rgba(0,0,0,.15), transparent 70%),
-        radial-gradient(12px 12px at 50% 44px, rgba(0,0,0,.12), transparent 70%);
-      mask:linear-gradient(90deg, transparent, #000 20% 80%, transparent);
-      opacity:.25;
-    }
+    .divider{height:24px; opacity:.18; background:
+      radial-gradient(10px 10px at 50% -6px, rgba(0,0,0,.22), transparent 70%),
+      radial-gradient(10px 10px at 50% 34px, rgba(0,0,0,.18), transparent 70%);
+      mask:linear-gradient(90deg, transparent, #000 20% 80%, transparent); margin:16px 0}
   </style>
 </head>
 <body>
+
+  <!-- Left progress rail -->
+  <div class="rail" aria-hidden="true"><div class="bar" id="railBar"></div></div>
 
   <!-- NAV -->
   <header class="glass-nav">
@@ -176,267 +112,115 @@
     </div>
   </header>
 
-  <!-- HERO (uses .hero to be compatible with your global parallax if present) -->
+  <!-- HERO -->
   <section class="hero curriculum-hero">
     <div class="orb one"></div>
     <div class="orb two"></div>
     <div class="orb three"></div>
 
     <div class="hero-wrap container">
-      <span class="hero-kicker">Research-backed • Multisensory • Joyful</span>
       <h1 class="headline-lg">
         Our <span class="shimmer">Curriculum &amp; Approach</span>
       </h1>
       <p class="hero-sub">
-        Clear skill progressions. Multisensory teaching. Rapid, durable gains—without shortcuts.
+        At ActivateEd, every lesson is built on a specially designed curriculum that balances flexibility and structure. We map out clear skill progressions. We meet students where they are. We move them forward rapidly without cutting corners.
       </p>
-      <a href="#content" class="btn primary btn-glow large">See how it works</a>
     </div>
   </section>
 
   <main class="section" id="content">
     <div class="container curriculum-body">
 
-      <!-- Sticky TOC -->
-      <aside class="toc" id="toc">
-        <h4>On this page</h4>
+      <!-- Sticky TOC (links only use your section headings) -->
+      <aside class="toc" id="toc" aria-label="Sections">
         <a href="#multi">Multisensory in nature</a>
         <a href="#color">Color coding that describes</a>
-        <a href="#decode">Fast reading: decoding/encoding</a>
-        <a href="#end">Resolving end-of-word</a>
-        <a href="#rules">“Rule breakers” at the right time</a>
-        <a href="#comp">Knowledge from day one</a>
+        <a href="#decode">Fast reading improvement using decoding/encoding</a>
+        <a href="#end">Resolving the end of word issue</a>
+        <a href="#rules">"Rule breakers" learned at the right time</a>
+        <a href="#knowledge">Knowledge from day one</a>
         <a href="#maps">Mind maps that organize ideas</a>
         <a href="#math">Math that lasts</a>
-        <a href="#tickets">Ticket rewards system</a>
-        <a href="#team">Qualified educators</a>
+        <a href="#tickets">Motivation that builds habits: the Ticket System</a>
+        <a href="#team">A group of qualified educators</a>
       </aside>
 
-      <!-- Content Column -->
+      <!-- Content -->
       <div class="stack" style="display:grid; gap:1.6rem;">
 
-        <!-- Multisensory -->
         <section id="multi" class="fx-card">
-          <div class="eyebrow">Foundation</div>
-          <h2 style="font-family:var(--display); margin-bottom:.6rem;">Multisensory in nature</h2>
-          <p>
-            Students learn most effectively when more than one sense is being used. Our instruction
-            is visual and tactile from the beginning, with auditory reinforcement added. Manipulatives,
-            write and wipe boards, magnetic tiles, and traceable letter paths make abstract concepts
-            concrete. This research based, multisensory methodology consistently strengthens learning
-            and retention.
-          </p>
-
-          <div class="chips" id="chips">
-            <span class="chip">Visual</span>
-            <span class="chip">Tactile</span>
-            <span class="chip">Auditory</span>
-            <span class="chip">Kinesthetic</span>
-          </div>
-
-          <div class="demo-block" style="margin-top:1rem;">
-            <strong>Mini-demo:</strong> hover this card and watch the subtle lift + glow. We use the
-            same idea in lessons: small changes in salience keep attention engaged without overwhelm.
-          </div>
+          <h2>Multisensory in nature <span class="u"></span></h2>
+          <p>Students learn most effectively when more than one sense is being used. Our instruction is visual and tactile from the beginning, with auditory reinforcement added. Manipulatives, write and wipe boards, magnetic tiles, and traceable letter paths make abstract concepts concrete. This research based, multisensory methodology consistently strengthens learning and retention.</p>
         </section>
 
         <div class="divider"></div>
 
-        <!-- Color coding -->
         <section id="color" class="fx-card">
-          <div class="eyebrow">Clarity</div>
-          <h2 style="font-family:var(--display); margin-bottom:.6rem;">Color coding that describes</h2>
-          <p>
-            We apply uniform color systems in order to minimize cognitive load and make patterns
-            stand out. Sounds, types of syllables, parts of speech, steps in a strategy, and
-            problem structures all receive their own color family. Students are able to “see”
-            structure at a glance and later recall it with less effort.
-          </p>
-          <div class="chips" id="legend">
-            <span class="chip" style="background:hsla(330,100%,85%,.6)">Vowel sounds</span>
-            <span class="chip" style="background:hsla(200,90%,80%,.6)">Consonant blends</span>
-            <span class="chip" style="background:hsla(50,100%,75%,.65)">Parts of speech</span>
-            <span class="chip" style="background:hsla(140,70%,78%,.6)">Steps in a strategy</span>
-          </div>
+          <h2>Color coding that describes <span class="u"></span></h2>
+          <p>We apply uniform color systems in order to minimize cognitive load and make patterns stand out. Sounds, types of syllables, parts of speech, steps in a strategy, and problem structures all receive their own color family. Students are able to "see" structure at a glance and later recall it with less effort.</p>
         </section>
 
         <div class="divider"></div>
 
-        <!-- Decoding/Encoding (Pinned timeline) -->
         <section id="decode" class="fx-card pinned">
-          <div class="eyebrow">Acceleration</div>
-          <h2 style="font-family:var(--display); margin-bottom:.6rem;">Fast reading improvement using decoding/encoding</h2>
-          <p>Our unique method instructs reading and spelling together so transfer sticks.</p>
-
+          <h2>Fast reading improvement using decoding/encoding <span class="u"></span></h2>
+          <p>Our unique method instructs reading and spelling together. Not only do students decode words, but they encode them as well. This accelerates transfer from discrete practice to reading and writing.</p>
+          <!-- Pinned timeline: no extra copy beyond your wording -->
           <div id="timeline">
-            <div class="step">
-              <div class="dot"></div>
-              <div>
-                <h5>Sound → symbol</h5>
-                <p>Build clean mappings with targeted phonemic drills.</p>
-              </div>
-            </div>
-            <div class="step">
-              <div class="dot"></div>
-              <div>
-                <h5>Blend ↔ segment</h5>
-                <p>Practice both directions to wire decoding and encoding together.</p>
-              </div>
-            </div>
-            <div class="step">
-              <div class="dot"></div>
-              <div>
-                <h5>Immediate application</h5>
-                <p>Move into text and spelling tasks right away for transfer.</p>
-              </div>
-            </div>
-            <div class="step">
-              <div class="dot"></div>
-              <div>
-                <h5>Fluency lift</h5>
-                <p>Brief, joyful drills make accuracy automatic and quick.</p>
-              </div>
-            </div>
+            <div class="step"><div class="dot"></div><div><h5>Sound → symbol</h5><p>Targeted phonemic drills.</p></div></div>
+            <div class="step"><div class="dot"></div><div><h5>Blend ↔ segment</h5><p>Wire both directions.</p></div></div>
+            <div class="step"><div class="dot"></div><div><h5>Apply in text</h5><p>Immediate practice.</p></div></div>
+            <div class="step"><div class="dot"></div><div><h5>Fluency</h5><p>Brief, joyful reps.</p></div></div>
           </div>
         </section>
 
         <div class="divider"></div>
 
-        <!-- End-of-word -->
         <section id="end" class="fx-card">
-          <div class="eyebrow">Precision</div>
-          <h2 style="font-family:var(--display); margin-bottom:.6rem;">Resolving the end of word issue</h2>
-          <p>
-            Most early readers lose energy before the end sounds. We tackle this head on. Short,
-            high repetition drills sharpen phonemic awareness and have students hold all sounds
-            through the last letter. We do exact blending and segmenting practice, then develop
-            memory for word end clusters so texts are read to the end.
-          </p>
-          <div class="demo-block" id="endDemo">
-            <span style="font-weight:800">jump</span> →
-            <span id="endWord" style="font-weight:800">jum<span style="opacity:.3">p</span></span>
-            <small style="opacity:.8"> (scroll here to snap the final sound into focus)</small>
-          </div>
+          <h2>Resolving the end of word issue <span class="u"></span></h2>
+          <p>Most early readers lose energy before the end sounds. We tackle this head on. Short, high repetition drills sharpen phonemic awareness and have students hold all sounds through the last letter. We do exact blending and segmenting practice, then develop memory for word end clusters so texts are read to the end.</p>
         </section>
 
         <div class="divider"></div>
 
-        <!-- Rule-breakers -->
         <section id="rules" class="fx-card">
-          <div class="eyebrow">Timing</div>
-          <h2 style="font-family:var(--display); margin-bottom:.6rem;">“Rule breakers” learned at the right time</h2>
-          <p>
-            Irregular words (“was,” “said,” “one”) follow later when foundations are automatic. We
-            first gain mastery of totally decodable words (“bat,” “ship,” “jump”). Then, and only
-            then, do we introduce rule breakers with clear visual marking and memory cues, avoiding
-            confusion and guess reading.
-          </p>
-          <div class="chips">
-            <span class="chip">bat ▶ <strong>decodable</strong></span>
-            <span class="chip">ship ▶ <strong>decodable</strong></span>
-            <span class="chip" style="background:hsla(330,100%,85%,.6)">was ▶ “a”→/ʌ/ cue</span>
-            <span class="chip" style="background:hsla(330,100%,85%,.6)">said ▶ “ai”→/ɛ/ cue</span>
-          </div>
+          <h2>"Rule breakers" learned at the right time <span class="u"></span></h2>
+          <p>Irregular words ("was," "said," "one") follow later when foundations are automatic. We first gain mastery of totally decodable words ("bat," "ship," "jump"). Then, and only then, do we introduce rule breakers with clear visual marking and memory cues, avoiding confusion and guess reading.</p>
         </section>
 
         <div class="divider"></div>
 
-        <!-- Comprehension / Highlighting demo -->
-        <section id="comp" class="fx-card">
-          <div class="eyebrow">Comprehension</div>
-          <h2 style="font-family:var(--display); margin-bottom:.6rem;">Knowledge from day one</h2>
-          <p>
-            We teach upper level comprehension skills side by side with decoding. Students learn to
-            monitor purpose, predict structure, and track meaning while reading. We use purposeful
-            highlighting to move beyond underlining “introduction, main idea, conclusion.” Color cues
-            differentiate claims, evidence, tone shifts, and cause/effect chains so thinking is
-            visible on the page.
-          </p>
-          <div class="demo-block highlight-demo">
-            <span class="hl-claim">Claim:</span> Practice that interleaves
-            <span class="hl-cause">decoding</span> with
-            <span class="hl-cause">encoding</span> builds faster transfer. <span class="hl-evidence">Evidence:</span>
-            Learners retain more when both directions are trained. <span class="hl-tone">Tone shift:</span> The key is
-            brief, joyful reps—not marathon drills.
-          </div>
+        <section id="knowledge" class="fx-card">
+          <h2>Knowledge from day one <span class="u"></span></h2>
+          <p>We teach upper level comprehension skills side by side with decoding. Students learn to monitor purpose, predict structure, and track meaning while reading. We use purposeful highlighting to move beyond underlining "introduction, main idea, conclusion." Color cues differentiate claims, evidence, tone shifts, and cause/effect chains so thinking is visible on the page.</p>
         </section>
 
         <div class="divider"></div>
 
-        <!-- Thinking maps -->
         <section id="maps" class="fx-card">
-          <div class="eyebrow">Organization</div>
-          <h2 style="font-family:var(--display); margin-bottom:.6rem;">Mind maps that organize ideas</h2>
-          <p>
-            Idea maps, sequence charts, compare/contrast matrices, and cause-effect chains help
-            students plan writing and discuss texts with precision. Over time, these maps become
-            internal checklists that students can run through in their heads, even without paper.
-          </p>
-          <div class="chips">
-            <span class="chip">Sequence →</span>
-            <span class="chip">Compare/Contrast ⇄</span>
-            <span class="chip">Cause/Effect ⤻</span>
-            <span class="chip">Problem/Solution ✓</span>
-          </div>
+          <h2>Mind maps that organize ideas <span class="u"></span></h2>
+          <p>Idea maps, sequence charts, compare/contrast matrices, and cause-effect chains help students plan writing and discuss texts with precision. Over time, these maps become internal checklists that students can run through in their heads, even without paper.</p>
         </section>
 
         <div class="divider"></div>
 
-        <!-- Math -->
         <section id="math" class="fx-card">
-          <div class="eyebrow">Concrete → Abstract</div>
-          <h2 style="font-family:var(--display); margin-bottom:.6rem;">Math that lasts</h2>
-          <p>
-            Math is not abstract here. We begin with manipulative representations, then transition.
-            For example: money is a common anchor since it's real world and intuitive, so we use it.
-            We still drill, since fluency is important, but we ensure “old school” drilling is
-            enjoyable through games and immediate feedback.
-          </p>
-          <div class="demo-block" id="coins" aria-label="Coin demo">$ <span id="sum">0.00</span></div>
+          <h2>Math that lasts <span class="u"></span></h2>
+          <p>Math is not abstract here. We begin with manipulative representations, then transition. For example: money is a common anchor since it's real world and intuitive, so we use it. We still drill, since fluency is important, but we ensure "old school" drilling is enjoyable through games and immediate feedback.</p>
         </section>
 
         <div class="divider"></div>
 
-        <!-- Tickets -->
         <section id="tickets" class="fx-card">
-          <div class="eyebrow">Motivation</div>
-          <h2 style="font-family:var(--display); margin-bottom:.6rem;">Motivation that builds habits: the Ticket System</h2>
-          <p>
-            Students earn tickets throughout the lesson for accuracy, resilience, and focus. Tickets
-            can be exchanged for prizes right away or saved for bigger rewards later. This simple
-            economy teaches goal setting, delayed gratification, and consistent effort. These skills
-            transfer beyond academics.
-          </p>
-          <div class="ticket-cta">
-            <div class="ticket-counter"><span id="ticketsCount">0</span> 🎟️</div>
-            <button class="btn btn-pink" id="earn">Earn a ticket</button>
-            <button class="btn ghost" id="cash">Make it rain</button>
-          </div>
+          <h2>Motivation that builds habits: the Ticket System <span class="u"></span></h2>
+          <p>Students earn tickets throughout the lesson for accuracy, resilience, and focus. Tickets can be exchanged for prizes right away or saved for bigger rewards later. This simple economy teaches goal setting, delayed gratification, and consistent effort. These skills transfer beyond academics.</p>
         </section>
 
         <div class="divider"></div>
 
-        <!-- Team -->
         <section id="team" class="fx-card">
-          <div class="eyebrow">Pedagogy</div>
-          <h2 style="font-family:var(--display); margin-bottom:.6rem;">A group of qualified educators</h2>
-          <p>
-            Our tutors are all qualified teachers trained in our curriculum and approach. We have
-            common lesson frameworks, progressions, and materials. Our quality is always high.
-          </p>
-          <div class="chips">
-            <span class="chip">Certified Teachers</span>
-            <span class="chip">Ongoing Coaching</span>
-            <span class="chip">Shared Materials</span>
-            <span class="chip">Consistent Quality</span>
-          </div>
-        </section>
-
-        <!-- CTA -->
-        <section class="fx-card" style="text-align:center">
-          <h3 style="font-family:var(--display); margin-bottom:.3rem;">Want this for your child?</h3>
-          <p class="subhead" style="opacity:.9; margin-bottom:1rem;">Let us map a personalized plan in a free consult.</p>
-          <a href="contact.html" class="btn primary large btn-glow">Book a free consult</a>
+          <h2>A group of qualified educators <span class="u"></span></h2>
+          <p>Our tutors are all qualified teachers trained in our curriculum and approach. We have common lesson frameworks, progressions, and materials. Our quality is always high.</p>
         </section>
 
       </div>
@@ -448,47 +232,47 @@
     <div class="footer-inner container">
       <span>© 2025 ActivateEd</span>
       <ul class="socials">
-        <li><a href="#"><img src="images/x-logo.png"         alt="X"></a></li>
-        <li><a href="#"><img src="images/facebook-logo.png"  alt="Facebook"></a></li>
+        <li><a href="#"><img src="images/x-logo.png" alt="X"></a></li>
+        <li><a href="#"><img src="images/facebook-logo.png" alt="Facebook"></a></li>
         <li><a href="#"><img src="images/Instagram_icon.png" alt="Instagram"></a></li>
       </ul>
     </div>
   </footer>
 
-  <!-- Back to top (your global JS supports this) -->
+  <!-- Back-to-top -->
   <button id="toTop" aria-label="Back to top">↑</button>
 
-  <!-- Vendor JS (same stack as site) -->
+  <!-- Vendor JS -->
   <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
   <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/gsap@3/dist/TextPlugin.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
-  <!-- Your global site JS (safe if you used the resilient version we added) -->
+  <!-- Site JS -->
   <script src="script.js"></script>
 
-  <!-- Page-specific JS (isolated; won’t break other pages) -->
+  <!-- Page-specific JS -->
   <script>
-    // Guard: only run if this is the curriculum page
     (function(){
       if(!document.querySelector('.curriculum-hero')) return;
-
       gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
-      // Stagger in hero kicker + headline + button
-      gsap.from('.hero-kicker', {y:20, opacity:0, duration:.6, ease:'power2.out', delay:.1});
-      gsap.from('.headline-lg', {y:16, opacity:0, duration:.7, ease:'power2.out', delay:.2});
-      gsap.from('.btn-glow', {y:18, opacity:0, duration:.6, ease:'power2.out', delay:.25});
+      // Hero entrance
+      gsap.from('.headline-lg', {y:18, opacity:0, duration:.7, ease:'power2.out', delay:.1});
+      gsap.from('.hero-sub',    {y:16, opacity:0, duration:.6, ease:'power2.out', delay:.2});
 
-      // Animate chips when they come into view
-      gsap.utils.toArray('#chips .chip, #legend .chip').forEach((chip, i)=>{
+      // Section underline + card rise on enter
+      gsap.utils.toArray('.fx-card').forEach(card=>{
+        const u = card.querySelector('.u');
         ScrollTrigger.create({
-          trigger: chip, start: 'top 80%',
-          onEnter: ()=> gsap.fromTo(chip, {y:10, opacity:0}, {y:0, opacity:1, duration:.35, ease:'power2.out', delay: (i%6)*.03})
+          trigger: card, start: 'top 80%',
+          onEnter: ()=>{
+            gsap.fromTo(card, {y:18, opacity:0}, {y:0, opacity:1, duration:.45, ease:'power2.out'});
+            if(u) gsap.to(u, {scaleX:1, duration:.6, ease:'power3.out'});
+          }
         });
       });
 
-      // Sticky TOC link active state
+      // Sticky TOC highlight
       const tocLinks = Array.from(document.querySelectorAll('#toc a'));
       tocLinks.forEach(a=>{
         const id = a.getAttribute('href');
@@ -497,70 +281,30 @@
         ScrollTrigger.create({
           trigger: sec, start:'top center', end:'bottom center',
           onToggle: self=>{
-            if(self.isActive){
-              tocLinks.forEach(x=>x.classList.remove('active'));
-              a.classList.add('active');
-            }
+            if(self.isActive){ tocLinks.forEach(x=>x.classList.remove('active')); a.classList.add('active'); }
           }
         });
       });
 
-      // Pinned timeline steps animate as you scroll
+      // Pinned decode/encode timeline (no extra copy)
       const pinBox = document.querySelector('#decode.pinned');
       if(pinBox){
-        ScrollTrigger.create({
-          trigger: pinBox, start: 'top 120px', end: '+=600', pin: true, pinSpacing: true
-        });
-        gsap.utils.toArray('#timeline .step').forEach((step, idx)=>{
-          gsap.from(step, {
-            opacity:0, x:-20, duration:.45, ease:'power2.out',
-            scrollTrigger: { trigger: step, start:'top 80%' }
-          });
+        ScrollTrigger.create({ trigger: pinBox, start: 'top 120px', end: '+=600', pin: true, pinSpacing: true });
+        gsap.utils.toArray('#timeline .step').forEach(step=>{
+          gsap.from(step, {opacity:0, x:-20, duration:.45, ease:'power2.out', scrollTrigger:{trigger:step, start:'top 80%'}});
         });
       }
 
-      // End-of-word demo: emphasize final sound on enter
-      const ew = document.getElementById('endWord');
-      if(ew){
-        ScrollTrigger.create({
-          trigger: '#endDemo', start: 'top 80%', once:true,
-          onEnter: ()=>{
-            const last = ew.querySelector('span');
-            if(last){
-              gsap.to(last, {opacity:1, duration:.35, ease:'power2.out'});
-              gsap.fromTo(ew, {scale:1}, {scale:1.04, yoyo:true, repeat:1, duration:.12});
-            }
-          }
-        });
-      }
+      // Left progress rail
+      const rail = document.getElementById('railBar');
+      const docH = () => document.body.scrollHeight - innerHeight;
+      const setRail = () => rail.style.height = `${Math.min(100, (scrollY / Math.max(1,docH()))*100)}%`;
+      addEventListener('scroll', setRail, {passive:true}); setRail();
 
-      // Math "coins" demo – quick sum bump
-      const sumEl = document.getElementById('sum');
-      if(sumEl){
-        let val = 0;
-        const add = (n)=>{ val = +(val + n).toFixed(2); sumEl.textContent = val.toFixed(2); };
-        ScrollTrigger.create({ trigger:'#math', start:'top 80%', once:true, onEnter:()=>{
-          add(.25); setTimeout(()=>add(.25), 200); setTimeout(()=>add(.5), 400); setTimeout(()=>add(1), 700);
-        }});
-      }
-
-      // Tickets demo
-      const earn = document.getElementById('earn');
-      const cash = document.getElementById('cash');
-      const tCount = document.getElementById('ticketsCount');
-      let tickets = 0;
-      const celebrate = (n=120)=> confetti({ particleCount:n, spread:70, origin:{ y:0.72 } });
-
-      earn?.addEventListener('click', ()=>{
-        tickets++; tCount.textContent = tickets;
-        gsap.fromTo(tCount, {scale:1.1}, {scale:1, duration:.25, ease:'back.out(3)'});
-      });
-      cash?.addEventListener('click', ()=> celebrate(160));
-
-      // Subtle parallax on orbs
-      gsap.to('.orb.one',  {xPercent:  8, yPercent:-6, scrollTrigger:{scrub:1}});
-      gsap.to('.orb.two',  {xPercent: -6, yPercent: 8, scrollTrigger:{scrub:1}});
-      gsap.to('.orb.three',{xPercent:  4, yPercent: 4, scrollTrigger:{scrub:1}});
+      // Subtle parallax for hero orbs
+      gsap.to('.orb.one',   {xPercent: 8,  yPercent:-6, scrollTrigger:{scrub:1}});
+      gsap.to('.orb.two',   {xPercent:-6,  yPercent: 8, scrollTrigger:{scrub:1}});
+      gsap.to('.orb.three', {xPercent: 4,  yPercent: 4, scrollTrigger:{scrub:1}});
     })();
   </script>
 </body>
