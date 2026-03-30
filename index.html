@@ -5,15 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ActivateEd</title>
   <meta name="description" content="Personalized tutoring and immersive courses for every grade and every goal. Explore services, parent stories, and our research-based curriculum." />
-
-  <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css" />
-
-  <!-- Main Styles -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- HEADER / NAV -->
   <header class="glass-nav">
     <div class="nav-wrap container">
       <a href="index.html" class="brand logo" aria-label="ActivateEd Home">Activate<span>Ed</span></a>
@@ -34,7 +29,6 @@
   </header>
 
   <main>
-    <!-- HERO -->
     <section id="hero" class="hero reveal" aria-labelledby="hero-title">
       <div class="hero-inner container">
         <h1 id="hero-title" class="headline">
@@ -47,7 +41,6 @@
       </div>
     </section>
 
-    <!-- SERVICES PREVIEW -->
     <section id="services" class="hero-simple reveal" aria-labelledby="services-title">
       <div class="container">
         <h2 class="section-title" id="services-title">Our Services</h2>
@@ -56,18 +49,16 @@
         </p>
 
         <div class="grid cards" role="list">
-          <!-- Active Learning -->
           <article class="card pop reveal" role="listitem">
             <img src="images/activelearning.png" alt="Active Learning icon" loading="lazy" />
             <h3>Active Learning</h3>
             <p>
               In-home, one-to-one tutoring for elementary students in reading, writing, and
-              mathematics—tailored lessons that make learning engaging and effective.
+              mathematics-tailored lessons that make learning engaging and effective.
             </p>
             <a href="services.html#activelearning" class="arrow-link underline" aria-label="Learn more about Active Learning">Learn more →</a>
           </article>
 
-          <!-- Middle School Mastery -->
           <article class="card pop reveal" role="listitem">
             <img src="images/middle school.png" alt="Middle School Mastery icon" loading="lazy" />
             <h3>Middle School Mastery</h3>
@@ -78,18 +69,16 @@
             <a href="services.html#middleschool" class="arrow-link underline" aria-label="Learn more about Middle School Mastery">Learn more →</a>
           </article>
 
-          <!-- High School Success -->
           <article class="card pop reveal" role="listitem">
             <img src="images/highschool.png" alt="High School Success icon" loading="lazy" />
             <h3>High School Success</h3>
             <p>
               Personalized academic coaching in every subject, Regents review, and
-              AP-exam support for grades 9–12.
+              AP-exam support for grades 9-12.
             </p>
             <a href="services.html#highschool" class="arrow-link underline" aria-label="Learn more about High School Success">Learn more →</a>
           </article>
 
-          <!-- Elite College Test Prep -->
           <article class="card pop reveal" role="listitem">
             <img src="images/testprep.png" alt="Elite College Test Prep icon" loading="lazy" />
             <h3>Elite College Test Prep</h3>
@@ -103,7 +92,6 @@
       </div>
     </section>
 
-    <!-- CURRICULUM TEASER -->
     <section id="curriculum" class="hero-simple reveal" aria-labelledby="curriculum-title">
       <div class="container" style="text-align:center">
         <h2 class="section-title" id="curriculum-title">Our Curriculum</h2>
@@ -112,7 +100,56 @@
       </div>
     </section>
 
-    <!-- TESTIMONIALS PREVIEW -->
+    <section id="instruction-highlights" class="hero-simple reveal" aria-labelledby="instruction-highlights-title">
+      <div class="container">
+        <h2 class="section-title" id="instruction-highlights-title">Learning in Action</h2>
+        <p class="subhead" style="text-align:center; max-width:800px; margin:0 auto 2rem;">
+          A glimpse into the personalized support, motivation, and hands-on systems that help our students grow.
+        </p>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:1.5rem;">
+          <figure class="card pop reveal" style="overflow:hidden; margin:0;">
+            <img
+              src="images/image1.png"
+              alt="Student choosing a prize with earned tickets"
+              loading="lazy"
+              style="width:100%; height:260px; object-fit:cover; display:block;"
+            />
+            <figcaption style="padding:1rem 1.1rem 1.2rem;">
+              <h3 style="margin:0 0 0.5rem;">Motivation Through Meaningful Rewards</h3>
+              <p style="margin:0;">Students can save tickets and trade them in for prizes, making progress feel exciting and tangible.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="card pop reveal" style="overflow:hidden; margin:0;">
+            <img
+              src="images/image2.png"
+              alt="Student working independently on a worksheet"
+              loading="lazy"
+              style="width:100%; height:260px; object-fit:cover; display:block;"
+            />
+            <figcaption style="padding:1rem 1.1rem 1.2rem;">
+              <h3 style="margin:0 0 0.5rem;">Focused One-to-One Instruction</h3>
+              <p style="margin:0;">Each session is tailored to the student, with direct support that builds confidence and mastery step by step.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="card pop reveal" style="overflow:hidden; margin:0;">
+            <img
+              src="images/image3.png"
+              alt="Student organizing earned reward tickets"
+              loading="lazy"
+              style="width:100%; height:260px; object-fit:cover; display:block;"
+            />
+            <figcaption style="padding:1rem 1.1rem 1.2rem;">
+              <h3 style="margin:0 0 0.5rem;">A Ticket System That Encourages Effort</h3>
+              <p style="margin:0;">Our ticket reward system helps students work toward goals, stay engaged, and take pride in their progress.</p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
     <section id="testimonials" class="testimonials reveal" aria-labelledby="stories-title">
       <h2 class="section-title container" id="stories-title">Parent Stories</h2>
 
@@ -120,20 +157,20 @@
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <blockquote>
-              “Activate Education has been a game-changer for our family. The tutors are patient and truly engage with each child at their level. Communication is clear and regular, so I always know how my daughter is progressing. Her confidence and grades have steadily improved since she started. I can’t recommend Activate Education enough!”
-              <cite>— Samantha R.</cite>
+              "Activate Education has been a game-changer for our family. The tutors are patient and truly engage with each child at their level. Communication is clear and regular, so I always know how my daughter is progressing. Her confidence and grades have steadily improved since she started. I can't recommend Activate Education enough!"
+              <cite>- Samantha R.</cite>
             </blockquote>
           </div>
           <div class="swiper-slide">
             <blockquote>
-              “We’re so grateful to have found Liz and her team. My kid was more than a full year behind grade level in reading at the end of first grade, and super resistant to practice because it was so hard for him and he felt like a failure. A year on, he is virtually at grade level (ie, made two years’ progress in one). The sessions are fun and playful, with short intense blocks of work tailored to his specific needs, and broken up with rest and rewards (great for ADHD kids!). I’m so relieved and grateful for the expertise and support he has had. Highly recommended!!”
-              <cite>— Gillian S.</cite>
+              "We're so grateful to have found Liz and her team. My kid was more than a full year behind grade level in reading at the end of first grade, and super resistant to practice because it was so hard for him and he felt like a failure. A year on, he is virtually at grade level (ie, made two years' progress in one). The sessions are fun and playful, with short intense blocks of work tailored to his specific needs, and broken up with rest and rewards (great for ADHD kids!). I'm so relieved and grateful for the expertise and support he has had. Highly recommended!!"
+              <cite>- Gillian S.</cite>
             </blockquote>
           </div>
           <div class="swiper-slide">
             <blockquote>
-              “Our son has been with Activate Education’s tutor for several years now, during which his reading and writing ability and confidence has improved immensely. We cannot recommend Activate enough. Liz is the best at what she does. Highly recommended.”
-              <cite>— Dalmau G.</cite>
+              "Our son has been with Activate Education's tutor for several years now, during which his reading and writing ability and confidence has improved immensely. We cannot recommend Activate enough. Liz is the best at what she does. Highly recommended."
+              <cite>- Dalmau G.</cite>
             </blockquote>
           </div>
         </div>
@@ -146,7 +183,6 @@
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer-inner">
       <div>© 2025 ActivateEd</div>
@@ -158,17 +194,13 @@
     </div>
   </footer>
 
-  <!-- Vendor JS -->
   <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
   <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/gsap@3/dist/TextPlugin.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
-
-  <!-- Main JS -->
   <script src="script.js"></script>
 
-  <!-- Back-to-top (JS already handles visibility) -->
   <button id="toTop" aria-label="Back to top">↑</button>
 </body>
 </html>
