@@ -13,13 +13,13 @@
     <div class="nav-wrap container">
       <a href="index.html" class="brand logo">Activate<span>Ed</span></a>
       <button id="burger" aria-label="Menu"><span></span></button>
-      <nav class="desktop-nav">
+      <nav class="desktop-nav" id="mainNav" aria-label="Primary">
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
         <a href="approach.html">Curriculum</a>
         <a href="stories.html">Stories</a>
-        <a href="gallery.html">Gallery</a>
-        <a class="active" href="contact.html">Contact</a>
+        <a class="active" href="gallery.html" aria-current="page">Gallery</a>
+        <a href="contact.html">Contact</a>
       </nav>
       <button id="themeToggle" aria-label="Toggle Theme">🌙</button>
     </div>
@@ -36,22 +36,32 @@
   <!-- IMAGE-ONLY GALLERY -->
   <section class="section">
     <div class="container gallery-grid">
-      <figure><img src="images/gallery-01.jpg" loading="lazy" alt="Student highlighting a paragraph-planning organizer"></figure>
-      <figure><img src="images/gallery-02.jpg" loading="lazy" alt="Student building numbers with foam manipulatives"></figure>
-      <figure><img src="images/gallery-03.jpg" loading="lazy" alt="Student writing a thank-you note on scratch paper"></figure>
-      <figure><img src="images/gallery-04.jpg" loading="lazy" alt="Place-value cards laid out beside a math workbook"></figure>
-      <figure><img src="images/gallery-05.jpg" loading="lazy" alt="Student drafting a paragraph from a main-idea organizer"></figure>
-      <figure><img src="images/gallery-06.jpg" loading="lazy" alt="Student working a word problem alongside a laptop lesson"></figure>
-      <figure><img src="images/gallery-07.jpg" loading="lazy" alt="Student holding up two completed reading benchmark passages"></figure>
-      <figure><img src="images/gallery-08.jpg" loading="lazy" alt="Student ordering wooden numerals on the floor"></figure>
-      <figure><img src="images/gallery-09.jpg" loading="lazy" alt="Student sequencing number blocks outdoors"></figure>
-      <figure><img src="images/gallery-10.jpg" loading="lazy" alt="Student playing a sight-word board game"></figure>
-      <figure><img src="images/gallery-11.jpg" loading="lazy" alt="Student forming letters in shaving cream on a tray"></figure>
-      <figure><img src="images/gallery-12.jpg" loading="lazy" alt="Vocabulary cards spread out during a reading session"></figure>
-      <figure><img src="images/gallery-13.jpg" loading="lazy" alt="Student working through a problem set at an outdoor table"></figure>
-      <figure><img src="images/gallery-14.jpg" loading="lazy" alt="Student annotating a multi-step math problem with highlighters"></figure>
+      <figure><button class="tile" type="button"><img src="images/gallery-01.jpg" loading="lazy" alt="Student highlighting a paragraph-planning organizer"></button></figure>
+      <figure><button class="tile" type="button"><img src="images/gallery-02.jpg" loading="lazy" alt="Student building numbers with foam manipulatives"></button></figure>
+      <figure><button class="tile" type="button"><img src="images/gallery-03.jpg" loading="lazy" alt="Student writing a thank-you note on scratch paper"></button></figure>
+      <figure><button class="tile" type="button"><img src="images/gallery-04.jpg" loading="lazy" alt="Place-value cards laid out beside a math workbook"></button></figure>
+      <figure><button class="tile" type="button"><img src="images/gallery-05.jpg" loading="lazy" alt="Student drafting a paragraph from a main-idea organizer"></button></figure>
+      <figure><button class="tile" type="button"><img src="images/gallery-06.jpg" loading="lazy" alt="Student working a word problem alongside a laptop lesson"></button></figure>
+      <figure><button class="tile" type="button"><img src="images/gallery-07.jpg" loading="lazy" alt="Student holding up two completed reading benchmark passages"></button></figure>
+      <figure><button class="tile" type="button"><img src="images/gallery-08.jpg" loading="lazy" alt="Student ordering wooden numerals on the floor"></button></figure>
+      <figure><button class="tile" type="button"><img src="images/gallery-09.jpg" loading="lazy" alt="Student sequencing number blocks outdoors"></button></figure>
+      <figure><button class="tile" type="button"><img src="images/gallery-10.jpg" loading="lazy" alt="Student playing a sight-word board game"></button></figure>
+      <figure><button class="tile" type="button"><img src="images/gallery-11.jpg" loading="lazy" alt="Student forming letters in shaving cream on a tray"></button></figure>
+      <figure><button class="tile" type="button"><img src="images/gallery-12.jpg" loading="lazy" alt="Vocabulary cards spread out during a reading session"></button></figure>
+      <figure><button class="tile" type="button"><img src="images/gallery-13.jpg" loading="lazy" alt="Student working through a problem set at an outdoor table"></button></figure>
+      <figure><button class="tile" type="button"><img src="images/gallery-14.jpg" loading="lazy" alt="Student annotating a multi-step math problem with highlighters"></button></figure>
     </div>
   </section>
+
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
+    <button class="lb-btn lb-close" id="lbClose" type="button" aria-label="Close">&times;</button>
+    <button class="lb-btn lb-prev"  id="lbPrev"  type="button" aria-label="Previous photo">&#8249;</button>
+    <img id="lbImg" src="" alt="">
+    <button class="lb-btn lb-next"  id="lbNext"  type="button" aria-label="Next photo">&#8250;</button>
+    <p class="lb-count" id="lbCount"></p>
+  </div>
 
   <!-- FOOTER -->
   <footer class="footer">
@@ -67,5 +77,6 @@
 
   <!-- Main JS -->
   <script src="script.js"></script>
+  <script src="gallery.js"></script>
 </body>
 </html>
