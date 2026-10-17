@@ -176,19 +176,11 @@ a.underline:hover::after{width:100%}
    8. Testimonials
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
 .testimonials{background:var(--bg);padding:5rem 0}
-.testimonials .swiper{
-  padding-bottom:3.5rem;position:relative;text-align:center
-}
 blockquote{
   font-size:clamp(1.15rem,3vw,1.45rem);line-height:1.45;font-weight:500;
   color:var(--fg);max-width:720px;margin:auto
 }
 blockquote cite{display:block;margin-top:.8rem;font-style:normal;font-weight:600;color:var(--brand)}
-.swiper-pagination{
-  position:absolute;left:0;right:0;bottom:1rem;text-align:center
-}
-.swiper-pagination-bullet{background:var(--brand);opacity:.6;margin:0 .25rem}
-.swiper-pagination-bullet-active{opacity:1}
 
 /*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    9. Contact form
@@ -386,38 +378,66 @@ blockquote cite{display:block;margin-top:.8rem;font-style:normal;font-weight:600
 
 /*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    Google reviews
+   Laid out like a review listing: avatar, name, stars, then the text.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
-.stars{color:var(--accent);letter-spacing:.1em;font-size:1.05rem;line-height:1}
-.google-rating{text-align:center;margin:-.25rem 0 1.5rem;font-size:.95rem}
+.g-stars{color:#f5b400;letter-spacing:.06em;font-size:1rem;line-height:1}
+
+/* Home: rating line under the heading */
+.google-rating{text-align:center;margin:-.25rem 0 2rem;font-size:.95rem}
 .google-rating a{color:var(--fg);opacity:.85}
 .google-rating a:hover{opacity:1;text-decoration:underline}
-.google-rating .stars{margin-right:.35rem}
+.google-rating .g-stars{margin-right:.35rem}
 
+/* Stories: rating summary */
 .reviews-section{padding-top:1rem}
 .rating-summary{
-  display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:1rem 1.5rem;
-  margin:0 auto 2.5rem;padding:1.5rem 2rem;max-width:720px;
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:1rem 1.75rem;
+  margin:0 auto 1rem;padding:1.5rem 2rem;max-width:780px;
   background:var(--sheet);border:1px solid var(--border1);border-radius:var(--radius);
 }
-.rating-score{font-family:var(--display);font-size:3rem;font-weight:700;line-height:1;color:var(--fg)}
-.rating-summary .stars{font-size:1.4rem}
+.rating-score{font-family:var(--display);font-size:3.2rem;font-weight:700;line-height:1;color:var(--fg)}
+.rating-detail .g-stars{font-size:1.45rem}
 .rating-count{margin-top:.35rem;font-size:.95rem;opacity:.8}
-.rating-summary .btn{padding:.7rem 1.4rem;font-size:.95rem}
+.rating-actions{display:flex;flex-wrap:wrap;gap:.6rem}
+.rating-actions .btn,.review-cta .btn{padding:.7rem 1.3rem;font-size:.95rem}
+.review-source{text-align:center;font-size:.88rem;opacity:.7;max-width:620px;margin:0 auto 2.25rem}
 
-/* Column layout so cards of different lengths stack without gaps */
-.review-grid{columns:3 300px;column-gap:1.25rem}
+/* Review card */
 .review-card{
-  break-inside:avoid;
-  margin:0 0 1.25rem;padding:1.5rem 1.6rem;
+  margin:0;padding:1.35rem 1.5rem 1.5rem;
   background:var(--sheet);border:1px solid var(--border1);border-radius:var(--radius);
-  box-shadow:var(--shadow-s);
+  box-shadow:var(--shadow-s);text-align:left;
 }
-.review-card blockquote{
-  margin:.8rem 0 1rem;max-width:none;
-  font-size:1rem;font-weight:400;line-height:1.6;text-align:left;
+.review-card header{display:flex;align-items:center;gap:.8rem;margin-bottom:.85rem}
+.review-card header strong{display:block;font-size:.98rem;line-height:1.3}
+.review-meta{display:flex;align-items:center;gap:.4rem;font-size:.8rem;opacity:.75;margin-top:.15rem}
+.review-meta .g-stars{font-size:.9rem;opacity:1}
+.review-card p{font-size:.97rem;line-height:1.6}
+.avatar{
+  flex:none;width:2.5rem;height:2.5rem;border-radius:50%;
+  display:grid;place-items:center;font-weight:600;font-size:1.05rem;color:#fff;
 }
-.review-card figcaption{display:flex;flex-direction:column;font-size:.92rem}
-.review-card figcaption span{font-size:.82rem;opacity:.65}
+/* logo colours, darkened enough for white initials */
+.av-0{background:#123e70}.av-1{background:#b8500a}.av-2{background:#0b6e8a}
+.av-3{background:#b0285f}.av-4{background:#4a5a1c}.av-5{background:#6b3fa0}
+
+/* Stories: all reviews, column layout so lengths stack without gaps */
+.review-grid{columns:3 300px;column-gap:1.25rem}
+.review-grid .review-card{break-inside:avoid;margin-bottom:1.25rem}
+.review-grid .review-card:target{outline:2px solid var(--brand);outline-offset:2px}
+.review-grid .review-card{scroll-margin-top:90px}
+
+/* Home: three reviews side by side, long ones cut at 6 lines */
+.review-row{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.review-card--clamp{display:flex;flex-direction:column}
+.review-card--clamp p{
+  display:-webkit-box;-webkit-line-clamp:6;-webkit-box-orient:vertical;overflow:hidden;
+}
+.review-more{margin-top:.6rem;font-size:.9rem;font-weight:600;color:var(--brand)}
+.review-more:hover{text-decoration:underline}
+.review-cta{display:flex;flex-wrap:wrap;justify-content:center;gap:.75rem;margin-top:2rem}
+
 @media (max-width:640px){
   .rating-summary{padding:1.25rem}
+  .rating-actions{justify-content:center}
 }
