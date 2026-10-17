@@ -7,25 +7,32 @@
   --on-brand:#fff;         /* text on --brand backgrounds */
   --accent:#a84a08;        /* logo orange: large text and small details only */
 
-  --bg:#faf6ef;            /* warm cream page background */
+  --bg:#ffffff;            /* page background (white, like all three reference sites) */
+  --band:#f7f3ec;          /* warm cream band that separates sections */
   --sheet:#ffffff;         /* cards and panels */
-  --fg:#1f2430;
-  --border1:rgba(60,40,20,.10);
+  --ink:#13233f;           /* headings: near-black navy */
+  --fg:#2c3442;            /* body text */
+  --muted:#5b6473;         /* secondary text */
+  --border1:rgba(19,35,63,.12);
 
   --radius:14px;
-  --shadow-s:0 2px 6px rgba(0,0,0,.05);
-  --shadow-m:0 10px 28px rgba(0,0,0,.08);
+  --radius-lg:20px;
+  --shadow-s:0 1px 3px rgba(19,35,63,.08);
+  --shadow-m:0 8px 24px rgba(19,35,63,.08);
 
-  --font:'Inter',sans-serif;
-  --display:'Poppins',sans-serif;
+  --font:'Nunito Sans',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  --display:'Nunito Sans',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
 }
 html.dark{
   --brand:#8fc3ee;
   --on-brand:#0b2545;
   --accent:#f5a35c;
-  --bg:#0d0d0f;
-  --sheet:#16171b;
-  --fg:#f1f1f1;
+  --bg:#0e1014;
+  --band:#15181e;
+  --sheet:#191c23;
+  --ink:#f3f4f6;
+  --fg:#d9dce2;
+  --muted:#a3a9b4;
   --border1:rgba(255,255,255,.08);
   --shadow-s:0 2px 6px rgba(0,0,0,.4);
   --shadow-m:0 10px 28px rgba(0,0,0,.55);
@@ -440,3 +447,125 @@ blockquote cite{display:block;margin-top:.8rem;font-style:normal;font-weight:600
   .rating-summary{padding:1.25rem}
   .rating-actions{justify-content:center}
 }
+
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   STYLE v2  (layout and type modelled on Kumon, Mathnasium and
+   Varsity Tutors: heavy friendly sans headings, white page with
+   tinted section bands, left-aligned content sections, pill
+   buttons, flat cards, dark footer). Overrides earlier rules.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+body{font-size:17px;line-height:1.65;color:var(--fg)}
+h1,h2,h3,h4,h5,.section-title,.headline,.headline-lg{font-family:var(--display);color:var(--ink);letter-spacing:-.02em}
+.container{width:min(92%,1180px)}
+
+/* Header */
+.glass-nav{background:var(--bg);border-bottom:1px solid var(--border1);box-shadow:none}
+.nav-wrap{padding:1rem 0;min-height:72px}
+.brand,.logo{font-family:var(--display);font-weight:900;font-size:1.55rem;letter-spacing:-.03em;color:var(--ink)}
+.brand span,.logo span{color:var(--accent)}
+.desktop-nav a{font-weight:700;font-size:.98rem;margin-inline:1.05rem;color:var(--ink)}
+.desktop-nav a:hover{color:var(--brand)}
+.desktop-nav a::after{height:3px;bottom:-8px;border-radius:3px}
+#themeToggle{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;
+  border:1px solid var(--border1);color:var(--ink)}
+#themeToggle:hover{transform:none;background:var(--band)}
+
+/* Buttons: pill, bold */
+.btn{border-radius:999px;font-weight:800;font-size:1rem;padding:.9rem 1.9rem;letter-spacing:0}
+.btn:hover{transform:none;filter:brightness(1.08)}
+.primary{box-shadow:none}
+.ghost{border-width:2px}
+.btn.large{padding:1.05rem 2.2rem;font-size:1.05rem}
+
+/* Section rhythm */
+.section{padding:5.5rem 0}
+.band{background:var(--band)}
+.band-navy{background:var(--navy);color:#fff}
+html.dark .band-navy{background:#14294a}
+
+/* Section headings: left-aligned in content sections */
+.hero-simple .section-title,.testimonials .section-title{text-align:left}
+.band-navy .section-title{text-align:center}
+.section-title{font-weight:900;font-size:clamp(2rem,3.6vw,2.75rem);line-height:1.12;margin-bottom:.75rem}
+.hero-simple .container{text-align:left}
+.hero-simple .section-title{font-size:clamp(2rem,3.6vw,2.75rem)}
+.hero-simple .subhead,.subhead{color:var(--muted);opacity:1;font-size:1.15rem;max-width:640px;margin:0 0 2.25rem}
+
+/* Page header banners (sections whose title is the page h1) */
+section.hero-simple:has(> .container > h1){background:var(--band);padding:4.5rem 0 4rem;border-bottom:1px solid var(--border1)}
+section.hero-simple:has(> .container > h1) .section-title{font-size:clamp(2.4rem,5vw,3.5rem)}
+section.hero-simple:has(> .container > h1) .subhead{margin-bottom:0}
+section.hero-simple:has(> .container > h1) .btn{margin-top:1.75rem}
+
+/* Home hero: large centred headline (Varsity), compact height */
+.hero{min-height:auto;padding:7rem 0 6rem;background:var(--band);border-bottom:1px solid var(--border1)}
+.hero-inner{max-width:880px;margin:0 auto}
+.headline{font-weight:900;font-size:clamp(2.8rem,7vw,5rem);line-height:1.02;letter-spacing:-.035em}
+.hero .subhead{font-size:clamp(1.1rem,2vw,1.3rem);margin:1.5rem auto 2.5rem;text-align:center;max-width:620px}
+
+/* Home sections */
+.home-section{padding:5.5rem 0}
+.home-section .subhead{margin-bottom:2.5rem}
+
+/* Program cards: flat, left-aligned, logo badge top-left */
+.grid.cards{gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{padding:1.75rem 1.6rem;border-radius:var(--radius-lg);box-shadow:none;text-align:left;
+  border:1px solid var(--border1);display:flex;flex-direction:column}
+.card:hover{transform:none;box-shadow:none;border-color:var(--brand)}
+.card img{width:72px;height:72px;object-fit:contain;margin:0 0 1.1rem;filter:none;border-radius:12px}
+.card h3{font-family:var(--display);font-weight:800;font-size:1.25rem;line-height:1.25;margin-bottom:.55rem}
+.card p{opacity:1;color:var(--muted);font-size:.98rem;flex:1}
+.card .btn{align-self:flex-start;margin-top:.5rem}
+.arrow-link{font-weight:800;color:var(--brand);margin-top:.25rem;align-self:flex-start}
+.arrow-link::after{display:none}
+.arrow-link:hover{text-decoration:underline}
+
+/* Curriculum call-to-action band (navy, centred, like Kumon's closing band) */
+.band-navy .cta-inner{text-align:center}
+.band-navy .section-title{color:#fff}
+.band-navy .subhead{color:rgba(255,255,255,.85);margin:0 auto 2rem}
+.band-navy .btn.primary{background:#fff;color:var(--navy)}
+html.dark .band-navy .btn.primary{background:#fff;color:#13233f}
+
+/* Learning in Action: photo on top, text below, no box (Mathnasium) */
+.photo-cards{display:grid;gap:2rem 1.5rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.photo-card{margin:0}
+.photo-card img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--radius-lg);display:block}
+.photo-card figcaption{padding:1.1rem 0 0}
+.photo-card h3{font-weight:800;font-size:1.25rem;line-height:1.3;margin-bottom:.4rem}
+.photo-card p{color:var(--muted);font-size:.98rem}
+
+/* Reviews: headings left like the other sections */
+.testimonials{padding:5.5rem 0}
+.google-rating{text-align:left;margin:-.25rem 0 2rem}
+.review-cta{justify-content:flex-start}
+.review-card{border-radius:var(--radius-lg);box-shadow:none}
+.rating-summary{border-radius:var(--radius-lg);margin-left:0}
+
+/* Curriculum page: left-aligned header like the other pages */
+.curriculum-hero.hero{padding:4.5rem 0 4rem}
+.curriculum-hero .hero-wrap{text-align:left;padding-inline:0}
+.curriculum-hero .hero-sub{margin:0;color:var(--muted);opacity:1;max-width:760px}
+.headline-lg{font-weight:900;letter-spacing:-.035em}
+.toc,.fx-card{border-radius:var(--radius-lg);box-shadow:none}
+
+/* Gallery */
+.gallery-grid figure{border-radius:var(--radius-lg);box-shadow:none}
+
+/* Footer: dark band */
+.footer{background:#0f1d33;color:#e7eaf0;border-top:0;padding:2.75rem 0}
+html.dark .footer{background:#090b0f;border-top:1px solid var(--border1)}
+.socials img{filter:none;opacity:.9;border-radius:6px}
+.socials a:hover img{filter:none;opacity:1}
+
+#toTop{border-radius:999px}
+
+@media (max-width:640px){
+  .section,.home-section,.testimonials{padding:4rem 0}
+  .hero{padding:4.5rem 0 4rem}
+  section.hero-simple:has(> .container > h1){padding:3.25rem 0 3rem}
+}
+
+/* Keep the footer at the bottom of short pages (e.g. Contact) */
+body{min-height:100vh;display:flex;flex-direction:column}
+.footer{margin-top:auto}
