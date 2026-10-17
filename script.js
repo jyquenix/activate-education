@@ -12,7 +12,7 @@ $('#burger')?.addEventListener('click', () => {
   $('#mainNav')?.classList.toggle('open');
 });
 
-/* ========== Theme toggle (dark by default) ========== */
+/* ========== Theme toggle (light by default) ========== */
 const html     = document.documentElement;
 const themeBtn = $('#themeToggle');
 
@@ -20,8 +20,8 @@ const themeBtn = $('#themeToggle');
 const renderIcon = () =>
   (themeBtn && (themeBtn.textContent = html.classList.contains('dark') ? '☀️' : '🌙'));
 
-/* initial state: dark unless user stored 'light' */
-html.classList.toggle('dark', localStorage.theme !== 'light');
+/* initial state: light unless the visitor chose dark with the toggle */
+html.classList.toggle('dark', localStorage.theme === 'dark');
 renderIcon?.();
 if (themeBtn) themeBtn.title = 'Toggle light / dark';
 
