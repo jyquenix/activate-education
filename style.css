@@ -383,3 +383,41 @@ blockquote cite{display:block;margin-top:.8rem;font-style:normal;font-weight:600
   *,*::before,*::after{transition:none !important;animation:none !important;scroll-behavior:auto !important}
   .reveal{opacity:1;transform:none}
 }
+
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Google reviews
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+.stars{color:var(--accent);letter-spacing:.1em;font-size:1.05rem;line-height:1}
+.google-rating{text-align:center;margin:-.25rem 0 1.5rem;font-size:.95rem}
+.google-rating a{color:var(--fg);opacity:.85}
+.google-rating a:hover{opacity:1;text-decoration:underline}
+.google-rating .stars{margin-right:.35rem}
+
+.reviews-section{padding-top:1rem}
+.rating-summary{
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:1rem 1.5rem;
+  margin:0 auto 2.5rem;padding:1.5rem 2rem;max-width:720px;
+  background:var(--sheet);border:1px solid var(--border1);border-radius:var(--radius);
+}
+.rating-score{font-family:var(--display);font-size:3rem;font-weight:700;line-height:1;color:var(--fg)}
+.rating-summary .stars{font-size:1.4rem}
+.rating-count{margin-top:.35rem;font-size:.95rem;opacity:.8}
+.rating-summary .btn{padding:.7rem 1.4rem;font-size:.95rem}
+
+/* Column layout so cards of different lengths stack without gaps */
+.review-grid{columns:3 300px;column-gap:1.25rem}
+.review-card{
+  break-inside:avoid;
+  margin:0 0 1.25rem;padding:1.5rem 1.6rem;
+  background:var(--sheet);border:1px solid var(--border1);border-radius:var(--radius);
+  box-shadow:var(--shadow-s);
+}
+.review-card blockquote{
+  margin:.8rem 0 1rem;max-width:none;
+  font-size:1rem;font-weight:400;line-height:1.6;text-align:left;
+}
+.review-card figcaption{display:flex;flex-direction:column;font-size:.92rem}
+.review-card figcaption span{font-size:.82rem;opacity:.65}
+@media (max-width:640px){
+  .rating-summary{padding:1.25rem}
+}
