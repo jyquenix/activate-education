@@ -835,3 +835,15 @@ html.dark .hl-heading{--hl-1:rgba(255,228,92,.38);--hl-2:rgba(255,163,203,.38);-
 @media (prefers-reduced-motion:reduce){
   .contact-link{animation:none}
 }
+
+/* Home hero slideshow captions */
+.hero-slide{margin:0}
+.hero-slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.hero-slide figcaption{position:absolute;left:0;right:0;bottom:0;padding:3.5rem 1.75rem 1.4rem;
+  background:linear-gradient(transparent,rgba(10,18,32,.78));color:#fff;
+  font:700 clamp(.98rem,1.6vw,1.15rem)/1.4 var(--font);text-shadow:0 1px 3px rgba(0,0,0,.35)}
+.hero-slide figcaption{padding-right:max(1.75rem,calc(100% - 640px))}
+@media (max-width:640px){
+  .hero-slide figcaption{top:0;bottom:auto;padding:1rem 1rem 2.75rem;
+    background:linear-gradient(rgba(10,18,32,.78),transparent)}
+}
