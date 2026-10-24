@@ -753,3 +753,12 @@ html.dark .dc-pill.is-fast{background:rgba(245,163,92,.5)}
   .decode-demo{grid-template-columns:1fr;gap:1.5rem}
   .dc-stage{order:-1}
 }
+
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Home services: logos hop in with a paint splash (home-paint.js)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+#services .card > img.paint-pending{opacity:0}
+.paint-layer{position:fixed;inset:0;z-index:10;pointer-events:none;overflow:hidden}
+.paint-canvas{position:absolute;inset:0;width:100%;height:100%}
+.paint-logo{position:absolute;left:0;top:0;z-index:1;opacity:0;object-fit:contain;border-radius:12px;
+  transform-origin:50% 100%;will-change:transform,opacity}
