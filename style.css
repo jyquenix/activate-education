@@ -659,3 +659,97 @@ html.dark .shape-dots{background-image:radial-gradient(circle,#8fc3ee 2.2px,tran
 @media (max-width:640px){
   section.split-header{padding:3.25rem 0 4rem}
 }
+
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Curriculum: decoding/encoding demo (decode.js)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+.decode-demo{display:grid;grid-template-columns:minmax(190px,230px) minmax(0,1fr);gap:2rem;align-items:center;margin-top:1.75rem}
+
+/* steps: rail with progress, active step in orange */
+#timeline{position:relative}
+#timeline .step{position:relative;z-index:1;margin:0 0 1.1rem;transition:opacity .3s}
+#timeline .step:last-child{margin-bottom:0}
+/* rail: a segment from each dot down to the next one */
+#timeline .step:not(:last-child)::before{content:'';position:absolute;z-index:-1;left:5px;
+  top:calc(.5rem + 6px);height:calc(100% + 1.1rem);width:2px;border-radius:2px;
+  background:linear-gradient(var(--brand),var(--brand)) top/100% 0% no-repeat,var(--border1);
+  transition:background-size .45s ease}
+#timeline .step.is-done::before{background-size:100% 100%,auto}
+#timeline .step .dot{transition:transform .3s,background .3s,box-shadow .3s}
+#timeline .step h5{transition:color .3s}
+#timeline .step.is-done .dot{background:var(--brand)}
+#timeline .step.is-active .dot{background:var(--accent);transform:scale(1.35);
+  box-shadow:0 0 0 5px color-mix(in srgb,var(--accent) 22%,transparent)}
+#timeline .step.is-active h5{color:var(--accent)}
+#timeline:has(.is-active) .step:not(.is-active):not(.is-done){opacity:.5}
+
+/* stage */
+.dc-stage{position:relative;container-type:inline-size;border-radius:var(--radius-lg);
+  background:var(--band);border:1px solid var(--border1);overflow:hidden}
+.dc-area{position:relative;display:flex;flex-direction:column;justify-content:space-between;align-items:center;
+  min-height:clamp(300px,64cqi,380px);padding:clamp(2rem,8cqi,3rem) 1rem clamp(1.25rem,4cqi,1.75rem)}
+
+.dc-zone{position:relative;z-index:2;display:flex;justify-content:center;width:100%;
+  --tile-font:clamp(26px,8.5cqi,46px);--tile-h:calc(var(--tile-font) * 1.7);
+  min-height:calc(var(--tile-h) + 72px)}
+.dc-row{display:flex;align-items:flex-start;gap:clamp(8px,3cqi,18px)}
+.dc-g{display:flex;flex-direction:column;align-items:center;gap:10px}
+.dc-tile{position:relative;display:flex;align-items:center;justify-content:center;
+  height:var(--tile-h);min-width:calc(var(--tile-font) * 1.45);padding:0 calc(var(--tile-font) * .26);
+  font:900 var(--tile-font)/1 var(--display);color:var(--ink)}
+.dc-body{position:absolute;inset:0;z-index:0;background:var(--sheet);border:2px solid var(--border1);
+  border-radius:14px;box-shadow:0 5px 0 rgba(19,35,63,.13)}
+.dc-l,.dc-wl{position:relative;z-index:1;display:inline-block;will-change:transform}
+.dc-tile.is-vowel .dc-l,.dc-wl.is-vowel{color:var(--accent)}
+
+/* sound buttons: dot = one-letter sound, bar = multi-letter sound */
+.dc-btn{position:relative;display:block;background:var(--navy)}
+html.dark .dc-btn{background:#8fc3ee}
+.dc-btn.is-dot{width:10px;height:10px;border-radius:50%}
+.dc-btn.is-bar{width:62%;height:7px;border-radius:4px;margin-block:1.5px}
+.dc-ring{position:absolute;left:50%;top:50%;width:20px;height:20px;margin:-10px 0 0 -10px;
+  border:2px solid var(--accent);border-radius:50%;opacity:0;pointer-events:none}
+.dc-ph{font:800 clamp(12px,3.4cqi,16px)/1 var(--font);color:var(--muted);opacity:0;white-space:nowrap}
+
+/* the assembled word sits exactly where the letters converge */
+.dc-whole{position:absolute;top:0;left:50%;height:var(--tile-h);display:flex;align-items:center;
+  font:900 var(--tile-font)/1 var(--display);color:var(--ink);white-space:nowrap;opacity:0;letter-spacing:-.01em}
+
+/* blending swoop and the finger that traces it */
+.dc-swoop{position:absolute;overflow:visible;pointer-events:none}
+.dc-swoop-line,.dc-swoop-head{fill:none;stroke:var(--accent);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.dc-finger{position:absolute;left:0;top:0;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;
+  background:var(--navy);box-shadow:0 0 0 4px color-mix(in srgb,var(--navy) 20%,transparent);opacity:0}
+html.dark .dc-finger{background:#8fc3ee}
+
+/* sentence on handwriting-paper lines */
+.dc-lines{position:relative;width:100%;display:flex;justify-content:center;
+  --line:color-mix(in srgb,#1f95d4 45%,transparent);--mid:color-mix(in srgb,#e94b8a 45%,transparent);
+  background:
+    linear-gradient(var(--line),var(--line)) 0 18%/100% 2px no-repeat,
+    repeating-linear-gradient(90deg,var(--mid) 0 10px,transparent 10px 18px) 0 52%/100% 2px no-repeat,
+    linear-gradient(var(--line),var(--line)) 0 84%/100% 2px no-repeat}
+.dc-sentence{position:relative;padding:.35em .4em .3em;font:800 clamp(18px,5.2cqi,28px)/1.35 var(--font);
+  color:var(--ink);text-align:center}
+.dc-tok{position:relative;z-index:1;display:inline-block}
+.dc-slot{color:transparent;border-bottom:3px dashed var(--accent);line-height:1.1;transition:color .2s}
+.dc-slot.is-filled{color:var(--ink);border-bottom-style:solid}
+.dc-pill{position:absolute;left:0;top:0;z-index:0;border-radius:8px;background:#ffdf7e;opacity:0}
+.dc-pill.is-fast{background:#ffc46b}
+html.dark .dc-pill{background:rgba(245,163,92,.32)}
+html.dark .dc-pill.is-fast{background:rgba(245,163,92,.5)}
+
+/* pause / play */
+.dc-toggle{position:absolute;right:.75rem;top:.75rem;z-index:5;width:34px;height:34px;border-radius:50%;
+  display:grid;place-items:center;border:1px solid var(--border1);background:var(--sheet);color:var(--ink);
+  cursor:pointer;opacity:.75;transition:opacity .2s}
+.dc-toggle:hover,.dc-toggle:focus-visible{opacity:1}
+.dc-toggle[hidden]{display:none}
+
+/* still diagram for reduced motion */
+.dc-stage.is-static .dc-ph{opacity:1}
+
+@media (max-width:760px){
+  .decode-demo{grid-template-columns:1fr;gap:1.5rem}
+  .dc-stage{order:-1}
+}
