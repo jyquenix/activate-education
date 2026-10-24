@@ -26,7 +26,7 @@
      the word in [brackets] is the blank, punctuation attaches */
   const WORDS = [
     { g: [['sh', 0], ['i', 1], ['p', 0]],           ph: ['/sh/', '/ĭ/', '/p/'],        s: ['The', ['ship'], 'sails', 'at', 'night', '.'] },
-    { g: [['t', 0], ['r', 0], ['ai', 1], ['n', 0]], ph: ['/t/', '/r/', '/ā/', '/n/'],  s: ['We', 'ride', 'the', ['train'], 'home', '.'] },
+    { g: [['tr', 0], ['ai', 1], ['n', 0]],          ph: ['/tʃr/', '/ā/', '/n/'],       s: ['We', 'ride', 'the', ['train'], 'home', '.'] },
     { g: [['l', 0], ['igh', 1], ['t', 0]],          ph: ['/l/', '/ī/', '/t/'],         s: ['Turn', 'on', 'the', ['light'], '.'] },
   ];
 
