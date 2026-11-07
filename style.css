@@ -844,6 +844,6 @@ html.dark .hl-heading{--hl-1:rgba(255,228,92,.38);--hl-2:rgba(255,163,203,.38);-
   font:700 clamp(.98rem,1.6vw,1.15rem)/1.4 var(--font);text-shadow:0 1px 3px rgba(0,0,0,.35)}
 .hero-slide figcaption{padding-right:max(1.75rem,calc(100% - 640px))}
 @media (max-width:640px){
-  .hero-slide figcaption{top:0;bottom:auto;padding:1rem 1rem 2.75rem;
-    background:linear-gradient(rgba(10,18,32,.78),transparent)}
+  .hero-slide figcaption{top:0;bottom:auto;padding:1rem 1rem 2.75rem;font-size:.92rem;
+    background:linear-gradient(rgba(10,18,32,.85),rgba(10,18,32,.72) 75%,transparent)}
 }
