@@ -847,3 +847,13 @@ html.dark .hl-heading{--hl-1:rgba(255,228,92,.38);--hl-2:rgba(255,163,203,.38);-
   .hero-slide figcaption{top:0;bottom:auto;padding:1rem 1rem 2.75rem;
     background:linear-gradient(rgba(10,18,32,.78),transparent)}
 }
+
+/* Pricing page: plain text */
+.prose > *{max-width:760px}
+.prose h2{font-size:1.5rem;font-weight:800;margin:2.25rem 0 .5rem}
+.prose h2:first-child{margin-top:0}
+.prose p{margin:0 0 .75rem}
+.prose .price{font-weight:700;color:var(--ink)}
+.prose ul{margin:0 0 1rem 1.25rem}
+.prose ul ul{margin:.35rem 0 .35rem 1.25rem}
+.prose li{margin:.3rem 0}
