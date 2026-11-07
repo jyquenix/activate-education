@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800;6..12,900&display=swap" />
-  <link rel="stylesheet" href="style.css?v=19" />
+  <link rel="stylesheet" href="style.css?v=21" />
 </head>
 <body>
   <!-- HEADER / NAV -->
@@ -40,55 +40,68 @@
     </section>
 
     <section class="section pricing">
-      <div class="container prose">
-        <h2>Included in every tier</h2>
-        <ul>
-          <li>Free initial assessment.</li>
-          <li>Individualized lesson plans built from scratch for each student, based on the assessment. We do not use a fixed curriculum or packaged program.</li>
-          <li>Unlimited texting with Liz (cofounder).</li>
-          <li>Monthly planning meeting: in the first week of each month, a cofounder (Liz or Vicky) meets each family on Google Meet. The meeting covers the goals met, the new goals, and the plan for the next month.</li>
-          <li>Tutor check-in: before each monthly meeting, the cofounder meets the student's tutor (when the cofounder is not the tutor) to review progress.</li>
-          <li>The plan is updated every month based on input from both the parents and the tutor.</li>
-        </ul>
+      <div class="container">
+        <div class="tier-grid">
+        <article class="tier tier-bronze">
+          <p class="tier-medal">Bronze</p>
+          <h2>Certified Teacher</h2>
+          <p class="tier-price"><span>$600</span> per month</p>
+          <p class="tier-sub">4 one-hour sessions ($150 per hour)<br/>Additional hours: $100 per hour</p>
+          <ul class="tier-list">
+            <li>One-to-one tutoring with a certified teacher</li>
+            <li>Everything included in every tier</li>
+          </ul>
+        </article>
+        <article class="tier tier-silver">
+          <span class="tier-badge">Recommended</span>
+          <p class="tier-medal">Silver</p>
+          <h2>Certified Teacher with School Collaboration</h2>
+          <p class="tier-price"><span>$800</span> per month</p>
+          <p class="tier-sub">4 one-hour sessions ($200 per hour)<br/>Additional hours: $150 per hour</p>
+          <ul class="tier-list">
+            <li>One-to-one tutoring with a certified teacher</li>
+            <li>Everything included in every tier</li>
+            <li>Individualized homework</li>
+            <li>The student's school curriculum, worked into the plan as needed or on request</li>
+            <li>School collaboration: we contact the student's teachers at the start of the school year, then by email and phone during the year as needed</li>
+            <li>We attend IEP meetings and parent-teacher conferences</li>
+          </ul>
+        </article>
+        <article class="tier tier-gold">
+          <p class="tier-medal">Gold</p>
+          <h2>Cofounder</h2>
+          <p class="tier-price"><span>$1,000</span> per month</p>
+          <p class="tier-sub">4 one-hour sessions ($250 per hour)<br/>Additional hours: $200 per hour</p>
+          <ul class="tier-list">
+            <li>One-to-one tutoring with a cofounder (Liz or Vicky)</li>
+            <li>Everything included in every tier</li>
+            <li>Individualized homework</li>
+            <li>The student's school curriculum, worked into the plan as needed or on request</li>
+            <li>School collaboration, as in Silver</li>
+          </ul>
+        </article>
+        </div>
 
-        <h2>Tier 1: Certified Teacher</h2>
-        <p class="price">$600 per month (4 one-hour sessions, $150 per hour)<br/>Additional hours: $100 per hour</p>
-        <ul>
-          <li>One-to-one tutoring with a certified teacher.</li>
-          <li>All items included in every tier.</li>
-        </ul>
+        <div class="tier-common">
+          <h2>Included in every tier</h2>
+          <ul class="tier-list">
+            <li>Free initial assessment</li>
+            <li>Individualized lesson plans built from scratch for each student, based on the assessment. We do not use a fixed curriculum or packaged program.</li>
+            <li>Unlimited texting with Liz (cofounder)</li>
+            <li>Monthly planning meeting: in the first week of each month, a cofounder (Liz or Vicky) meets each family on Google Meet to review the goals met, the new goals, and the plan for the next month</li>
+            <li>Tutor check-in: before each monthly meeting, the cofounder meets the student's tutor (when the cofounder is not the tutor) to review progress</li>
+            <li>The plan is updated every month based on input from both the parents and the tutor</li>
+          </ul>
+        </div>
 
-        <h2>Tier 2: Certified Teacher with School Collaboration</h2>
-        <p class="price">$800 per month (4 one-hour sessions, $200 per hour)<br/>Additional hours: $150 per hour</p>
-        <ul>
-          <li>One-to-one tutoring with a certified teacher.</li>
-          <li>All items included in every tier.</li>
-          <li>Individualized homework.</li>
-          <li>The student's school curriculum, worked into the plan as needed or on request.</li>
-          <li>School collaboration:
-            <ul>
-              <li>We contact the student's teachers at the start of the school year, then by email and phone during the year as needed.</li>
-              <li>We attend IEP meetings and parent-teacher conferences.</li>
-            </ul>
-          </li>
-        </ul>
-
-        <h2>Tier 3: Cofounder</h2>
-        <p class="price">$1,000 per month (4 one-hour sessions, $250 per hour)<br/>Additional hours: $200 per hour</p>
-        <ul>
-          <li>One-to-one tutoring with a cofounder (Liz or Vicky).</li>
-          <li>All items included in every tier.</li>
-          <li>Individualized homework.</li>
-          <li>The student's school curriculum, worked into the plan as needed or on request.</li>
-          <li>School collaboration, as in Tier 2.</li>
-        </ul>
-
-        <h2>Additional Hours</h2>
-        <p>Families can add hours to any package at $50 less than their tier's hourly rate. Common reasons:</p>
-        <ul>
-          <li>A month with 5 of the regular session day (for example, 5 Mondays), so the 5th session is added.</li>
-          <li>Extra preparation before a test.</li>
-        </ul>
+        <div class="tier-common">
+          <h2>Additional Hours</h2>
+          <p>Families can add hours to any package at $50 less than their tier's hourly rate. Common reasons:</p>
+          <ul class="tier-list">
+            <li>A month with 5 of the regular session day (for example, 5 Mondays), so the 5th session is added</li>
+            <li>Extra preparation before a test</li>
+          </ul>
+        </div>
       </div>
     </section>
   </main>
